@@ -1,0 +1,8 @@
+mixin icon(name, options)
+	- options = options || {};
+	svg(
+		class = 'svg-icon'
+		width = options.w || null
+		height = options.h || null
+	)&attributes(attributes)
+		use(xlink:href="#" + name)

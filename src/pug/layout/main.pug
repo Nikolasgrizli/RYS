@@ -1,0 +1,102 @@
+include ../mixins/index
+include ../components/index
+
+//- global variables
+-
+	var pathPrefix = 'assets/';
+	var description = 'Description';
+	var pageClass = '';
+	var pageName = '';
+	var $LOCALE = 'ua';
+	var title = 'ProjectName';
+	var headerVisible = true;
+	var footerVisible = true;
+
+
+-
+	var defaultTimelineData = {
+		type: 'num',
+		title: 'h3',
+		titleClass: 'h4',
+		items: [
+		]
+	}
+
+
+
+
+//- helpers functions
+//- -
+//- 	const _data = function ($key) {
+//- 		return require(`../../../../data/${$key}.json`)
+//- 	};
+
+
+-
+	const cyrb53 = function(str, seed = 0) {
+		let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+		for (let i = 0, ch; i < str.length; i++) {
+			ch = str.charCodeAt(i);
+			h1 = Math.imul(h1 ^ ch, 2654435761);
+			h2 = Math.imul(h2 ^ ch, 1597334677);
+		}
+		h1 = Math.imul(h1 ^ (h1>>>16), 2246822507) ^ Math.imul(h2 ^ (h2>>>13), 3266489909);
+		h2 = Math.imul(h2 ^ (h2>>>16), 2246822507) ^ Math.imul(h1 ^ (h1>>>13), 3266489909);
+		return 4294967296 * (2097151 & h2) + (h1>>>0);
+	};
+-
+	const getRandomArbitrary = function(min, max){
+		return Math.floor(Math.random() * (max - min) + min);
+	}
+
+
+
+//- local variables
+block variables
+
+doctype html
+html(lang= $LOCALE)
+	head
+		meta(charset='utf-8')
+		meta(http-equiv="x-ua-compatible" content="ie=edge")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		meta(content="telephone=no" name="format-detection")
+		meta(name="HandheldFriendly" content="true")
+		+meta()
+		+favicon()
+
+		//- link(rel='stylesheet' href=pathPrefix + 'css/app.css')
+
+		block head
+
+		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer")
+
+	body.body
+		.layout(class=pageClass)
+			.layout__header
+				if headerVisible
+					+header()
+				block header
+			.layout__main
+				//- +dayNight()
+				main
+					block content
+				+toTopBtn()
+			.layout__footer
+				if footerVisible
+					+footer()
+				block footer
+
+		block modals
+
+		+lazyImgLoader()
+		script(src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous")
+		script(
+			src="https://cdn.jsdelivr.net/npm/tooltipster@4.2.8/dist/js/tooltipster.bundle.min.js"
+		)
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js")
+
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer")
+		//- script(src=pathPrefix + 'js/vendors.js')
+		//- script(src=pathPrefix + 'js/app.js')
+		block script

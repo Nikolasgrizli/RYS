@@ -1,0 +1,59 @@
+mixin breadcrumbs(data)
+	- var data = data || []
+	//BEGIN breadcrumbs
+	-
+		let isSplitTitle = true;
+		let max = 20
+		let maxWord = 4
+		function recursion(title, x){
+			if(title.length <= max && title.split(' ').length <= maxWord){
+				return title;
+			} else {
+				x--;
+				let temp = title.split(' ');
+				temp.pop();
+				return recursion(temp.join(' '), x);
+			}
+		}
+	if((typeof data === 'string') && isSplitTitle)
+		-
+			let templData = data;
+			let handletTitle = recursion(templData,maxWord);
+			data = handletTitle === data ? data : handletTitle + '...'
+	//- data = string || array<linkObj>
+	//- linkObj = {
+	//- 	name: 'string',
+	//- 	link?: 'string',
+	//- 	id?: 'string'
+	//- }
+	//- examples:
+	//- +breadcrumbs('some string')
+	//- +breadcrumbs([{name: 'test', link: 'testLink'},{name: 'test2'}])
+
+
+	.breadcrumbs__wrapper
+		.breadcrumbs__container&attributes(attributes)
+			ol.breadcrumbs(itemscope itemtype="http://schema.org/BreadcrumbList")
+				li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+					a(itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/blog.html" itemid="/")
+						span(itemprop="name") News Feed
+					meta(itemprop="position" content="1")
+
+				if(typeof data === 'string')
+					li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+						span(itemprop="name")!=data
+						meta(itemprop="position" content=2)
+				else
+					each item, i in data
+						li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+							if(i === data.length - 1)
+								span(itemprop="name")!=item.name
+							else
+								a(itemscope, itemtype="http://schema.org/Thing", itemprop="item", href=item.href ? item.href : 'sublink.html', itemid=item.id ? item.id : 'sublink')
+									span(itemprop="name")!=item.name
+							meta(itemprop="position" content=i+2)
+
+
+
+
+	//END header

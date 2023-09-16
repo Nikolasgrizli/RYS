@@ -1,0 +1,27 @@
+mixin header(data)
+	- data = data || {}
+
+	.header
+		.header__container
+			a.logo-site(href="/")
+				img(src=`${pathPrefix}img/logos/logo.svg`, alt="", width="320" height="59")
+
+
+			nav.header__nav
+				ul.nav.nav-header
+					li.menu-item
+						a.nav__link(href='#') Як шукати
+					li.menu-item
+						a.nav__link(href='#') Мапа
+					li.menu-item
+						a.nav__link(href='#') Рубрикатор
+					li.menu-item
+						a.nav__link(href='#') Про нас
+			.header__trigger.js-menu-trigger
+				span
+
+			//- .header__lang
+				ul
+					each data in languages
+						li
+							a(href=data.url class=data.isActive && 'is-active') #{data.lang}

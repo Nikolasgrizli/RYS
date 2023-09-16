@@ -1,0 +1,122 @@
+.calculator{
+	border-radius: 2.5rem;
+    background: var(--color-bg_dark);
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	&__inner{
+		display: block;
+		max-width: 55rem;
+		margin: 8rem auto 10rem;
+		@include r(767){
+			padding-inline: 2em;
+		}
+	}
+	&__title{
+		text-align: center;
+    	text-wrap: balance;
+	}
+	&__result{
+		margin-top: -3rem;
+		margin-bottom: 5rem;
+		text-align: center;
+		&-title{
+			font-size: var(--h2Size);
+			font-weight: 600;
+			line-height: 1.2;
+			display: block;
+		}
+		&-value{
+			.num{
+				margin-right: 0.2em;
+    			color: var(--color-main_dark);
+			}
+		}
+		&-text,
+		&-info{
+			max-width: 80rem;
+			margin: 0 auto;
+			display: block;
+			line-height: 1.3;
+			font-size: 80%;
+		}
+		&-info{
+			margin-top: 2rem;
+		}
+		.positive{
+			color: var(--color-main_dark);
+		}
+		.negative{
+			color: var(--color-error);
+		}
+	}
+}
+
+.form{
+	&__line{
+		margin-bottom: 2rem;
+	}
+	&__label{
+		display: block;
+	}
+	&__input{
+		display: block;
+		width: 100%;
+		border-radius: 2.5rem;
+		border: none;
+		padding: 0.8em 1em;
+		&[type="number"]{
+			-moz-appearance: textfield;
+		}
+	}
+	input[type=number]::-webkit-inner-spin-button,
+	input[type=number]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+	&__btn-wrapper{
+		margin-top: 4rem;
+		.btn{
+			width: 100%;
+		}
+	}
+}
+
+
+.customSelect{
+	display: flex;
+	.js-custom-select:not(.nice-select){
+		position: absolute;
+	}
+	.nice-select{
+		width: 100%;
+		border-radius: 2.5rem;
+		border: none;
+		padding: 0.8em 1em;
+		height: 3.1em;
+		font-size: 1.9rem;
+		line-height: 1.5;
+		&::after{
+			height: 0.5em;
+			width: 0.5em;
+			margin-top: -0.25em;
+			right: 1em;
+		}
+
+		.nice-select-dropdown{
+			box-shadow: none;
+			border-bottom-left-radius: 2.5rem;
+			border-bottom-right-radius: 2.5rem;
+			&::after{
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 1.5em;
+				background-color: white;
+				bottom: calc(100% - 0.5em);
+				z-index: -1;
+			}
+		}
+	}
+}

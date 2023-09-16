@@ -1,0 +1,159 @@
+.footer {
+	padding: 2em 0 0;
+	background-color: var(--color-text);
+	color: var(--color-bg);
+	&__logo{
+		margin-bottom: 1em;
+	}
+	&__title{
+		margin-bottom: 0.5em;
+		display: block;
+	}
+	&__info{
+		margin-left: auto;
+		margin-right: auto;
+	}
+	&__list{
+		.top{
+			opacity: .5;
+		}
+		.bottom{
+			text-decoration: underline;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+	}
+	ul{
+		@extend %reset-list;
+	}
+	&__top{
+
+		display: flex;
+		flex-flow: row wrap;
+		.footer__col{
+			flex: 1 1 100%;
+			margin-bottom: 2em;
+			padding-right: 1em;
+			@include rmin(1024){
+				flex: 1 1 33.3333%;
+				max-width: 33.3333%;
+			}
+			@include rIn(768,1023){
+				flex: 1 1 50%;
+				max-width: 50%;
+
+			}
+		}
+	}
+	&__founders{
+		.top{
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+			a{
+				flex: 1;
+			}
+		}
+		.culture-found{
+			padding: 2rem;
+			display: flex;
+			background-color: #4B4B4B;
+			.left{
+				margin-right: 1em;
+			}
+			.right{
+				width: 9em;
+				line-height: 1.4;
+				font-size: 90%;
+			}
+		}
+	}
+	&__bottom{
+		margin-top: 2em;
+		padding: 1.25em 0;
+		font-size: 90%;
+		border-top: 1px solid rgba(255,255,255,.1);
+		opacity: .6;
+		.container{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+	&__designed{
+		ul{
+			@extend %reset-list;
+			display: flex;
+			li{
+				display: flex;
+				span{
+					margin-right: 0.4em;
+				}
+				&:not(:last-child){
+					margin-right: .5em;
+					&::after{
+						content: '/';
+						display: block;
+						margin-left: .5em;
+					}
+				}
+			}
+		}
+	}
+	.socials{
+		margin-top: 1em;
+		display: flex;
+		gap: .5em;
+		a{
+			display: flex;
+			width: 5rem;
+			height: 5rem;
+			transition: opacity .3s ease-in-out;
+			&:hover{
+				opacity: .5;
+			}
+		}
+	}
+	@include r(1023){
+		&__logo{
+			flex: 1 1 100%;
+			text-align: center;
+			.socials{
+				justify-content: center;
+			}
+		}
+		&__info{
+			flex: 1 1 100%;
+			text-align: center;
+			margin: 2em auto;
+		}
+		&__founders{
+			margin: 0 auto;
+		}
+
+	}
+	@include r(767){
+		.logo-site{
+			height: 6rem;
+		}
+		&__bottom{
+			.container{
+				flex-wrap: wrap;
+				text-align: center;
+				justify-content: center;
+			}
+		}
+		&__designed{
+			order: -1;
+			flex: 1 1 100%;
+			ul{
+				flex-wrap: wrap;
+				justify-content: center;
+				margin-bottom: 0.6em;
+			}
+		}
+	}
+}
+
+

@@ -1,0 +1,28 @@
+mixin customSelect(data)
+	-
+		var data = data || {
+			searchable: false,
+			defaultSelected: false,
+			multiple: false,
+			titled: false,
+			placeholder: 'Placeholder',
+			arr: ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'] || [{value: 25, text: 'Option 1'}, {value: 50, text: 'Option 2'}, {value: 75, text: 'Option 3'}],
+		}
+
+
+	.customSelect
+		select(class=data.multiple ? 'custom-select_multiple' : 'custom-select_single', name="customSelect", data-options={
+			searchable: data.searchable,
+			titled: data.titled,
+			defaultSelected: data.defaultSelected,
+			placeholder: data.placeholder,
+			multiple: data.multiple,
+			withButtons: data.withButtons,
+		} multiple=data.multiple)&attributes(attributes)
+			if data && data.placeholder && data.placeholder.trim() !== ''
+				option(value="")!= data.placeholder
+			each item in data.arr
+				if typeof item === 'object'
+					option(value=item.value, selected=(data.defaultSelected === item.value))= item.text
+				else
+					option(value=item, selected=(data.defaultSelected === item))= item

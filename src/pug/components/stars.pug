@@ -1,0 +1,15 @@
+mixin stars(value, modClass = '')
+	- var star = `${pathPrefix}img/icons/star.svg`
+	- var starHalf = `${pathPrefix}img/icons/star-half.svg`
+	- var starEmpty = `${pathPrefix}img/icons/star-empty.svg`
+	div(class=`stars ${modClass}`)
+		ul.stars__list
+			- for (var i = 0; i < 5; i++)
+				- var starType = value - i
+				li.stars__item
+					if starType >= 1
+						img(src=`${star}` alt="")
+					else if starType >= 0.5
+						img(src=`${starHalf}` alt="")
+					else
+						img(src=`${starEmpty}` alt="")

@@ -1,0 +1,55 @@
+mixin footer(data)
+	- data = data || {}
+	-
+		var copyText = '© 2023 Copyright'
+
+	.footer
+		.container
+			.footer__top
+				.footer__logo
+					a.logo-site(href="/")
+						//- .logo-inner
+						img(src=`${pathPrefix}img/logos/logo_white.svg`, alt="", width="140" height="48")
+							//- | MNY
+					.socials
+						a(href="#")
+							+icon('fb')
+						a(href="#")
+							+icon('insta')
+				.footer__info
+					ul.footer__list
+						li.footer__item
+							.top Координатор проекту
+							a.bottom(href="#") Світлана Коновалова
+						li.footer__item
+							.top Мати-засновниця
+							a.bottom(href="#") Галина Лукʼянець
+						li.footer__item
+							a.bottom(href="mailto:yaksvyatkuvaly@gmail.com") yaksvyatkuvaly@gmail.com
+
+				.footer__founders
+					.top
+						a(href="#")
+							img(src=`${pathPrefix}img/logos/logo-umnikey.svg`, alt="", width="140" height="48")
+
+						a(href="#")
+							img(src=`${pathPrefix}img/logos/logo-center.svg`, alt="", width="140" height="48")
+					a.culture-found(href="#")
+						.left
+							img(src=`${pathPrefix}img/logos/ucf_logo_ua.svg`, alt="", width="140" height="48")
+						.right За підтримкою Українського Культурного Фонду
+
+		.footer__bottom
+			.container
+				.footer__copy!=copyText
+				.footer__designed
+					ul
+						li
+							span Дизайн:
+							a(href="#") Designwork
+						li
+							span Розробка:
+							a(href="#") Designwork
+						li
+							span Ілюстрації:
+							a(href="#") Designwork

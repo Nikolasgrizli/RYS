@@ -1,0 +1,45 @@
+mixin tableSim(data, colInRow, headline = 1)
+	- const headLines = data.slice(0, colInRow * headline);
+	- const rest = data.slice(colInRow * headline);
+	- const lines = rest.length / colInRow;
+
+	.table-wrapper&attributes(attributes)
+		.table-wrapper__inner(data-test-1=colInRow, data-test-2=headline)
+			table.table.table_simple
+				thead
+					- let positionColRow = null;
+					each lineOfHeader in Array(headline).fill().map((_, index) => index)
+						- const headLineInner = headLines.slice(lineOfHeader * colInRow, (lineOfHeader + 1) * colInRow);
+						tr
+							- let xHead = 0, colspan = 1, rowspan = 1;
+							while xHead < colInRow
+								- if (headLineInner[xHead] === '')
+									- colspan++
+								- else
+									- if (headLineInner[xHead].includes(':colrow'))
+										- positionColRow = xHead;
+										- rowspan = +headLineInner[xHead].split(':colrow').pop();
+										- let newContent = headLineInner[xHead].split(':colrow').shift();
+										th(colspan=colspan, rowspan=rowspan)= newContent
+										- rowspan--;
+
+									- else
+										- if(rowspan > 0 && positionColRow === xHead)
+											th.hidden
+											- rowspan--;
+										- else
+											th(colspan=colspan)= headLineInner[xHead]
+
+									- colspan = 1;
+								- xHead++
+
+				tbody
+					each x in Array(lines).fill().map((_, index) => index)
+						tr
+							each y in Array(colInRow).fill().map((_, index) => index)
+								- if (rest[0] === '')
+									- rest.shift()
+								- else
+									- const colspan = (rest[1] === '') ? 2 : 1;
+									td(colspan=colspan)= rest.shift()
+

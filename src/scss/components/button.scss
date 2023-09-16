@@ -1,0 +1,53 @@
+%button {
+	@extend %reset-btn;
+	padding: .5em 1em;
+	display: inline-flex;
+	flex: 0 0 auto;
+	max-width: 100%;
+	font-size: inherit;
+	text-align: center;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	transition: $transition-base;
+	overflow: hidden;
+	white-space: nowrap;
+	line-height: 1;
+	min-height: em(68);
+	min-width: em(200);
+	letter-spacing: 0.05em;
+	font-weight: 800;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+
+
+.btn {
+	@extend %button;
+
+	&_primary {
+		color: var(--color-bg);
+		background-color: var(--color-main);
+		border-radius: 10rem;
+		&:hover {
+			background-color: var(--color-main_dark);
+		}
+	}
+
+
+	&_disabled {
+		background-color: var(--color-border_dark);
+		color: var(--color-bg);
+		&:hover {
+			cursor: not-allowed;
+		}
+	}
+
+	&.btn_twoLine{
+		white-space: normal;
+		line-height: 1.4;
+		text-wrap: balance;
+	}
+}
+

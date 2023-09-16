@@ -1,0 +1,47 @@
+mixin relatedPost()
+	-
+		var posts = [
+			{
+				title: 'Як вмер дід на Купала',
+				place: 'с. Михайлівка',
+				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure...',
+			},
+			{
+				title: 'Другий запис',
+				place: 'с. Чабонiвка',
+				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure...',
+			},
+			{
+				title: 'Третій запис',
+				place: 'с. Чабонiвка',
+				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure...',
+			},
+			{
+				title: 'Як вмер дід на Купала',
+				place: 'с. Михайлівка',
+				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure...',
+			},
+			{
+				title: 'Другий запис',
+				place: 'с. Чабонiвка',
+				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure...',
+			},
+			{
+				title: 'Третій запис',
+				place: 'с. Чабонiвка',
+				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure...',
+			},
+		]
+	section.relatedPost
+		.relatedPost__inner
+			h2.h1.relatedPost__title Повʼязані записи
+			.relatedPost__list.js-multiple-items
+				each post in posts
+					article.relatedPost__item
+						h3.relatedPost__item__title= post.title
+						.relatedPost__item__place= post.place
+						.relatedPost__item__text
+							p= post.text
+						a.relatedPost__item__link(href='#')
+							span Читати далі
+							+icon('arrow-right')

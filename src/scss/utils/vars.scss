@@ -1,0 +1,69 @@
+// Font
+$main-font: 'Raleway', sans-serif;
+$title-font: 'KyivType', Arial, sans-serif;
+$pathPrefix: '/assets/';
+$main-font-size: 10px;
+$main-font-weight: 400;
+$main-line-height: 1.89;
+
+$menuMob: 768;
+
+
+
+// Z-indexes
+$z-indexes: (
+	"footer",
+	"header",
+	"modal",
+);
+// use:
+// .header{
+// 	z-index: z('header');
+// }
+
+
+
+// Transitions
+$transition-base: 0.33s cubic-bezier(.23, 1, .32, 1);
+$transition-slow: .6s cubic-bezier(0.08, 1.00, 0.21, 1.00);
+
+
+
+
+:root {
+	//main
+	--h1Size: 5rem;
+	--h2Size: 4.2rem;
+	--h3Size: 3.2rem;
+	--h4Size: 2.4rem;
+	--h5Size: 2.1rem;
+	--h6Size: 1.8rem;
+
+
+	@media (max-width: 1023px) {
+		--h1Size: clamp(4rem, 9vw, 5rem);
+		--h2Size: clamp(3.7rem, 6.5vw, 4.2rem);
+		--h3Size: clamp(3.2rem, 6vw, 3.2rem);
+		--h4Size: clamp(2.2rem, 4.7vw, 2.4rem);
+		--h5Size: clamp(1.6rem, 4.3vw, 2.1rem);
+		--h6Size: clamp(1.6rem, 4vw, 1.8rem);
+	}
+
+	//colors
+	@include defineColorRGB(--color-text, #322C34);
+	@include defineColorRGB(--color-main, #333333);
+	@include defineColorRGB(--color-error, #FB5C41);
+	--color-bg: #ffffff;
+	--color-bg_dark: #F1F1F1;
+	--color-bg_gray: #F6F6F6;
+	--color-border: #F1F1F1;
+	--color-gray: #959399;
+
+
+
+	@media print {
+		--color-text: #000000;
+		--color-bg: #ffffff;
+	}
+
+}

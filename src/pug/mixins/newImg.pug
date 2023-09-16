@@ -1,0 +1,27 @@
+mixin newImg(name, options)
+	- options = options || {};
+	- extension = options.ext || 'png';
+	- alternative = options.alt || '';
+	- oWidth = options.w || '300';
+	- oHeight = options.h || '300';
+
+	if extension === 'svg'
+		picture
+			img(class!=(options.cls !== '') ? options.cls : '', src=`${pathPrefix}img/${name}.${extension}`, data-src=`${pathPrefix}img/${name}.${extension}`, alt!=alternative, draggable="false", width!=oWidth, height!=oHeight)
+	else
+		picture
+			source(type="image/webp" srcset=`${pathPrefix}img/${name}.webp`)
+			if options.retina
+				source(type=`image/${extension}` srcset=`${pathPrefix}img/${name}@2x.${extension} 2x`)
+				source(type="image/webp" srcset=`${pathPrefix}img/${name}@2x.webp 2x`)
+
+			img(
+				class!=options.cls ? options.cls : '',
+				src=`${pathPrefix}img/${name}.${extension}`,
+				data-src=`${pathPrefix}img/${name}.${extension}`,
+				alt!=alternative,
+				loading!=options.lazy ? 'lazy' : 'eager',
+				draggable="false",
+				width!=oWidth,
+				height!=oHeight,
+				)
