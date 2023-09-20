@@ -90,7 +90,7 @@ module.exports = {
     ...PAGES.map((page) => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,
       filename: `./${page.replace(/\.pug/,'.html')}`,
-      inject: "body",
+      inject: page.includes('index') ? false : "body",
     })),
 
     new BeautifyHtmlWebpackPlugin({

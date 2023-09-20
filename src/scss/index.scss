@@ -238,6 +238,11 @@ img[width] {
 
 figure {
 	margin: 1em auto;
+	figcaption {
+		font-style: italic;
+		text-align: right;
+		font-size: 90%;
+	}
 }
 
 .layout__main {
@@ -650,4 +655,12 @@ img{
 			}
 		}
 	}
+}
+
+.googleMap{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 }

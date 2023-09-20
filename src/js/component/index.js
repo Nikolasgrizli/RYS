@@ -7,8 +7,14 @@ import './customSelect';
 import './magnific';
 import './audio';
 import './slider';
+import {initMap} from './map';
+// import './testChars';
 
-
+const mapSimple = document.getElementById('mapSimple');
+const mapFilter = document.getElementById('mapFilter');
+if(mapSimple || mapFilter){
+	document.addEventListener('DOMContentLoaded', initMap);
+}
 
 let smoothScrollAllPage = new SmoothScrollMagic;
 smoothScrollAllPage.init();

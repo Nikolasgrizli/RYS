@@ -1,0 +1,155 @@
+extends ./layout/main.pug
+
+block content
+	mixin rubric(title,child=true)
+		-
+			let id = cyrb53(title)
+		if child
+			.rubricator__item
+				.rubricator__top
+					.rubricator__checkbox
+						input(type="checkbox", name=`rubricator_${id}`, id=`rubricator_${id}`)
+					.rubricator__title= title
+					.rubricator__num 125
+					button.rubricator__btn(type="button")
+				.rubricator__child
+					block
+		else
+			.rubricator__item
+				label(for=`rubricator_${id}`).rubricator__top
+					.rubricator__checkbox
+						input(type="checkbox", name=`rubricator_${id}`, id=`rubricator_${id}`)
+					.rubricator__title= title
+					.rubricator__num 25
+
+
+	main.main
+		.page-content
+
+			section
+				.container
+					.category
+						.category__left
+							+breadcrumbs([{name: 'Весілля'}])
+							h1 Весілля
+							p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, aliquam! Sapiente dolorem suscipit, aperiam, deleniti reprehenderit commodi, id hic minima eos labore aliquid harum sint perferendis odio itaque eveniet architecto.
+							p ipsum dolor sit amet consectetur adipisicing elit. Enim, aliquam! Sapiente dolorem suscipit, aperiam, deleniti reprehenderit commodi, id
+
+						.category__right
+							-
+								let figureImg= {
+									name:   "demo2",
+									ext:    'jpg',
+									w:      765,
+									h:      581,
+									figcap: 'Микола Бодаревський. “Весілля”.'
+								}
+							+figureImg(figureImg)
+
+			article
+				.container
+					.categories.js-categories
+						h2.h1 Пошук та рубрикатор
+						.categories__inner
+							form.categories__left.sidebar
+								.sidebar__inner
+									.sidebar__search
+										input#search(type="text", name="search", placeholder="Пошук за текстом")
+										button(type="submit")
+											+icon('search')
+									-
+										var cs = {
+											searchable: true,
+											defaultSelected: false,
+											placeholder: 'Обрати населений пункт',
+											multiple: true,
+											arr: PLACES,
+										}
+									+customSelect(cs).js-custom-select(id='places')
+
+									.sidebar__rubricator.rubricator
+										+rubric('Народний Календар')
+											+rubric('Календар 1')
+												+rubric('sub Календар 1 1', false)
+												+rubric('sub Календар 1 2', false)
+											+rubric('Календар 2', false)
+											+rubric('Календар 3', false)
+										+rubric('Родинні Традиції')
+											+rubric('Весілля')
+												+rubric('Передвесільні обряди', false)
+												+rubric('Весільна неділя')
+													+rubric('Весільни чини', false)
+													+rubric('Обсипання', false)
+													+rubric('“світильник” (“меч”, “шабля”)', false)
+											+rubric('Вагітність', false)
+
+							.categories__right
+								.categories__tags.tags
+									.tags__inner
+										.tag.tag_reset Скинути всі
+										.tag.tag_text
+											+icon('text')
+											span паска
+											button
+												+icon('close')
+										.tag.tag_map
+											+icon('marker')
+											span Балаклія
+											button
+												+icon('close')
+										.tag.tag_category
+											+icon('category')
+											span Ворожіння на Андрія
+											button
+												+icon('close')
+										.tag.tag_category
+											+icon('category')
+											span Родинні Традиції
+											button
+												+icon('close')
+										.tag.tag_category
+											+icon('category')
+											span Передвесільні обряди
+											button
+												+icon('close')
+
+								.categories__result.result
+									ul.result__inner
+										li.result__listItem
+											section.result__item
+												h3.h2.result__title Як вмер дід на Купала
+												.result__place с. Чабонівка
+												.result__text
+													p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione maiores, ipsa obcaecati dolore excepturi culpa, laborum id, vitae odit accusantium sunt harum qui nihil repellendus laboriosam aliquam magnam officia nobis.
+												.result__link
+													a(href="#")
+														span Читати далі
+														+icon('arrow-right')
+										li.result__listItem
+											section.result__item
+												h3.h2.result__title Як вмер дід на Купала
+												.result__place с. Чабонівка
+												.result__text
+													p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione maiores, ipsa obcaecati dolore excepturi culpa, laborum id, vitae odit accusantium sunt harum qui nihil repellendus laboriosam aliquam magnam officia nobis.
+												.result__link
+													a(href="#")
+														span Читати далі
+														+icon('arrow-right')
+										li.result__listItem
+											section.result__item
+												h3.h2.result__title Як вмер дід на Купала
+												.result__place с. Чабонівка
+												.result__text
+													p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione maiores, ipsa obcaecati dolore excepturi culpa, laborum id, vitae odit accusantium sunt harum qui nihil repellendus laboriosam aliquam magnam officia nobis.
+												.result__link
+													a(href="#")
+														span Читати далі
+														+icon('arrow-right')
+
+									ul.result__pagination.pagination
+										li.pagination__item
+											a(href="#") 1
+										li.pagination__item
+											a(href="#") 2
+										li.pagination__item
+											a(href="#") 3

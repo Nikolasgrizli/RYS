@@ -20,7 +20,7 @@ mixin customSelect(data)
 			withButtons: data.withButtons,
 		} multiple=data.multiple)&attributes(attributes)
 			if data && data.placeholder && data.placeholder.trim() !== ''
-				option(value="")!= data.placeholder
+				option(value="" )!= data.placeholder
 			each item in data.arr
 				if typeof item === 'object'
 					option(value=item.value, selected=(data.defaultSelected === item.value))= item.text
