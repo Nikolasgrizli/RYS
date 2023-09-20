@@ -11,11 +11,15 @@ if(nSel.length){
 
 		//TODO default selected
 
-		if(options.placeholder && options.placeholder.length && !options.multiple){
+		if(options.placeholder && options.placeholder.length){
 			elSel.dropdown.classList.add('custom-select_placeholder');
 			elSel.dropdown.classList.add('custom-select_hide-first');
 			elSel.el.addEventListener('change', function (e) {
-                elSel.dropdown.classList.remove('custom-select_placeholder');
+				if(e.target.value.length){
+					elSel.dropdown.classList.remove('custom-select_placeholder');
+				} else {
+					elSel.dropdown.classList.add('custom-select_placeholder');
+				}
             })
 		}
 		elSel.el.addEventListener('modalClosed', function (e) {

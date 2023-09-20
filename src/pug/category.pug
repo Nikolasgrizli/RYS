@@ -3,12 +3,13 @@ extends ./layout/main.pug
 block content
 	mixin rubric(title,child=true)
 		-
-			let id = cyrb53(title)
+			let id = generateUniqueHash()
 		if child
 			.rubricator__item
-				.rubricator__top
-					.rubricator__checkbox
+				.rubricator__top.js-category(data-name='categoryName')
+					label.rubricator__checkbox
 						input(type="checkbox", name=`rubricator_${id}`, id=`rubricator_${id}`)
+						span.pseudo
 					.rubricator__title= title
 					.rubricator__num 125
 					button.rubricator__btn(type="button")
@@ -16,9 +17,10 @@ block content
 					block
 		else
 			.rubricator__item
-				label(for=`rubricator_${id}`).rubricator__top
-					.rubricator__checkbox
+				.rubricator__top.js-category(data-name='categoryName')
+					label.rubricator__checkbox
 						input(type="checkbox", name=`rubricator_${id}`, id=`rubricator_${id}`)
+						span.pseudo
 					.rubricator__title= title
 					.rubricator__num 25
 
@@ -49,14 +51,16 @@ block content
 
 			article
 				.container
-					.categories.js-categories
-						h2.h1 Пошук та рубрикатор
+					.categories#categoriesWrapper
 						.categories__inner
+							h2.h1.categories__title
+								.desktop-visible Пошук та рубрикатор
+								.mobile-visible Рубрикатор
 							form.categories__left.sidebar
 								.sidebar__inner
-									.sidebar__search
-										input#search(type="text", name="search", placeholder="Пошук за текстом")
-										button(type="submit")
+									.sidebar__search.search
+										input#search.search__input(type="text", name="search", placeholder="Пошук за текстом")
+										button.search__btn(type="submit")
 											+icon('search')
 									-
 										var cs = {
@@ -66,9 +70,29 @@ block content
 											multiple: true,
 											arr: PLACES,
 										}
-									+customSelect(cs).js-custom-select(id='places')
+									.sidebar__places
+										+customSelect(cs).js-custom-select.wide(id='places')
+
+									button.btn.btn_mobile-filter.js-modal-filter
+										span Категорії
 
 									.sidebar__rubricator.rubricator
+										.rubricator__title-general Оберіть рубрику
+										+rubric('Народний Календар')
+											+rubric('Календар 1')
+												+rubric('sub Календар 1 1')
+													+rubric('sub sub Календар 1 1 1', false)
+													+rubric('sub sub Календар 1 1 2', false)
+											+rubric('Календар 2', false)
+											+rubric('Календар 3', false)
+										+rubric('Родинні Традиції')
+											+rubric('Весілля')
+												+rubric('Передвесільні обряди', false)
+												+rubric('Весільна неділя')
+													+rubric('Весільни чини', false)
+													+rubric('Обсипання', false)
+													+rubric('“світильник” (“меч”, “шабля”)', false)
+											+rubric('Вагітність', false)
 										+rubric('Народний Календар')
 											+rubric('Календар 1')
 												+rubric('sub Календар 1 1', false)
@@ -87,32 +111,27 @@ block content
 							.categories__right
 								.categories__tags.tags
 									.tags__inner
-										.tag.tag_reset Скинути всі
-										.tag.tag_text
-											+icon('text')
-											span паска
-											button
-												+icon('close')
-										.tag.tag_map
-											+icon('marker')
-											span Балаклія
-											button
-												+icon('close')
-										.tag.tag_category
-											+icon('category')
-											span Ворожіння на Андрія
-											button
-												+icon('close')
-										.tag.tag_category
-											+icon('category')
-											span Родинні Традиції
-											button
-												+icon('close')
-										.tag.tag_category
-											+icon('category')
-											span Передвесільні обряди
-											button
-												+icon('close')
+										button.tag.tag_reset: span.text Скинути всі
+										button.tag.tag_text
+											+icon('text').icon
+											span.text паска
+											+icon('close').icon-close
+										button.tag.tag_map
+											+icon('marker').icon
+											span.text Балаклія
+											+icon('close').icon-close
+										button.tag.tag_category
+											+icon('category').icon
+											span.text Ворожіння на Андрія
+											+icon('close').icon-close
+										button.tag.tag_category
+											+icon('category').icon
+											span.text Родинні Традиції
+											+icon('close').icon-close
+										button.tag.tag_category
+											+icon('category').icon
+											span.text Передвесільні обряди
+											+icon('close').icon-close
 
 								.categories__result.result
 									ul.result__inner
@@ -148,7 +167,7 @@ block content
 														+icon('arrow-right')
 
 									ul.result__pagination.pagination
-										li.pagination__item
+										li.pagination__item.pagination__item_active
 											a(href="#") 1
 										li.pagination__item
 											a(href="#") 2

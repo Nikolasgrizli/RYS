@@ -85,216 +85,328 @@
               </section>
               <article>
                 <div class="container">
-                  <div class="categories js-categories">
-                    <h2 class="h1">Пошук та рубрикатор</h2>
+                  <div class="categories" id="categoriesWrapper">
                     <div class="categories__inner">
+                      <h2 class="h1 categories__title">
+                        <div class="desktop-visible">Пошук та рубрикатор</div>
+                        <div class="mobile-visible">Рубрикатор</div>
+                      </h2>
                       <form class="categories__left sidebar">
                         <div class="sidebar__inner">
-                          <div class="sidebar__search"><input id="search" name="search" placeholder="Пошук за текстом"><button type="submit"><svg class="svg-icon">
+                          <div class="sidebar__search search"><input class="search__input" id="search" name="search" placeholder="Пошук за текстом"><button class="search__btn" type="submit"><svg class="svg-icon">
                                 <use xlink:href="#search"></use>
                               </svg></button></div>
-                          <div class="customSelect"><select class="custom-select_multiple js-custom-select" name="customSelect" data-options='{"searchable":true,"defaultSelected":false,"placeholder":"Обрати населений пункт","multiple":true}' multiple="multiple" id="places">
-                              <option value="">Обрати населений пункт</option>
-                              <option value=" м. Ізюм, Ізюмський район">м. Ізюм, Ізюмський район</option>
-                              <option value=" м. Балаклія, Балаклійський район">м. Балаклія, Балаклійський район</option>
-                              <option value=" Новий Бурлук, Чугуївський район">Новий Бурлук, Чугуївський район</option>
-                              <option value=" с. Іванівка, Ізюмський район">с. Іванівка, Ізюмський район</option>
-                              <option value=" с. Іванівка, Чаплинський район">с. Іванівка, Чаплинський район</option>
-                              <option value=" с. Абазівка, Зачепилівський район">с. Абазівка, Зачепилівський район</option>
-                              <option value=" с. Артемівка, Чугуївський район">с. Артемівка, Чугуївський район</option>
-                              <option value=" с. Багата Чернещина, Сахновщинський район">с. Багата Чернещина, Сахновщинський район</option>
-                              <option value=" с. Балтазарівка, Чаплинський район">с. Балтазарівка, Чаплинський район</option>
-                              <option value=" с. Басове, Золочівський район">с. Басове, Золочівський район</option>
-                              <option value=" с. Березівка, Борисівський район ">с. Березівка, Борисівський район</option>
-                              <option value=" с. Берестовенька, Красноградський район">с. Берестовенька, Красноградський район</option>
-                              <option value=" с. Будне, Охтирський район">с. Будне, Охтирський район</option>
-                              <option value=" с. Бузове (Перша Бузова), Вовчанський район">с. Бузове (Перша Бузова), Вовчанський район</option>
-                              <option value=" с. Вʼязова, Краснокутський район">с. Вʼязова, Краснокутський район</option>
-                              <option value=" с. Варварівка, Бєлгородський район">с. Варварівка, Бєлгородський район</option>
-                              <option value=" с. Велика Гомільша, Зміївський район">с. Велика Гомільша, Зміївський район</option>
-                              <option value=" с. Вишневе, Валківський район">с. Вишневе, Валківський район</option>
-                              <option value=" с. Гасенки, Миргородський район">с. Гасенки, Миргородський район</option>
-                              <option value=" с. Геніївка, Зміївський район">с. Геніївка, Зміївський район</option>
-                              <option value=" с. Гетьманівка, Шевченківський район">с. Гетьманівка, Шевченківський район</option>
-                              <option value=" с. Гракове, Чугуївський район">с. Гракове, Чугуївський район</option>
-                              <option value=" с. Грузьке, Борисівський район">с. Грузьке, Борисівський район</option>
-                              <option value=" с. Грушуваха, Барвінківський район">с. Грушуваха, Барвінківський район</option>
-                              <option value=" с. Дворічне, Дворічанський район">с. Дворічне, Дворічанський район</option>
-                              <option value=" с. Дворічний Кут, Дергачівський район">с. Дворічний Кут, Дергачівський район</option>
-                              <option value=" с. Деревки, Котелевський район">с. Деревки, Котелевський район</option>
-                              <option value=" с. Дмитрівка, Первомайський район">с. Дмитрівка, Первомайський район</option>
-                              <option value=" с. Добровілля, Близнюківський район">с. Добровілля, Близнюківський район</option>
-                              <option value=" с. Добропілля, Валківський район">с. Добропілля, Валківський район</option>
-                              <option value=" с. Дорошівка, Дворічанський район">с. Дорошівка, Дворічанський район</option>
-                              <option value=" с. Другий Лиман, Дворічанський район">с. Другий Лиман, Дворічанський район</option>
-                              <option value=" с. Духовниче, Охтирський район">с. Духовниче, Охтирський район</option>
-                              <option value=" с. Жовтневе (Богданівське), Дворічанський район">с. Жовтневе (Богданівське), Дворічанський район</option>
-                              <option value=" с. Задонецьке, Зміївський район">с. Задонецьке, Зміївський район</option>
-                              <option value=" с. Залиман, Балаклійський район">с. Залиман, Балаклійський район</option>
-                              <option value=" с. Калинове, Борівський район">с. Калинове, Борівський район</option>
-                              <option value=" с. Катеринівка, Лозівський район">с. Катеринівка, Лозівський район</option>
-                              <option value=" с. Киселі, Первомайський район">с. Киселі, Первомайський район</option>
-                              <option value=" с. Клюшниківка, Миргородський район">с. Клюшниківка, Миргородський район</option>
-                              <option value=" с. Козача Лопань, Дергачівський район">с. Козача Лопань, Дергачівський район</option>
-                              <option value=" с. Корбині Івани, Богодухівський район">с. Корбині Івани, Богодухівський район</option>
-                              <option value=" с. Костянтинівка, Сахновщинський район">с. Костянтинівка, Сахновщинський район</option>
-                              <option value=" с. Кручик, Богодухівський район">с. Кручик, Богодухівський район</option>
-                              <option value=" с. Крячківка, Пирятинський район">с. Крячківка, Пирятинський район</option>
-                              <option value=" с. Куземин, Охтирський район">с. Куземин, Охтирський район</option>
-                              <option value=" с. Кунцеве, Новосанжарський район">с. Кунцеве, Новосанжарський район</option>
-                              <option value=" с. Кутьківка, Дворічанський район">с. Кутьківка, Дворічанський район</option>
-                              <option value=" с. Лантратівка, Охтирський район">с. Лантратівка, Охтирський район</option>
-                              <option value=" с. Лиман, Зміївський район">с. Лиман, Зміївський район</option>
-                              <option value=" с. Лиман, кут Кучерівка, Зміївський район">с. Лиман, кут Кучерівка, Зміївський район</option>
-                              <option value=" с. Любимівка Каховський район">с. Любимівка Каховський район</option>
-                              <option value=" с. Лютенські Будища, Зіньківський район">с. Лютенські Будища, Зіньківський район</option>
-                              <option value=" с. Максимівка, Сахновщинський район">с. Максимівка, Сахновщинський район</option>
-                              <option value=" с. Матяшівка, кут Кут, Великобагачанський район ">с. Матяшівка, кут Кут, Великобагачанський район</option>
-                              <option value=" с. Матяшівка, кут Ліски, Великобагачанський район">с. Матяшівка, кут Ліски, Великобагачанський район</option>
-                              <option value=" с. Матяшівка, кут Центр, Великобагачанський район ">с. Матяшівка, кут Центр, Великобагачанський район</option>
-                              <option value=" с. Мельникове, Валківський район">с. Мельникове, Валківський район</option>
-                              <option value=" с. Мечнікове, Дворічанський район">с. Мечнікове, Дворічанський район</option>
-                              <option value=" с. Миколаївка, Дворічанський район">с. Миколаївка, Дворічанський район</option>
-                              <option value=" с. Миколаївка, Лозівський район">с. Миколаївка, Лозівський район</option>
-                              <option value=" с. Михайлівка, Котелевський район">с. Михайлівка, Котелевський район</option>
-                              <option value=" с. Моначинівка, Куп'янський район">с. Моначинівка, Куп'янський район</option>
-                              <option value=" с. Морозівка, Балаклійський район">с. Морозівка, Балаклійський район</option>
-                              <option value=" с. Мохнач, Зміївський район">с. Мохнач, Зміївський район</option>
-                              <option value=" с. Нова Чернещина, Сахновщинський район">с. Нова Чернещина, Сахновщинський район</option>
-                              <option value=" с. Новий Мерчик, Валківський район">с. Новий Мерчик, Валківський район</option>
-                              <option value=" с. Новомиколаївка Шевченківський район">с. Новомиколаївка Шевченківський район</option>
-                              <option value=" с. Огіївка, Сахновщинський район">с. Огіївка, Сахновщинський район</option>
-                              <option value=" с. Одноробівка, Золочівський район">с. Одноробівка, Золочівський район</option>
-                              <option value=" с. Одрадне, Дворічанський район">с. Одрадне, Дворічанський район</option>
-                              <option value=" с. Олександрівка, Валківський район">с. Олександрівка, Валківський район</option>
-                              <option value=" с. Очеретове, Валківський район">с. Очеретове, Валківський район</option>
-                              <option value=" с. Очкине, Середино-Будський район">с. Очкине, Середино-Будський район</option>
-                              <option value=" с. Піски-Радьківські, Борівський район">с. Піски-Радьківські, Борівський район</option>
-                              <option value=" с. Петрівське (Петровское), Балаклійський район">с. Петрівське (Петровское), Балаклійський район</option>
-                              <option value=" с. Петропілля, Лозівський район">с. Петропілля, Лозівський район</option>
-                              <option value=" с. Плоске, Великобурлуцький район">с. Плоске, Великобурлуцький район</option>
-                              <option value=" с. Польова, Дергачівський район">с. Польова, Дергачівський район</option>
-                              <option value=" с. Правда (Комправда), Первомайський район">с. Правда (Комправда), Первомайський район</option>
-                              <option value=" с. Рачівка, Чаплинський район">с. Рачівка, Чаплинський район</option>
-                              <option value=" с. Рубани, Охтирський район">с. Рубани, Охтирський район</option>
-                              <option value=" с. Рябина, Великописарівський район">с. Рябина, Великописарівський район</option>
-                              <option value=" с. Сковородинівка, Золочівський район">с. Сковородинівка, Золочівський район</option>
-                              <option value=" с. Скрипаї, Зміївський район">с. Скрипаї, Зміївський район</option>
-                              <option value=" с. Софіївка Каховський район">с. Софіївка Каховський район</option>
-                              <option value=" с. Стригуни, Борисівський район">с. Стригуни, Борисівський район</option>
-                              <option value=" с. Строганівка, Чаплинський район">с. Строганівка, Чаплинський район</option>
-                              <option value=" с. Тавільжанка, Дворічанський район">с. Тавільжанка, Дворічанський район</option>
-                              <option value=" с. Терни, Лубенський район">с. Терни, Лубенський район</option>
-                              <option value=" с. Тернова (Терновая), Харківський район">с. Тернова (Терновая), Харківський район</option>
-                              <option value=" с. Тернуватка, Сахновщинський район">с. Тернуватка, Сахновщинський район</option>
-                              <option value=" с. Устивиця, Великобагачанський район">с. Устивиця, Великобагачанський район</option>
-                              <option value=" с. Хотмизьк, Борисівський район">с. Хотмизьк, Борисівський район</option>
-                              <option value=" с. Чемужівка, Зміївський район">с. Чемужівка, Зміївський район</option>
-                              <option value=" с. Чепіль, Балаклійський район">с. Чепіль, Балаклійський район</option>
-                              <option value=" с. Черкаська Лозова, Харківський район">с. Черкаська Лозова, Харківський район</option>
-                              <option value=" с. Чернещина, Краснокутський район">с. Чернещина, Краснокутський район</option>
-                              <option value=" с. Шарівка, Валківський район">с. Шарівка, Валківський район</option>
-                              <option value=" с. Шелудьківка, Зміївський район">с. Шелудьківка, Зміївський район</option>
-                              <option value=" с. Яковенкове, Балаклійський район">с. Яковенкове, Балаклійський район</option>
-                              <option value=" с. Ясенове, Охтирський район">с. Ясенове, Охтирський район</option>
-                              <option value=" сел. Велика Данилівка, м. Харків">сел. Велика Данилівка, м. Харків</option>
-                              <option value=" сел. Печеніги, Чугуївський район">сел. Печеніги, Чугуївський район</option>
-                              <option value=" смт Гоголеве, Великобагачанський район">смт Гоголеве, Великобагачанський район</option>
-                              <option value=" смт Гоголеве, хутір Марченки, Великобагачанський район ">смт Гоголеве, хутір Марченки, Великобагачанський район</option>
-                              <option value=" смт Дворічна, Дворічанський район">смт Дворічна, Дворічанський район</option>
-                              <option value=" смт Котельва, Котелевський район">смт Котельва, Котелевський район</option>
-                              <option value=" смт Краснокутськ, Краснокутський район">смт Краснокутськ, Краснокутський район</option>
-                              <option value=" смт Чкаловське, Чугуївський район">смт Чкаловське, Чугуївський район</option>
-                            </select></div>
+                          <div class="sidebar__places">
+                            <div class="customSelect"><select class="custom-select_multiple js-custom-select wide" name="customSelect" data-options='{"searchable":true,"defaultSelected":false,"placeholder":"Обрати населений пункт","multiple":true}' multiple="multiple" id="places">
+                                <option value="">Обрати населений пункт</option>
+                                <option value=" м. Ізюм, Ізюмський район">м. Ізюм, Ізюмський район</option>
+                                <option value=" м. Балаклія, Балаклійський район">м. Балаклія, Балаклійський район</option>
+                                <option value=" Новий Бурлук, Чугуївський район">Новий Бурлук, Чугуївський район</option>
+                                <option value=" с. Іванівка, Ізюмський район">с. Іванівка, Ізюмський район</option>
+                                <option value=" с. Іванівка, Чаплинський район">с. Іванівка, Чаплинський район</option>
+                                <option value=" с. Абазівка, Зачепилівський район">с. Абазівка, Зачепилівський район</option>
+                                <option value=" с. Артемівка, Чугуївський район">с. Артемівка, Чугуївський район</option>
+                                <option value=" с. Багата Чернещина, Сахновщинський район">с. Багата Чернещина, Сахновщинський район</option>
+                                <option value=" с. Балтазарівка, Чаплинський район">с. Балтазарівка, Чаплинський район</option>
+                                <option value=" с. Басове, Золочівський район">с. Басове, Золочівський район</option>
+                                <option value=" с. Березівка, Борисівський район ">с. Березівка, Борисівський район</option>
+                                <option value=" с. Берестовенька, Красноградський район">с. Берестовенька, Красноградський район</option>
+                                <option value=" с. Будне, Охтирський район">с. Будне, Охтирський район</option>
+                                <option value=" с. Бузове (Перша Бузова), Вовчанський район">с. Бузове (Перша Бузова), Вовчанський район</option>
+                                <option value=" с. Вʼязова, Краснокутський район">с. Вʼязова, Краснокутський район</option>
+                                <option value=" с. Варварівка, Бєлгородський район">с. Варварівка, Бєлгородський район</option>
+                                <option value=" с. Велика Гомільша, Зміївський район">с. Велика Гомільша, Зміївський район</option>
+                                <option value=" с. Вишневе, Валківський район">с. Вишневе, Валківський район</option>
+                                <option value=" с. Гасенки, Миргородський район">с. Гасенки, Миргородський район</option>
+                                <option value=" с. Геніївка, Зміївський район">с. Геніївка, Зміївський район</option>
+                                <option value=" с. Гетьманівка, Шевченківський район">с. Гетьманівка, Шевченківський район</option>
+                                <option value=" с. Гракове, Чугуївський район">с. Гракове, Чугуївський район</option>
+                                <option value=" с. Грузьке, Борисівський район">с. Грузьке, Борисівський район</option>
+                                <option value=" с. Грушуваха, Барвінківський район">с. Грушуваха, Барвінківський район</option>
+                                <option value=" с. Дворічне, Дворічанський район">с. Дворічне, Дворічанський район</option>
+                                <option value=" с. Дворічний Кут, Дергачівський район">с. Дворічний Кут, Дергачівський район</option>
+                                <option value=" с. Деревки, Котелевський район">с. Деревки, Котелевський район</option>
+                                <option value=" с. Дмитрівка, Первомайський район">с. Дмитрівка, Первомайський район</option>
+                                <option value=" с. Добровілля, Близнюківський район">с. Добровілля, Близнюківський район</option>
+                                <option value=" с. Добропілля, Валківський район">с. Добропілля, Валківський район</option>
+                                <option value=" с. Дорошівка, Дворічанський район">с. Дорошівка, Дворічанський район</option>
+                                <option value=" с. Другий Лиман, Дворічанський район">с. Другий Лиман, Дворічанський район</option>
+                                <option value=" с. Духовниче, Охтирський район">с. Духовниче, Охтирський район</option>
+                                <option value=" с. Жовтневе (Богданівське), Дворічанський район">с. Жовтневе (Богданівське), Дворічанський район</option>
+                                <option value=" с. Задонецьке, Зміївський район">с. Задонецьке, Зміївський район</option>
+                                <option value=" с. Залиман, Балаклійський район">с. Залиман, Балаклійський район</option>
+                                <option value=" с. Калинове, Борівський район">с. Калинове, Борівський район</option>
+                                <option value=" с. Катеринівка, Лозівський район">с. Катеринівка, Лозівський район</option>
+                                <option value=" с. Киселі, Первомайський район">с. Киселі, Первомайський район</option>
+                                <option value=" с. Клюшниківка, Миргородський район">с. Клюшниківка, Миргородський район</option>
+                                <option value=" с. Козача Лопань, Дергачівський район">с. Козача Лопань, Дергачівський район</option>
+                                <option value=" с. Корбині Івани, Богодухівський район">с. Корбині Івани, Богодухівський район</option>
+                                <option value=" с. Костянтинівка, Сахновщинський район">с. Костянтинівка, Сахновщинський район</option>
+                                <option value=" с. Кручик, Богодухівський район">с. Кручик, Богодухівський район</option>
+                                <option value=" с. Крячківка, Пирятинський район">с. Крячківка, Пирятинський район</option>
+                                <option value=" с. Куземин, Охтирський район">с. Куземин, Охтирський район</option>
+                                <option value=" с. Кунцеве, Новосанжарський район">с. Кунцеве, Новосанжарський район</option>
+                                <option value=" с. Кутьківка, Дворічанський район">с. Кутьківка, Дворічанський район</option>
+                                <option value=" с. Лантратівка, Охтирський район">с. Лантратівка, Охтирський район</option>
+                                <option value=" с. Лиман, Зміївський район">с. Лиман, Зміївський район</option>
+                                <option value=" с. Лиман, кут Кучерівка, Зміївський район">с. Лиман, кут Кучерівка, Зміївський район</option>
+                                <option value=" с. Любимівка Каховський район">с. Любимівка Каховський район</option>
+                                <option value=" с. Лютенські Будища, Зіньківський район">с. Лютенські Будища, Зіньківський район</option>
+                                <option value=" с. Максимівка, Сахновщинський район">с. Максимівка, Сахновщинський район</option>
+                                <option value=" с. Матяшівка, кут Кут, Великобагачанський район ">с. Матяшівка, кут Кут, Великобагачанський район</option>
+                                <option value=" с. Матяшівка, кут Ліски, Великобагачанський район">с. Матяшівка, кут Ліски, Великобагачанський район</option>
+                                <option value=" с. Матяшівка, кут Центр, Великобагачанський район ">с. Матяшівка, кут Центр, Великобагачанський район</option>
+                                <option value=" с. Мельникове, Валківський район">с. Мельникове, Валківський район</option>
+                                <option value=" с. Мечнікове, Дворічанський район">с. Мечнікове, Дворічанський район</option>
+                                <option value=" с. Миколаївка, Дворічанський район">с. Миколаївка, Дворічанський район</option>
+                                <option value=" с. Миколаївка, Лозівський район">с. Миколаївка, Лозівський район</option>
+                                <option value=" с. Михайлівка, Котелевський район">с. Михайлівка, Котелевський район</option>
+                                <option value=" с. Моначинівка, Куп'янський район">с. Моначинівка, Куп'янський район</option>
+                                <option value=" с. Морозівка, Балаклійський район">с. Морозівка, Балаклійський район</option>
+                                <option value=" с. Мохнач, Зміївський район">с. Мохнач, Зміївський район</option>
+                                <option value=" с. Нова Чернещина, Сахновщинський район">с. Нова Чернещина, Сахновщинський район</option>
+                                <option value=" с. Новий Мерчик, Валківський район">с. Новий Мерчик, Валківський район</option>
+                                <option value=" с. Новомиколаївка Шевченківський район">с. Новомиколаївка Шевченківський район</option>
+                                <option value=" с. Огіївка, Сахновщинський район">с. Огіївка, Сахновщинський район</option>
+                                <option value=" с. Одноробівка, Золочівський район">с. Одноробівка, Золочівський район</option>
+                                <option value=" с. Одрадне, Дворічанський район">с. Одрадне, Дворічанський район</option>
+                                <option value=" с. Олександрівка, Валківський район">с. Олександрівка, Валківський район</option>
+                                <option value=" с. Очеретове, Валківський район">с. Очеретове, Валківський район</option>
+                                <option value=" с. Очкине, Середино-Будський район">с. Очкине, Середино-Будський район</option>
+                                <option value=" с. Піски-Радьківські, Борівський район">с. Піски-Радьківські, Борівський район</option>
+                                <option value=" с. Петрівське (Петровское), Балаклійський район">с. Петрівське (Петровское), Балаклійський район</option>
+                                <option value=" с. Петропілля, Лозівський район">с. Петропілля, Лозівський район</option>
+                                <option value=" с. Плоске, Великобурлуцький район">с. Плоске, Великобурлуцький район</option>
+                                <option value=" с. Польова, Дергачівський район">с. Польова, Дергачівський район</option>
+                                <option value=" с. Правда (Комправда), Первомайський район">с. Правда (Комправда), Первомайський район</option>
+                                <option value=" с. Рачівка, Чаплинський район">с. Рачівка, Чаплинський район</option>
+                                <option value=" с. Рубани, Охтирський район">с. Рубани, Охтирський район</option>
+                                <option value=" с. Рябина, Великописарівський район">с. Рябина, Великописарівський район</option>
+                                <option value=" с. Сковородинівка, Золочівський район">с. Сковородинівка, Золочівський район</option>
+                                <option value=" с. Скрипаї, Зміївський район">с. Скрипаї, Зміївський район</option>
+                                <option value=" с. Софіївка Каховський район">с. Софіївка Каховський район</option>
+                                <option value=" с. Стригуни, Борисівський район">с. Стригуни, Борисівський район</option>
+                                <option value=" с. Строганівка, Чаплинський район">с. Строганівка, Чаплинський район</option>
+                                <option value=" с. Тавільжанка, Дворічанський район">с. Тавільжанка, Дворічанський район</option>
+                                <option value=" с. Терни, Лубенський район">с. Терни, Лубенський район</option>
+                                <option value=" с. Тернова (Терновая), Харківський район">с. Тернова (Терновая), Харківський район</option>
+                                <option value=" с. Тернуватка, Сахновщинський район">с. Тернуватка, Сахновщинський район</option>
+                                <option value=" с. Устивиця, Великобагачанський район">с. Устивиця, Великобагачанський район</option>
+                                <option value=" с. Хотмизьк, Борисівський район">с. Хотмизьк, Борисівський район</option>
+                                <option value=" с. Чемужівка, Зміївський район">с. Чемужівка, Зміївський район</option>
+                                <option value=" с. Чепіль, Балаклійський район">с. Чепіль, Балаклійський район</option>
+                                <option value=" с. Черкаська Лозова, Харківський район">с. Черкаська Лозова, Харківський район</option>
+                                <option value=" с. Чернещина, Краснокутський район">с. Чернещина, Краснокутський район</option>
+                                <option value=" с. Шарівка, Валківський район">с. Шарівка, Валківський район</option>
+                                <option value=" с. Шелудьківка, Зміївський район">с. Шелудьківка, Зміївський район</option>
+                                <option value=" с. Яковенкове, Балаклійський район">с. Яковенкове, Балаклійський район</option>
+                                <option value=" с. Ясенове, Охтирський район">с. Ясенове, Охтирський район</option>
+                                <option value=" сел. Велика Данилівка, м. Харків">сел. Велика Данилівка, м. Харків</option>
+                                <option value=" сел. Печеніги, Чугуївський район">сел. Печеніги, Чугуївський район</option>
+                                <option value=" смт Гоголеве, Великобагачанський район">смт Гоголеве, Великобагачанський район</option>
+                                <option value=" смт Гоголеве, хутір Марченки, Великобагачанський район ">смт Гоголеве, хутір Марченки, Великобагачанський район</option>
+                                <option value=" смт Дворічна, Дворічанський район">смт Дворічна, Дворічанський район</option>
+                                <option value=" смт Котельва, Котелевський район">смт Котельва, Котелевський район</option>
+                                <option value=" смт Краснокутськ, Краснокутський район">смт Краснокутськ, Краснокутський район</option>
+                                <option value=" смт Чкаловське, Чугуївський район">смт Чкаловське, Чугуївський район</option>
+                              </select></div>
+                          </div><button class="btn btn_mobile-filter js-modal-filter"><span>Категорії</span></button>
                           <div class="sidebar__rubricator rubricator">
+                            <div class="rubricator__title-general">Оберіть рубрику</div>
                             <div class="rubricator__item">
-                              <div class="rubricator__top">
-                                <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_5574906385043035" id="rubricator_5574906385043035"></div>
+                              <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_l3s89w89" id="rubricator_l3s89w89"><span class="pseudo"></span></label>
                                 <div class="rubricator__title">Народний Календар</div>
                                 <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                               </div>
                               <div class="rubricator__child">
                                 <div class="rubricator__item">
-                                  <div class="rubricator__top">
-                                    <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_5807250807250492" id="rubricator_5807250807250492"></div>
+                                  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_ee22vwhr" id="rubricator_ee22vwhr"><span class="pseudo"></span></label>
                                     <div class="rubricator__title">Календар 1</div>
                                     <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                   </div>
                                   <div class="rubricator__child">
-                                    <div class="rubricator__item"><label class="rubricator__top" for="rubricator_2982617291702148">
-                                        <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_2982617291702148" id="rubricator_2982617291702148"></div>
+                                    <div class="rubricator__item">
+                                      <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_dgr7pvdn" id="rubricator_dgr7pvdn"><span class="pseudo"></span></label>
                                         <div class="rubricator__title">sub Календар 1 1</div>
-                                        <div class="rubricator__num">25</div>
-                                      </label></div>
-                                    <div class="rubricator__item"><label class="rubricator__top" for="rubricator_3857741628393529">
-                                        <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_3857741628393529" id="rubricator_3857741628393529"></div>
-                                        <div class="rubricator__title">sub Календар 1 2</div>
-                                        <div class="rubricator__num">25</div>
-                                      </label></div>
+                                        <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
+                                      </div>
+                                      <div class="rubricator__child">
+                                        <div class="rubricator__item">
+                                          <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_bmqtkphg" id="rubricator_bmqtkphg"><span class="pseudo"></span></label>
+                                            <div class="rubricator__title">sub sub Календар 1 1 1</div>
+                                            <div class="rubricator__num">25</div>
+                                          </div>
+                                        </div>
+                                        <div class="rubricator__item">
+                                          <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_ty42vmxi" id="rubricator_ty42vmxi"><span class="pseudo"></span></label>
+                                            <div class="rubricator__title">sub sub Календар 1 1 2</div>
+                                            <div class="rubricator__num">25</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
-                                <div class="rubricator__item"><label class="rubricator__top" for="rubricator_7680195439360077">
-                                    <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_7680195439360077" id="rubricator_7680195439360077"></div>
+                                <div class="rubricator__item">
+                                  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_i5jaaphy" id="rubricator_i5jaaphy"><span class="pseudo"></span></label>
                                     <div class="rubricator__title">Календар 2</div>
                                     <div class="rubricator__num">25</div>
-                                  </label></div>
-                                <div class="rubricator__item"><label class="rubricator__top" for="rubricator_1171992088988667">
-                                    <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_1171992088988667" id="rubricator_1171992088988667"></div>
+                                  </div>
+                                </div>
+                                <div class="rubricator__item">
+                                  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_wvei5s4t" id="rubricator_wvei5s4t"><span class="pseudo"></span></label>
                                     <div class="rubricator__title">Календар 3</div>
                                     <div class="rubricator__num">25</div>
-                                  </label></div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                             <div class="rubricator__item">
-                              <div class="rubricator__top">
-                                <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_5794384821954362" id="rubricator_5794384821954362"></div>
+                              <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_7c5csb4u" id="rubricator_7c5csb4u"><span class="pseudo"></span></label>
                                 <div class="rubricator__title">Родинні Традиції</div>
                                 <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                               </div>
                               <div class="rubricator__child">
                                 <div class="rubricator__item">
-                                  <div class="rubricator__top">
-                                    <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_3032512973426786" id="rubricator_3032512973426786"></div>
+                                  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_snsc0ckv" id="rubricator_snsc0ckv"><span class="pseudo"></span></label>
                                     <div class="rubricator__title">Весілля</div>
                                     <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                   </div>
                                   <div class="rubricator__child">
-                                    <div class="rubricator__item"><label class="rubricator__top" for="rubricator_8209161616357836">
-                                        <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_8209161616357836" id="rubricator_8209161616357836"></div>
+                                    <div class="rubricator__item">
+                                      <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_8qhrgebn" id="rubricator_8qhrgebn"><span class="pseudo"></span></label>
                                         <div class="rubricator__title">Передвесільні обряди</div>
                                         <div class="rubricator__num">25</div>
-                                      </label></div>
+                                      </div>
+                                    </div>
                                     <div class="rubricator__item">
-                                      <div class="rubricator__top">
-                                        <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_259339225908226" id="rubricator_259339225908226"></div>
+                                      <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_wn4wjx6p" id="rubricator_wn4wjx6p"><span class="pseudo"></span></label>
                                         <div class="rubricator__title">Весільна неділя</div>
                                         <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                       </div>
                                       <div class="rubricator__child">
-                                        <div class="rubricator__item"><label class="rubricator__top" for="rubricator_5264356839038801">
-                                            <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_5264356839038801" id="rubricator_5264356839038801"></div>
+                                        <div class="rubricator__item">
+                                          <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_85sw8six" id="rubricator_85sw8six"><span class="pseudo"></span></label>
                                             <div class="rubricator__title">Весільни чини</div>
                                             <div class="rubricator__num">25</div>
-                                          </label></div>
-                                        <div class="rubricator__item"><label class="rubricator__top" for="rubricator_1987614759170109">
-                                            <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_1987614759170109" id="rubricator_1987614759170109"></div>
+                                          </div>
+                                        </div>
+                                        <div class="rubricator__item">
+                                          <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_4tlpcj3t" id="rubricator_4tlpcj3t"><span class="pseudo"></span></label>
                                             <div class="rubricator__title">Обсипання</div>
                                             <div class="rubricator__num">25</div>
-                                          </label></div>
-                                        <div class="rubricator__item"><label class="rubricator__top" for="rubricator_497843809336637">
-                                            <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_497843809336637" id="rubricator_497843809336637"></div>
+                                          </div>
+                                        </div>
+                                        <div class="rubricator__item">
+                                          <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_mxt3gbzy" id="rubricator_mxt3gbzy"><span class="pseudo"></span></label>
                                             <div class="rubricator__title">“світильник” (“меч”, “шабля”)</div>
                                             <div class="rubricator__num">25</div>
-                                          </label></div>
+                                          </div>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="rubricator__item"><label class="rubricator__top" for="rubricator_3161860601119431">
-                                    <div class="rubricator__checkbox"><input type="checkbox" name="rubricator_3161860601119431" id="rubricator_3161860601119431"></div>
+                                <div class="rubricator__item">
+                                  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_1x8ubtn2" id="rubricator_1x8ubtn2"><span class="pseudo"></span></label>
                                     <div class="rubricator__title">Вагітність</div>
                                     <div class="rubricator__num">25</div>
-                                  </label></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="rubricator__item">
+                              <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_49i1pr71" id="rubricator_49i1pr71"><span class="pseudo"></span></label>
+                                <div class="rubricator__title">Народний Календар</div>
+                                <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
+                              </div>
+                              <div class="rubricator__child">
+                                <div class="rubricator__item">
+                                  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_nhpsck77" id="rubricator_nhpsck77"><span class="pseudo"></span></label>
+                                    <div class="rubricator__title">Календар 1</div>
+                                    <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
+                                  </div>
+                                  <div class="rubricator__child">
+                                    <div class="rubricator__item">
+                                      <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_su3x4gv0" id="rubricator_su3x4gv0"><span class="pseudo"></span></label>
+                                        <div class="rubricator__title">sub Календар 1 1</div>
+                                        <div class="rubricator__num">25</div>
+                                      </div>
+                                    </div>
+                                    <div class="rubricator__item">
+                                      <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_ystreycs" id="rubricator_ystreycs"><span class="pseudo"></span></label>
+                                        <div class="rubricator__title">sub Календар 1 2</div>
+                                        <div class="rubricator__num">25</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="rubricator__item">
+                                  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_5cjmgybi" id="rubricator_5cjmgybi"><span class="pseudo"></span></label>
+                                    <div class="rubricator__title">Календар 2</div>
+                                    <div class="rubricator__num">25</div>
+                                  </div>
+                                </div>
+                                <div class="rubricator__item">
+                                  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_ezpw2iaz" id="rubricator_ezpw2iaz"><span class="pseudo"></span></label>
+                                    <div class="rubricator__title">Календар 3</div>
+                                    <div class="rubricator__num">25</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="rubricator__item">
+                              <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_d28rs4ns" id="rubricator_d28rs4ns"><span class="pseudo"></span></label>
+                                <div class="rubricator__title">Родинні Традиції</div>
+                                <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
+                              </div>
+                              <div class="rubricator__child">
+                                <div class="rubricator__item">
+                                  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_rey28ku0" id="rubricator_rey28ku0"><span class="pseudo"></span></label>
+                                    <div class="rubricator__title">Весілля</div>
+                                    <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
+                                  </div>
+                                  <div class="rubricator__child">
+                                    <div class="rubricator__item">
+                                      <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_6hey4kuc" id="rubricator_6hey4kuc"><span class="pseudo"></span></label>
+                                        <div class="rubricator__title">Передвесільні обряди</div>
+                                        <div class="rubricator__num">25</div>
+                                      </div>
+                                    </div>
+                                    <div class="rubricator__item">
+                                      <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_d5ckuhkc" id="rubricator_d5ckuhkc"><span class="pseudo"></span></label>
+                                        <div class="rubricator__title">Весільна неділя</div>
+                                        <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
+                                      </div>
+                                      <div class="rubricator__child">
+                                        <div class="rubricator__item">
+                                          <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_1yosfchr" id="rubricator_1yosfchr"><span class="pseudo"></span></label>
+                                            <div class="rubricator__title">Весільни чини</div>
+                                            <div class="rubricator__num">25</div>
+                                          </div>
+                                        </div>
+                                        <div class="rubricator__item">
+                                          <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_7gqzx2iy" id="rubricator_7gqzx2iy"><span class="pseudo"></span></label>
+                                            <div class="rubricator__title">Обсипання</div>
+                                            <div class="rubricator__num">25</div>
+                                          </div>
+                                        </div>
+                                        <div class="rubricator__item">
+                                          <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_prhx9g10" id="rubricator_prhx9g10"><span class="pseudo"></span></label>
+                                            <div class="rubricator__title">“світильник” (“меч”, “шабля”)</div>
+                                            <div class="rubricator__num">25</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="rubricator__item">
+                                  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_7985dplc" id="rubricator_7985dplc"><span class="pseudo"></span></label>
+                                    <div class="rubricator__title">Вагітність</div>
+                                    <div class="rubricator__num">25</div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -302,34 +414,27 @@
                       </form>
                       <div class="categories__right">
                         <div class="categories__tags tags">
-                          <div class="tags__inner">
-                            <div class="tag tag_reset">Скинути всі</div>
-                            <div class="tag tag_text"><svg class="svg-icon">
+                          <div class="tags__inner"><button class="tag tag_reset"><span class="text">Скинути всі</span></button><button class="tag tag_text"><svg class="svg-icon icon">
                                 <use xlink:href="#text"></use>
-                              </svg><span>паска</span><button><svg class="svg-icon">
-                                  <use xlink:href="#close"></use>
-                                </svg></button></div>
-                            <div class="tag tag_map"><svg class="svg-icon">
+                              </svg><span class="text">паска</span><svg class="svg-icon icon-close">
+                                <use xlink:href="#close"></use>
+                              </svg></button><button class="tag tag_map"><svg class="svg-icon icon">
                                 <use xlink:href="#marker"></use>
-                              </svg><span>Балаклія</span><button><svg class="svg-icon">
-                                  <use xlink:href="#close"></use>
-                                </svg></button></div>
-                            <div class="tag tag_category"><svg class="svg-icon">
+                              </svg><span class="text">Балаклія</span><svg class="svg-icon icon-close">
+                                <use xlink:href="#close"></use>
+                              </svg></button><button class="tag tag_category"><svg class="svg-icon icon">
                                 <use xlink:href="#category"></use>
-                              </svg><span>Ворожіння на Андрія</span><button><svg class="svg-icon">
-                                  <use xlink:href="#close"></use>
-                                </svg></button></div>
-                            <div class="tag tag_category"><svg class="svg-icon">
+                              </svg><span class="text">Ворожіння на Андрія</span><svg class="svg-icon icon-close">
+                                <use xlink:href="#close"></use>
+                              </svg></button><button class="tag tag_category"><svg class="svg-icon icon">
                                 <use xlink:href="#category"></use>
-                              </svg><span>Родинні Традиції</span><button><svg class="svg-icon">
-                                  <use xlink:href="#close"></use>
-                                </svg></button></div>
-                            <div class="tag tag_category"><svg class="svg-icon">
+                              </svg><span class="text">Родинні Традиції</span><svg class="svg-icon icon-close">
+                                <use xlink:href="#close"></use>
+                              </svg></button><button class="tag tag_category"><svg class="svg-icon icon">
                                 <use xlink:href="#category"></use>
-                              </svg><span>Передвесільні обряди</span><button><svg class="svg-icon">
-                                  <use xlink:href="#close"></use>
-                                </svg></button></div>
-                          </div>
+                              </svg><span class="text">Передвесільні обряди</span><svg class="svg-icon icon-close">
+                                <use xlink:href="#close"></use>
+                              </svg></button></div>
                         </div>
                         <div class="categories__result result">
                           <ul class="result__inner">
@@ -371,7 +476,7 @@
                             </li>
                           </ul>
                           <ul class="result__pagination pagination">
-                            <li class="pagination__item"><a href="#">1</a></li>
+                            <li class="pagination__item pagination__item_active"><a href="#">1</a></li>
                             <li class="pagination__item"><a href="#">2</a></li>
                             <li class="pagination__item"><a href="#">3</a></li>
                           </ul>

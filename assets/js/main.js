@@ -226,6 +226,25 @@ if (audioPlayerContainer) {
 
 /***/ }),
 
+/***/ 220:
+/***/ (function() {
+
+var categoriesWrapper = document.getElementById("categoriesWrapper");
+if (categoriesWrapper) {
+  var categories = categoriesWrapper.querySelectorAll(".js-category");
+  console.log(categories.length);
+  categories.forEach(function (category) {
+    var categoryBtn = category.querySelector(".rubricator__btn"),
+      categoryWrapper = category.closest(".rubricator__item");
+    if (!categoryBtn) return;
+    categoryBtn.addEventListener("click", function () {
+      categoryWrapper.classList.toggle("is-open");
+    });
+  });
+}
+
+/***/ }),
+
 /***/ 687:
 /***/ (function() {
 
@@ -1806,6 +1825,28 @@ var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WE
 
 /***/ }),
 
+/***/ 174:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "close",
+  "use": "close-usage",
+  "viewBox": "0 0 15 15",
+  "content": "<symbol xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 15 15\" id=\"close\"><path d=\"m3 3 9.787 9m-9.574 0L13 3\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
 /***/ 809:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -3048,6 +3089,7 @@ var map = {
 	"./arrow-right.svg": 126,
 	"./arrow.svg": 262,
 	"./category.svg": 102,
+	"./close.svg": 174,
 	"./disclaimer.svg": 809,
 	"./fb.svg": 459,
 	"./insta.svg": 534,
@@ -3696,11 +3738,15 @@ if (nSel.length) {
 
     //TODO default selected
 
-    if (options.placeholder && options.placeholder.length && !options.multiple) {
+    if (options.placeholder && options.placeholder.length) {
       elSel.dropdown.classList.add('custom-select_placeholder');
       elSel.dropdown.classList.add('custom-select_hide-first');
       elSel.el.addEventListener('change', function (e) {
-        elSel.dropdown.classList.remove('custom-select_placeholder');
+        if (e.target.value.length) {
+          elSel.dropdown.classList.remove('custom-select_placeholder');
+        } else {
+          elSel.dropdown.classList.add('custom-select_placeholder');
+        }
       });
     }
     elSel.el.addEventListener('modalClosed', function (e) {
@@ -4355,6 +4401,8 @@ var initMap = function initMap() {
     }, _callee);
   })));
 };
+// EXTERNAL MODULE: ./src/js/component/categories.js
+var categories = __webpack_require__(220);
 ;// CONCATENATED MODULE: ./src/js/component/index.js
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }

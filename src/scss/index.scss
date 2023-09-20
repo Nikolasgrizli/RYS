@@ -664,3 +664,16 @@ img{
 	top: 0;
 	left: 0;
 }
+
+
+.desktop-visible{
+	@include r(1023){
+		display: none !important;
+	}
+}
+
+.mobile-visible{
+	@include rmin(1024){
+		display: none !important;
+	}
+}

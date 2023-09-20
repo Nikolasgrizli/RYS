@@ -9,6 +9,7 @@ import './audio';
 import './slider';
 import {initMap} from './map';
 // import './testChars';
+import './categories';
 
 const mapSimple = document.getElementById('mapSimple');
 const mapFilter = document.getElementById('mapFilter');

@@ -159,6 +159,10 @@ include ../components/index
 		return 4294967296 * (2097151 & h2) + (h1>>>0);
 	};
 -
+	const generateUniqueHash = function() {
+		return Math.random().toString(36).substring(2, 10);
+	}
+-
 	const getRandomArbitrary = function(min, max){
 		return Math.floor(Math.random() * (max - min) + min);
 	}
