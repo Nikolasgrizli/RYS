@@ -25,10 +25,10 @@
 
 @import 'lib/index';
 
-html,
-body {
-	height: 100%;
-}
+// html,
+// body {
+// 	height: 100%;
+// }
 
 
 html {
@@ -69,6 +69,9 @@ html {
 		background-color: var(--color-border);
 		border-radius: 12px;
 	}
+	&:has(.modal-open) {
+		overflow: hidden;
+	}
 }
 
 
@@ -91,10 +94,12 @@ body {
     -webkit-tap-highlight-color: transparent;
 	scrollbar-gutter: stable;
 
-	&.menu-open {
+	&.menu-open,
+	&.modal-open {
 		overflow: hidden;
 	}
 }
+
 
 
 :target{

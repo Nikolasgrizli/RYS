@@ -1,6 +1,31 @@
 extends ./layout/main.pug
 
 block content
+
+	mixin tags()
+		.categories__tags.tags&attributes(attributes)
+			.tags__inner
+				button.tag.tag_reset: span.text Скинути всі
+				button.tag.tag_text
+					+icon('text').icon
+					span.text паска
+					+icon('close').icon-close
+				button.tag.tag_map
+					+icon('marker').icon
+					span.text Балаклія
+					+icon('close').icon-close
+				button.tag.tag_category
+					+icon('category').icon
+					span.text Ворожіння на Андрія
+					+icon('close').icon-close
+				button.tag.tag_category
+					+icon('category').icon
+					span.text Родинні Традиції
+					+icon('close').icon-close
+				button.tag.tag_category
+					+icon('category').icon
+					span.text Передвесільні обряди
+					+icon('close').icon-close
 	mixin rubric(title,child=true)
 		-
 			let id = generateUniqueHash()
@@ -77,61 +102,57 @@ block content
 										span Категорії
 
 									.sidebar__rubricator.rubricator
-										.rubricator__title-general Оберіть рубрику
-										+rubric('Народний Календар')
-											+rubric('Календар 1')
-												+rubric('sub Календар 1 1')
-													+rubric('sub sub Календар 1 1 1', false)
-													+rubric('sub sub Календар 1 1 2', false)
-											+rubric('Календар 2', false)
-											+rubric('Календар 3', false)
-										+rubric('Родинні Традиції')
-											+rubric('Весілля')
-												+rubric('Передвесільні обряди', false)
-												+rubric('Весільна неділя')
-													+rubric('Весільни чини', false)
-													+rubric('Обсипання', false)
-													+rubric('“світильник” (“меч”, “шабля”)', false)
-											+rubric('Вагітність', false)
-										+rubric('Народний Календар')
-											+rubric('Календар 1')
-												+rubric('sub Календар 1 1', false)
-												+rubric('sub Календар 1 2', false)
-											+rubric('Календар 2', false)
-											+rubric('Календар 3', false)
-										+rubric('Родинні Традиції')
-											+rubric('Весілля')
-												+rubric('Передвесільні обряди', false)
-												+rubric('Весільна неділя')
-													+rubric('Весільни чини', false)
-													+rubric('Обсипання', false)
-													+rubric('“світильник” (“меч”, “шабля”)', false)
-											+rubric('Вагітність', false)
+										.rubricator__inner
+											.rubricator__top-part
+												button.rubricator__back-link.js-rubricator-back
+													+icon('arrow-back')
+												.rubricator__title-general.r-title
+													.r-title__inner.js-rubricator-title
+														span.r-title__original Оберіть рубрики
+														span.r-title__child Test
+												+tags().rubricator__tags
+
+
+											.rubricator__scroll-part
+												+rubric('Народний Календар')
+													+rubric('Календар 1')
+														+rubric('sub Календар 1 1')
+															+rubric('sub sub Календар 1 1 1', false)
+															+rubric('sub sub Календар 1 1 2', false)
+													+rubric('Календар 2', false)
+													+rubric('Календар 3', false)
+												+rubric('Родинні Традиції')
+													+rubric('Весілля')
+														+rubric('Передвесільні обряди', false)
+														+rubric('Весільна неділя')
+															+rubric('Весільни чини', false)
+															+rubric('Обсипання', false)
+															+rubric('“світильник” (“меч”, “шабля”)', false)
+													+rubric('Вагітність', false)
+												+rubric('Народний Календар')
+													+rubric('Календар 1')
+														+rubric('sub Календар 1 1', false)
+														+rubric('sub Календар 1 2', false)
+													+rubric('Календар 2', false)
+													+rubric('Календар 3', false)
+												+rubric('Родинні Традиції')
+													+rubric('Весілля')
+														+rubric('Передвесільні обряди', false)
+														+rubric('Весільна неділя')
+															+rubric('Весільни чини', false)
+															+rubric('Обсипання', false)
+															+rubric('“світильник” (“меч”, “шабля”)', false)
+													+rubric('Вагітність', false)
+
+											.rubricator__bottom-part
+												button.btn.btn_transparent.js-rubricator-reset(type="button")
+													span Скинути
+												button.btn.btn_main.js-rubricator-apply(type="button")
+													span Застосувати
+
 
 							.categories__right
-								.categories__tags.tags
-									.tags__inner
-										button.tag.tag_reset: span.text Скинути всі
-										button.tag.tag_text
-											+icon('text').icon
-											span.text паска
-											+icon('close').icon-close
-										button.tag.tag_map
-											+icon('marker').icon
-											span.text Балаклія
-											+icon('close').icon-close
-										button.tag.tag_category
-											+icon('category').icon
-											span.text Ворожіння на Андрія
-											+icon('close').icon-close
-										button.tag.tag_category
-											+icon('category').icon
-											span.text Родинні Традиції
-											+icon('close').icon-close
-										button.tag.tag_category
-											+icon('category').icon
-											span.text Передвесільні обряди
-											+icon('close').icon-close
+								+tags().result__tags
 
 								.categories__result.result
 									ul.result__inner

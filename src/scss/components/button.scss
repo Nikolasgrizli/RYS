@@ -15,9 +15,8 @@
 	line-height: 1;
 	min-height: em(68);
 	min-width: em(200);
-	letter-spacing: 0.05em;
-	font-weight: 800;
-	border-radius: 5px;
+	font-weight: 400;
+	border-radius: 0;
 	text-decoration: none;
 }
 
@@ -26,12 +25,20 @@
 .btn {
 	@extend %button;
 
-	&_primary {
+	&_main {
 		color: var(--color-bg);
 		background-color: var(--color-main);
-		border-radius: 10rem;
 		&:hover {
-			background-color: var(--color-main_dark);
+			background-color: var(-color-main);
+		}
+	}
+	&_transparent {
+		color: var(--color-text);
+		background-color: var(--color-bg);
+		border: 1px solid;
+		&:hover {
+			color: var(--color-bg);
+			background-color: var(--color-main);
 		}
 	}
 
