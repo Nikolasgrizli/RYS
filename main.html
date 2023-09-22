@@ -34,7 +34,7 @@
   <body class="body">
     <div class="layout">
       <div class="layout__header">
-        <div class="header">
+        <div class="header header_transparent">
           <div class="header__container"><a class="logo-site" href="/"><img src="assets/img/logos/logo.svg" alt="" width="320" height="59"></a>
             <nav class="header__nav">
               <ul class="nav nav-header">
@@ -48,40 +48,122 @@
           </div>
         </div>
       </div>
-      <div class="layout__main">
+      <div class="layout__main layout_main--noGap">
         <main class="main">
-          <div class="page-content">
-            <section>
-              <div class="container">
-                <div class="category">
-                  <div class="category__left">
-                    <div class="breadcrumbs__wrapper">
-                      <div class="breadcrumbs__container">
-                        <ol class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
-                          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="/blog.html" itemid="/"><span itemprop="name">News Feed</span></a>
-                            <meta itemprop="position" content="1">
-                          </li>
-                          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><span itemprop="name">Весілля</span>
-                            <meta itemprop="position" content="2">
-                          </li>
-                        </ol>
-                      </div>
-                    </div>
-                    <h1>Весілля</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, aliquam! Sapiente dolorem suscipit, aperiam, deleniti reprehenderit commodi, id hic minima eos labore aliquid harum sint perferendis odio itaque eveniet architecto.</p>
-                    <p>ipsum dolor sit amet consectetur adipisicing elit. Enim, aliquam! Sapiente dolorem suscipit, aperiam, deleniti reprehenderit commodi, id</p>
+          <div class="page-content page-content_index-page">
+            <div class="main-sections">
+              <section class="mainPage mainPage_1">
+                <div class="mainPage__container">
+                  <div class="mainPage__content">
+                    <h1 class="mainPage__title">Цифровий Архів Етнографічних Матеріалів Слобожанщини та Полтавщини</h1>
+                    <p class="mainPage__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu</p><a class="btn btn_main" href="#"><i class="icon"><svg class="svg-icon icon-search">
+                          <use xlink:href="#search"></use>
+                        </svg></i><span>Шукати розповіді</span></a>
                   </div>
-                  <div class="category__right">
-                    <figure class="text-center" data-mfp-src="">
-                      <picture>
-                        <source type="image/webp" srcset="assets/img/articles/demo2.webp"><img src="assets/img/articles/demo2.jpg" data-src="assets/img/articles/demo2.jpg" alt="" loading="lazy" draggable="false" width="765" height="581">
-                      </picture>
-                      <figcaption>Микола Бодаревський. “Весілля”.</figcaption>
-                    </figure>
+                  <div class="mainPage__image">
+                    <div class="img-shadow">
+                      <figure class="text-center" data-mfp-src="">
+                        <picture>
+                          <source type="image/webp" srcset="assets/img/articles/main_1.webp"><img src="assets/img/articles/main_1.jpg" data-src="assets/img/articles/main_1.jpg" alt="" loading="lazy" draggable="false" width="960" height="960">
+                        </picture>
+                      </figure>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </section>
+              </section>
+              <section class="mainPage mainPage_2">
+                <div class="mainPage__container">
+                  <div class="mainPage__image">
+                    <div class="img-shadow">
+                      <figure class="text-center" data-mfp-src="">
+                        <picture>
+                          <source type="image/webp" srcset="assets/img/articles/main_2.webp"><img src="assets/img/articles/main_2.jpg" data-src="assets/img/articles/main_2.jpg" alt="" loading="lazy" draggable="false" width="960" height="960">
+                        </picture>
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="mainPage__content">
+                    <h2 class="h1 mainPage__title">Як шукати</h2>
+                    <ul class="mainPage__links">
+                      <li><a href="#">
+                          <div class="icon"><svg class="svg-icon icon-event">
+                              <use xlink:href="#event"></use>
+                            </svg>
+                            <div class="text">За подією</div>
+                          </div>
+                        </a></li>
+                      <li><a href="#">
+                          <div class="icon"><svg class="svg-icon icon-place">
+                              <use xlink:href="#place"></use>
+                            </svg>
+                            <div class="text">За місцем</div>
+                          </div>
+                        </a></li>
+                      <li><a href="#">
+                          <div class="icon"><svg class="svg-icon icon-seasons">
+                              <use xlink:href="#seasons"></use>
+                            </svg>
+                            <div class="text">За порою року</div>
+                          </div>
+                        </a></li>
+                      <li><a href="#">
+                          <div class="icon"><svg class="svg-icon icon-rubric">
+                              <use xlink:href="#rubric"></use>
+                            </svg>
+                            <div class="text">За каталогом</div>
+                          </div>
+                        </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+              <section class="mainPage mainPage_3">
+                <div class="mainPage__container">
+                  <div class="mainPage__content">
+                    <h2 class="h1 mainPage__title">Випадкова Розповідь</h2>
+                    <div class="mainPage__story storyPreview">
+                      <h3 class="storyPreview__title">Жнива</h3>
+                      <div class="storyPreview__place"><svg class="svg-icon">
+                          <use xlink:href="#marker"></use>
+                        </svg><span class="text">Село Михайлівка Котелевського району Полтавської області</span></div>
+                      <div class="storyPreview__teller">Розповіла Близнюк Віра Пилипівна (1926 р.н.) у 1996 році</div>
+                      <div class="storyPreview__text">
+                        <div class="storyPreview__icon"><svg class="svg-icon">
+                            <use xlink:href="#quotes"></use>
+                          </svg></div>
+                        <p>– Ото батько косе з утра, мама пов’яже, у стайки покладуть. А тоді вносять його в двір, простиляють шось чи змазують харашо землю і молотять тоді. Так це щє помню, як батько віяв.</p>
+                        <p><strong>– Чим молотили, ціпом?</strong></p>
+                        <p>– Ціпами.</p>
+                      </div>
+                    </div><a class="btn btn_transparent" href="#"><span>читати далі</span><i class="icon"><svg class="svg-icon icon-arrow">
+                          <use xlink:href="#arrow-right"></use>
+                        </svg></i></a>
+                  </div>
+                  <div class="mainPage__image">
+                    <div class="img-shadow">
+                      <figure class="text-center" data-mfp-src="">
+                        <picture>
+                          <source type="image/webp" srcset="assets/img/articles/main_3.webp"><img src="assets/img/articles/main_3.jpg" data-src="assets/img/articles/main_3.jpg" alt="" loading="lazy" draggable="false" width="960" height="960">
+                        </picture>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="mainPage mainPage_4">
+                <div class="mainPage__container">
+                  <div class="mainPage__image mainPage__image_map">
+                    <div class="map">
+                      <div class="googleMap" id="mapFilter" data-points="[{&quot;position&quot;:&quot;50.0474173,34.883056&quot;,&quot;title&quot;:&quot;Село Михайлівка Котелевського району Полтавської області&quot;},{&quot;position&quot;:&quot;50.0220034,34.1185991&quot;,&quot;title&quot;:&quot;Село Чернещина району Полтавської області&quot;},{&quot;position&quot;:&quot;49.821966,34.327104&quot;,&quot;title&quot;:&quot;Село Нелюбовка Полтавської області&quot;},{&quot;position&quot;:&quot;49.8971653,34.3344312&quot;,&quot;title&quot;:&quot;Село Ордановка Полтавської області&quot;}]"></div>
+                    </div>
+                  </div>
+                  <div class="mainPage__content">
+                    <h2 class="h1 mainPage__title">Місця запису</h2>
+                    <p class="mainPage__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu</p>
+                  </div>
+                </div>
+              </section>
+            </div>
             <article>
               <div class="container">
                 <div class="categories" id="categoriesWrapper">
@@ -244,31 +326,31 @@
                             </div>
                             <div class="rubricator__scroll-part">
                               <div class="rubricator__item">
-                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_exsrn2dz" id="rubricator_exsrn2dz"><span class="pseudo"></span></label>
+                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_wfl2etjg" id="rubricator_wfl2etjg"><span class="pseudo"></span></label>
                                   <div class="rubricator__title">Народний Календар</div>
                                   <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                 </div>
                                 <div class="rubricator__child">
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_eafnpni9" id="rubricator_eafnpni9"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_aio8amy5" id="rubricator_aio8amy5"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Календар 1</div>
                                       <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                     </div>
                                     <div class="rubricator__child">
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_emfery6w" id="rubricator_emfery6w"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_u377ftjs" id="rubricator_u377ftjs"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">sub Календар 1 1</div>
                                           <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                         </div>
                                         <div class="rubricator__child">
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_xh2ua6hi" id="rubricator_xh2ua6hi"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_055wgzll" id="rubricator_055wgzll"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">sub sub Календар 1 1 1</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
                                           </div>
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_jnqbig26" id="rubricator_jnqbig26"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_3wmfwxy8" id="rubricator_3wmfwxy8"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">sub sub Календар 1 1 2</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
@@ -278,13 +360,13 @@
                                     </div>
                                   </div>
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_nxyfpi8c" id="rubricator_nxyfpi8c"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_zh5ug07q" id="rubricator_zh5ug07q"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Календар 2</div>
                                       <div class="rubricator__num">25</div>
                                     </div>
                                   </div>
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_nwqxae46" id="rubricator_nwqxae46"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_2nwlkv5z" id="rubricator_2nwlkv5z"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Календар 3</div>
                                       <div class="rubricator__num">25</div>
                                     </div>
@@ -292,43 +374,43 @@
                                 </div>
                               </div>
                               <div class="rubricator__item">
-                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_9su8es78" id="rubricator_9su8es78"><span class="pseudo"></span></label>
+                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_o4fgv1oj" id="rubricator_o4fgv1oj"><span class="pseudo"></span></label>
                                   <div class="rubricator__title">Родинні Традиції</div>
                                   <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                 </div>
                                 <div class="rubricator__child">
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_wysf62be" id="rubricator_wysf62be"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_snj8wver" id="rubricator_snj8wver"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Весілля</div>
                                       <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                     </div>
                                     <div class="rubricator__child">
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_r56kgmoe" id="rubricator_r56kgmoe"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_qkguo2zs" id="rubricator_qkguo2zs"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">Передвесільні обряди</div>
                                           <div class="rubricator__num">25</div>
                                         </div>
                                       </div>
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_3o6cfzzb" id="rubricator_3o6cfzzb"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_l2fjecb8" id="rubricator_l2fjecb8"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">Весільна неділя</div>
                                           <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                         </div>
                                         <div class="rubricator__child">
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_z1agho6g" id="rubricator_z1agho6g"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_blyju8zv" id="rubricator_blyju8zv"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">Весільни чини</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
                                           </div>
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_x06r0jaa" id="rubricator_x06r0jaa"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_pdgxc2i8" id="rubricator_pdgxc2i8"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">Обсипання</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
                                           </div>
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_e854pezv" id="rubricator_e854pezv"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_bvtybaiw" id="rubricator_bvtybaiw"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">“світильник” (“меч”, “шабля”)</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
@@ -338,7 +420,7 @@
                                     </div>
                                   </div>
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_s2tce62u" id="rubricator_s2tce62u"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_zxaua2ea" id="rubricator_zxaua2ea"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Вагітність</div>
                                       <div class="rubricator__num">25</div>
                                     </div>
@@ -346,25 +428,25 @@
                                 </div>
                               </div>
                               <div class="rubricator__item">
-                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_8l60fxy4" id="rubricator_8l60fxy4"><span class="pseudo"></span></label>
+                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_ofhbyug7" id="rubricator_ofhbyug7"><span class="pseudo"></span></label>
                                   <div class="rubricator__title">Народний Календар</div>
                                   <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                 </div>
                                 <div class="rubricator__child">
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_5e4ij4fe" id="rubricator_5e4ij4fe"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_70aigjya" id="rubricator_70aigjya"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Календар 1</div>
                                       <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                     </div>
                                     <div class="rubricator__child">
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_god4nm4w" id="rubricator_god4nm4w"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_e52kio16" id="rubricator_e52kio16"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">sub Календар 1 1</div>
                                           <div class="rubricator__num">25</div>
                                         </div>
                                       </div>
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_erfy2hnc" id="rubricator_erfy2hnc"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_3vwccsby" id="rubricator_3vwccsby"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">sub Календар 1 2</div>
                                           <div class="rubricator__num">25</div>
                                         </div>
@@ -372,13 +454,13 @@
                                     </div>
                                   </div>
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_0xz7vwv3" id="rubricator_0xz7vwv3"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_frydt31e" id="rubricator_frydt31e"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Календар 2</div>
                                       <div class="rubricator__num">25</div>
                                     </div>
                                   </div>
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_4k82ifvj" id="rubricator_4k82ifvj"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_5a1uv4t6" id="rubricator_5a1uv4t6"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Календар 3</div>
                                       <div class="rubricator__num">25</div>
                                     </div>
@@ -386,43 +468,43 @@
                                 </div>
                               </div>
                               <div class="rubricator__item">
-                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_pjdzm0jv" id="rubricator_pjdzm0jv"><span class="pseudo"></span></label>
+                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_01vn0hi0" id="rubricator_01vn0hi0"><span class="pseudo"></span></label>
                                   <div class="rubricator__title">Родинні Традиції</div>
                                   <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                 </div>
                                 <div class="rubricator__child">
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_7fkl1k0e" id="rubricator_7fkl1k0e"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_dceq4gfe" id="rubricator_dceq4gfe"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Весілля</div>
                                       <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                     </div>
                                     <div class="rubricator__child">
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_3fn8utjs" id="rubricator_3fn8utjs"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_7khysxen" id="rubricator_7khysxen"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">Передвесільні обряди</div>
                                           <div class="rubricator__num">25</div>
                                         </div>
                                       </div>
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_dnm5gvj6" id="rubricator_dnm5gvj6"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_v2lhff05" id="rubricator_v2lhff05"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">Весільна неділя</div>
                                           <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                         </div>
                                         <div class="rubricator__child">
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_b5cjpdj9" id="rubricator_b5cjpdj9"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_8n0360d5" id="rubricator_8n0360d5"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">Весільни чини</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
                                           </div>
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_tq5ua8lb" id="rubricator_tq5ua8lb"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_qdvp4yl9" id="rubricator_qdvp4yl9"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">Обсипання</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
                                           </div>
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_9ocnrjfp" id="rubricator_9ocnrjfp"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_hhyvu7z9" id="rubricator_hhyvu7z9"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">“світильник” (“меч”, “шабля”)</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
@@ -432,7 +514,7 @@
                                     </div>
                                   </div>
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_b2z0cxly" id="rubricator_b2z0cxly"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_lwdf24h5" id="rubricator_lwdf24h5"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Вагітність</div>
                                       <div class="rubricator__num">25</div>
                                     </div>
