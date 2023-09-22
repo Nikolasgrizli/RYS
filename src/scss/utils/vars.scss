@@ -28,8 +28,6 @@ $transition-base: 0.33s cubic-bezier(.23, 1, .32, 1);
 $transition-slow: .6s cubic-bezier(0.08, 1.00, 0.21, 1.00);
 
 
-
-
 :root {
 	//main
 	--h1Size: 5rem;
@@ -38,7 +36,8 @@ $transition-slow: .6s cubic-bezier(0.08, 1.00, 0.21, 1.00);
 	--h4Size: 2.4rem;
 	--h5Size: 2.1rem;
 	--h6Size: 1.8rem;
-
+	--checkbox-size: 1.25em;
+	--child-gap: 1em;
 
 	@media (max-width: 1023px) {
 		--h1Size: clamp(4rem, 9vw, 5rem);

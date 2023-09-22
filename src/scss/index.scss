@@ -184,6 +184,9 @@ strong,
 		@include rmin(768){
 			padding-top: 10rem;
 		}
+		&.layout_main--noGap{
+			padding-top: 0;
+		}
 	}
 }
 
@@ -680,5 +683,14 @@ img{
 .mobile-visible{
 	@include rmin(1024){
 		display: none !important;
+	}
+}
+
+
+
+.page-content {
+	padding-top: 4rem;
+	&_index-page {
+		padding-top: 0;
 	}
 }

@@ -1,7 +1,7 @@
 mixin header(data)
 	- data = data || {}
 
-	.header
+	.header(class=headerClass)
 		.header__container
 			a.logo-site(href="/")
 				img(src=`${pathPrefix}img/logos/logo.svg`, alt="", width="320" height="59")

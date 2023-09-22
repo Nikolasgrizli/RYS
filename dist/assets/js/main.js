@@ -1152,6 +1152,7 @@ function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;
     (function (Date, ProjectTitle, date, day, filledPages, iframeSrc, month, pages) {
       var ProjectTitle = 'Project'
 var pages = [
+	'main',
 	'category',
 	'story',
 ]
@@ -1919,6 +1920,28 @@ var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WE
 
 /***/ }),
 
+/***/ 81:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "event",
+  "use": "event-usage",
+  "viewBox": "0 0 72 72",
+  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 72 72\" id=\"event\"><path d=\"M32.64 43.428c3.868 4.385 6.928 9.098 7.684 12.665l-6.332 2.252c-1.678-3.665-4.905-7.94-8.59-11.757-3.82-3.682-8.095-6.908-11.763-8.585l2.253-6.329c3.725.79 8.7 4.085 13.244 8.19m14.827-17.56 4.436-5.333a1.452 1.452 0 0 1 2.048 0l4.523 4.516a1.45 1.45 0 0 1 0 2.047L39.6 36.298m-3.972-3.966 5.128-6.164m-9.646 2.564c4.77-7.66 3.264-14.996 2.15-19.524-1.357-5.523-9.037-4.212-7.467 1.631 1.337 4.985 1.92 8.918.983 15.234m16.57 14.922c7.808-4.212 14.963-2.359 19.387-1.031 5.452 1.635 3.754 9.234-2.007 7.372-4.773-1.545-8.593-2.326-14.641-1.804m-8.36-11.26c-7.853-7.582-17.655-13.22-20.057-7.438-.028.065-.259.69-.435 1.076L4.959 62.393c-.703 1.98-.493 3.456.42 4.208.752.908 2.228 1.122 4.21.42L44.09 54.753c.387-.177 1.012-.407 1.078-.436 5.785-2.4.143-12.197-7.443-20.046ZM18.36 53.627c2.471 2.56 4.737 5.326 6.468 7.977l-7.212 2.56a60.716 60.716 0 0 0-4.54-5.256 60.718 60.718 0 0 0-5.258-4.537l2.561-7.208c2.652 1.73 5.42 3.995 7.981 6.465ZM59.386 1.93l-.88 3.094c-.099.337-.095.44-.428.625l-2.952 1.627c-.571.317-.563.469-.016.83l2.693 1.903c.288.206.399.502.469.88l.571 3.094c.099.65.251.69.773.296l2.471-1.903c.255-.197.712-.32 1.032-.275l3.088.41c.654.083.76-.028.527-.64l-1.057-2.967c-.128-.362-.177-.67-.029-.995l1.377-2.996c.292-.583.227-.719-.431-.706l-3.368.065c-.382.004-.431-.086-.682-.329l-2.311-2.24c-.469-.451-.666-.398-.847.227Zm-11.92 2.342-4.112-2.375c-.464-.267-1.15-.144-1.336.362l-2.24 6.049c-.19.505-.108 1.068.357 1.335l2.228 1.29c.47.268.995.054 1.337-.36l4.124-4.965c.345-.415.11-1.069-.358-1.336Zm15.958 15.72h6.225c.707 0 1.402.587 1.283 1.281l-1.423 8.339c-.12.694-.58 1.282-1.283 1.282H64.85c-.707 0-1.163-.588-1.283-1.282l-1.426-8.338c-.12-.695.58-1.283 1.283-1.283Zm-61.376 2.1L8.06 20.48c.683-.185 1.505.206 1.571.904l.785 8.425c.066.703-.226 1.389-.908 1.57l-3.26.875c-.683.18-1.275-.267-1.571-.908L1.139 23.66c-.296-.641.227-1.389.91-1.57ZM52.634 66.17l-4.054 4.052c-.46.46-1.295.53-1.669 0l-4.506-6.358c-.379-.53-.461-1.212 0-1.672l2.195-2.195c.46-.46 1.143-.378 1.674 0l6.36 4.504c.53.374.461 1.208 0 1.669ZM14.59 2.102l.958 3.358c.107.366.102.477.464.678l3.203 1.767c.621.341.613.506.021.9l-2.924 2.067c-.316.222-.435.543-.514.954l-.616 3.357c-.111.703-.276.748-.843.32l-2.677-2.066c-.28-.214-.773-.346-1.122-.3l-3.351.447c-.708.09-.827-.032-.572-.694l1.147-3.218c.14-.394.193-.731.033-1.08L6.3 5.34c-.32-.637-.246-.785.465-.769l3.66.07c.415.008.464-.09.74-.357l2.508-2.43c.51-.492.723-.435.917.247Zm48.794 49.713-1.797 3c-.198.329-.222.436-.625.535l-3.557.879c-.69.172-.724.333-.25.867l2.29 2.758c.246.295.28.636.246 1.052l-.271 3.41c-.078.707.07.793.732.526l3.125-1.302c.329-.136.839-.136 1.163 0l3.13 1.303c.657.266.805.18.731-.527l-.275-3.41c-.033-.416 0-.757.246-1.053l2.295-2.757c.472-.534.436-.694-.255-.867l-3.557-.88c-.403-.098-.427-.205-.625-.534l-1.797-3c-.361-.608-.583-.608-.95 0Z\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
 /***/ 459:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -2029,6 +2052,28 @@ var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WE
 
 /***/ }),
 
+/***/ 547:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "place",
+  "use": "place-usage",
+  "viewBox": "0 0 72 72",
+  "content": "<symbol xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 72 72\" id=\"place\"><path d=\"M35.209 63.219a.986.986 0 0 0 .778.398H36a.984.984 0 0 0 .774-.377c.815-1.04 19.941-25.622 19.941-41.19a20.715 20.715 0 1 0-41.43 0c0 5.962 3.364 14.717 10 26.02 4.903 8.352 9.875 15.082 9.924 15.149Zm.79-59.916A18.767 18.767 0 0 1 54.747 22.05c0 13.145-15.061 34.042-18.726 38.93-3.62-5.077-18.767-27.011-18.767-38.93A18.767 18.767 0 0 1 36 3.303Z\" /><path d=\"M47.908 22.05A11.909 11.909 0 1 0 36 33.958 11.921 11.921 0 0 0 47.908 22.05ZM36 31.99a9.939 9.939 0 1 1 9.94-9.94A9.95 9.95 0 0 1 36 31.99Zm10.037 24.916a.985.985 0 0 0-.24 1.955c8.476 1.04 11.218 3.002 11.218 3.789 0 1.477-7.417 4.354-21.015 4.354s-21.015-2.879-21.015-4.354c0-.844 2.69-2.57 9.907-3.614a.985.985 0 0 0-.281-1.95c-5.288.766-11.594 2.352-11.594 5.564 0 4.639 13.744 6.322 22.983 6.322 9.24 0 22.984-1.683 22.984-6.322 0-3.615-8.112-5.15-12.947-5.744Z\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
 /***/ 541:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -2051,6 +2096,50 @@ var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WE
 
 /***/ }),
 
+/***/ 294:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "quotes",
+  "use": "quotes-usage",
+  "viewBox": "0 0 117 96",
+  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 117 96\" id=\"quotes\"><path d=\"M88.316 0c5.536 0 10.065 1.143 13.587 3.429a28.706 28.706 0 0 1 8.681 8.761c2.516 4.318 4.277 8.762 5.284 13.334.755 4.825 1.132 8.762 1.132 11.81 0 12.444-3.145 23.745-9.435 33.904C101.274 81.397 91.461 89.651 78.125 96l-3.396-6.857c7.8-3.302 14.594-8.508 20.38-15.62 5.536-7.11 8.304-14.348 8.304-21.713 0-3.048-.378-5.715-1.132-8-4.026 3.301-8.681 4.952-13.965 4.952-6.542 0-12.203-2.159-16.984-6.476-4.78-4.318-7.17-10.286-7.17-17.905 0-7.111 2.39-12.952 7.17-17.524C76.112 2.286 81.774 0 88.316 0ZM24.155 0c5.535 0 10.064 1.143 13.587 3.429a28.704 28.704 0 0 1 8.68 8.761c2.517 4.318 4.278 8.762 5.285 13.334.754 4.825 1.132 8.762 1.132 11.81 0 12.444-3.145 23.745-9.436 33.904C37.113 81.397 27.3 89.651 13.965 96l-3.397-6.857c7.8-3.302 14.593-8.508 20.38-15.62 5.536-7.11 8.304-14.348 8.304-21.713 0-3.048-.378-5.715-1.133-8-4.025 3.301-8.68 4.952-13.964 4.952-6.542 0-12.203-2.159-16.984-6.476C2.391 37.968 0 32 0 24.38c0-7.11 2.39-12.951 7.171-17.523C11.951 2.286 17.613 0 24.155 0Z\" fill=\"#333\" fill-opacity=\".06\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
+/***/ 120:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "rubric",
+  "use": "rubric-usage",
+  "viewBox": "0 0 72 72",
+  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 72 72\" id=\"rubric\"><rect x=\"8\" y=\"7\" width=\"38\" height=\"38\" rx=\"3\" /><path d=\"M46 16h6a4 4 0 0 1 4 4v32a4 4 0 0 1-4 4H20a4 4 0 0 1-4-4v-6.91\" /><path d=\"M57 27h6a4 4 0 0 1 4 4v32a4 4 0 0 1-4 4H31a4 4 0 0 1-4-4v-6.91\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
 /***/ 782:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -2066,7 +2155,29 @@ var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMP
   "id": "search",
   "use": "search-usage",
   "viewBox": "0 0 19 19",
-  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 19 19\" id=\"search\"><path d=\"m17.69 16.731-2.762-2.762a8.098 8.098 0 1 0-.96.96l2.763 2.762a.678.678 0 0 0 .96-.96Zm-8.93-1.248a6.724 6.724 0 1 1 6.723-6.723 6.731 6.731 0 0 1-6.723 6.723Z\" fill=\"#000\" /></symbol>"
+  "content": "<symbol xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 19 19\" id=\"search\"><path d=\"m17.69 16.731-2.762-2.762a8.098 8.098 0 1 0-.96.96l2.763 2.762a.678.678 0 0 0 .96-.96Zm-8.93-1.248a6.724 6.724 0 1 1 6.723-6.723 6.731 6.731 0 0 1-6.723 6.723Z\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "seasons",
+  "use": "seasons-usage",
+  "viewBox": "0 0 72 72",
+  "content": "<symbol xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 72 72\" id=\"seasons\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M46.555 7.017a1.272 1.272 0 1 0 2.544 0V1.928a1.272 1.272 0 0 0-2.544 0v5.089ZM33.833 24.828c0 7.729 6.266 13.994 13.995 13.994 7.725-.009 13.985-6.269 13.994-13.994 0-7.729-6.266-13.994-13.994-13.994-7.73 0-13.995 6.265-13.995 13.994Zm2.545 0c0-6.323 5.126-11.45 11.45-11.45 6.32.008 11.442 5.13 11.45 11.45 0 6.324-5.127 11.45-11.45 11.45-6.324 0-11.45-5.126-11.45-11.45Zm10.177 22.9v-5.089a1.272 1.272 0 1 1 2.544 0v5.089a1.272 1.272 0 1 1-2.544 0ZM30.017 26.1a1.272 1.272 0 0 0 0-2.545h-5.09a1.272 1.272 0 0 0 0 2.545h5.09Zm40.71 0H65.64a1.272 1.272 0 0 1 0-2.545h5.089a1.272 1.272 0 0 1 0 2.545ZM59.539 13.118c.491.49 1.285.498 1.784.015l3.599-3.599a1.272 1.272 0 0 0-1.799-1.799l-3.599 3.6a1.273 1.273 0 0 0 .015 1.783ZM31.636 42.293a1.272 1.272 0 0 1-.9-2.172l3.6-3.599a1.272 1.272 0 0 1 1.798 1.799l-3.599 3.599a1.273 1.273 0 0 1-.9.373Zm2.698-29.16a1.273 1.273 0 0 0 1.8-1.798l-3.6-3.6a1.272 1.272 0 1 0-1.799 1.798l3.6 3.6ZM63.121 41.92l-3.6-3.599a1.272 1.272 0 0 1 1.8-1.799l3.599 3.6a1.272 1.272 0 1 1-1.8 1.798ZM24.357 52.936a23.085 23.085 0 0 1-8.16-26.495 1.661 1.661 0 0 0-.451-1.803 1.62 1.62 0 0 0-1.8-.257 24.717 24.717 0 0 0 10.769 46.963 24.658 24.658 0 0 0 21.51-12.527 1.62 1.62 0 0 0-.14-1.812 1.665 1.665 0 0 0-1.776-.569 23.086 23.086 0 0 1-19.952-3.5Zm-.424 16.747c-11.888-.467-21.497-9.85-22.246-21.725a23.042 23.042 0 0 1 12.981-22.094 24.413 24.413 0 0 0-1.469 9.242 24.734 24.734 0 0 0 31.568 22.913 22.957 22.957 0 0 1-20.834 11.664Z\" /></symbol>"
 });
 var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
 /* harmony default export */ __webpack_exports__["default"] = (symbol);
@@ -3141,13 +3252,18 @@ var map = {
 	"./category.svg": 102,
 	"./close.svg": 174,
 	"./disclaimer.svg": 809,
+	"./event.svg": 81,
 	"./fb.svg": 459,
 	"./insta.svg": 534,
 	"./marker.svg": 783,
 	"./mute.svg": 752,
 	"./pause.svg": 329,
+	"./place.svg": 547,
 	"./play.svg": 541,
+	"./quotes.svg": 294,
+	"./rubric.svg": 120,
 	"./search.svg": 782,
+	"./seasons.svg": 7,
 	"./text.svg": 734,
 	"./volume.svg": 105
 };
@@ -4408,7 +4524,7 @@ function setFilteredPlace(town) {
 var initMap = function initMap() {
   loader.load().then( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
     var _markerIcon;
-    var _yield$google$maps$im, Map, markerIcon, mapSimpleElement, mapFilterElement, mapSimplePosition, placeInfo, mapSimple, markerMapSimple;
+    var _yield$google$maps$im, Map, markerIcon, mapSimpleElement, mapFilterElement, mapSimplePosition, placeInfo, mapSimple, markerMapSimple, points, markers, mapFilter, bounds;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
@@ -4444,7 +4560,30 @@ var initMap = function initMap() {
             // 	setFilteredPlace(town);
             // });
           }
-        case 8:
+          if (mapFilterElement) {
+            points = JSON.parse(mapFilterElement.dataset.points);
+            markers = [];
+            mapFilter = new Map(mapFilterElement, mapOptions);
+            points.forEach(function (point) {
+              var position = point.position.split(',');
+              var markerMapFilter = new google.maps.Marker({
+                position: {
+                  lat: +position[0],
+                  lng: +position[1]
+                },
+                map: mapFilter,
+                title: point.title,
+                icon: markerIcon
+              });
+              markers.push(markerMapFilter);
+            });
+            bounds = new google.maps.LatLngBounds();
+            markers.forEach(function (marker) {
+              bounds.extend(marker.getPosition());
+            });
+            mapFilter.fitBounds(bounds);
+          }
+        case 9:
         case "end":
           return _context.stop();
       }

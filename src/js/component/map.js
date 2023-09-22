@@ -279,8 +279,30 @@ export const initMap = ()=> {
 			// });
 		}
 
+		if(mapFilterElement) {
+			const points = JSON.parse(mapFilterElement.dataset.points);
+			const markers = [];
 
+			const mapFilter = new Map(mapFilterElement, mapOptions);
 
+			points.forEach(point => {
+				const position = point.position.split(',');
+				const markerMapFilter = new google.maps.Marker({
+					position: { lat: +position[0], lng:  +position[1] },
+					map: mapFilter,
+					title: point.title,
+					icon: markerIcon
+				});
+				markers.push(markerMapFilter);
+			});
+
+			const bounds = new google.maps.LatLngBounds();
+
+			markers.forEach((marker) => {
+				bounds.extend(marker.getPosition());
+			});
+			mapFilter.fitBounds(bounds);
+		}
 	});
 
 }

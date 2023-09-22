@@ -41,7 +41,16 @@
 			background-color: var(--color-main);
 		}
 	}
-
+	.icon-search{
+		width: 1em;
+		height: 1em;
+		margin-right: 0.5em;
+	}
+	.icon-arrow{
+		width: 2em;
+		height: 1em;
+		margin-left: 0.5em;
+	}
 
 	&_disabled {
 		background-color: var(--color-border_dark);

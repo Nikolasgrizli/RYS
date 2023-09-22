@@ -136,7 +136,9 @@ include ../components/index
 		]
 	}
 
-
+-
+	var headerClass = '';
+	var layoutClass = '';
 
 
 //- helpers functions
@@ -195,10 +197,9 @@ html(lang= $LOCALE)
 				if headerVisible
 					+header()
 				block header
-			.layout__main
+			.layout__main(class=layoutClass)
 				//- +dayNight()
-				main
-					block content
+				block content
 				+toTopBtn()
 			.layout__footer
 				if footerVisible

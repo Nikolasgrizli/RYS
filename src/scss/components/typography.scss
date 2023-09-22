@@ -14,7 +14,7 @@ h6,
 	font-family: $title-font;
 	font-style: normal;
 	line-height: 1.25;
-
+	text-wrap: balance;
 	&:first-child {
 		margin-top: 0;
 	}

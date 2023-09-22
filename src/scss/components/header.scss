@@ -4,6 +4,30 @@
 	color: var(--color-text);
 	// border-bottom: 1px solid rgba(255,255,255,.2);
 	box-shadow: 0px 15px 15px 0px rgba(12, 11, 13, 0.03);
+	&.header_transparent{
+		box-shadow: none;
+		background: linear-gradient(
+			  to bottom,
+			  hsl(0, 0%, 100%) 0%,
+			  hsla(0, 0%, 100%, 0.991) 8.6%,
+			  hsla(0, 0%, 100%, 0.965) 17.5%,
+			  hsla(0, 0%, 100%, 0.925) 26.5%,
+			  hsla(0, 0%, 100%, 0.872) 35.6%,
+			  hsla(0, 0%, 100%, 0.807) 44.6%,
+			  hsla(0, 0%, 100%, 0.734) 53.3%,
+			  hsla(0, 0%, 100%, 0.654) 61.7%,
+			  hsla(0, 0%, 100%, 0.57) 69.6%,
+			  hsla(0, 0%, 100%, 0.482) 76.9%,
+			  hsla(0, 0%, 100%, 0.393) 83.4%,
+			  hsla(0, 0%, 100%, 0.304) 89%,
+			  hsla(0, 0%, 100%, 0.219) 93.6%,
+			  hsla(0, 0%, 100%, 0.139) 97.1%,
+			  hsla(0, 0%, 100%, 0.065) 99.2%,
+			  hsla(0, 0%, 100%, 0) 100%
+			);
+
+
+	}
 	@include r($menuMob - 1) {
 		.menu-open & {
 			position: relative;
