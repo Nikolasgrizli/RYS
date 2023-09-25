@@ -1,0 +1,38 @@
+extends ./layout/main.pug
+
+block variables
+
+
+block content
+	main.main
+		.page-content
+			section
+				.container
+					+breadcrumbs([{name: 'Події'}])
+					h1 Події
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu
+					-
+						let events = [
+							'Різдво',
+							'Весілля',
+							'Похорон',
+							'Хрестини',
+							'Великдень',
+							'Івана Купала',
+							'Масляна',
+							'Проводи в армію'
+						]
+					ul.events
+						each event, i in events
+							li.events__item
+								a(href="#").events__link
+									-
+										let figureImg= {
+											name:   `demo${i+1}`,
+											ext:    'jpg',
+											w:      420,
+											h:      310,
+										}
+									+figureImg(figureImg)
+									h3.h4.events__title
+										| #{event}

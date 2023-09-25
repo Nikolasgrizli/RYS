@@ -178,21 +178,39 @@
 }
 
 @mixin aspect-ratio($w, $h, $pseudo: false) {
-	$padding: unquote($h / $w * 100 + '%');
-	position: relative;
 
-	@if $pseudo {
-		&::before {
-			content: "";
-			display: block;
-			width: 100%;
-			padding-top: $padding;
-		}
-	}
+    $padding: unquote(($h / $w) * 100 + '%');
+    position: relative;
 
-	@else {
-		padding-top: $padding;
-	}
+    @if $pseudo {
+        &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            padding-top: $padding;
+        }
+    }
+
+    @else {
+        padding-top: $padding;
+    }
+
+    @supports (aspect-ratio: 1 / 1) {
+        aspect-ratio: unquote("#{$w} / #{$h}");
+
+        @if $pseudo {
+            &::before {
+                padding-top: initial;
+                display: initial;
+                width: initial;
+            }
+        }
+
+        @else {
+            padding-top: initial;
+        }
+    }
+
 }
 
 @mixin hover {

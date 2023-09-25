@@ -1152,6 +1152,7 @@ function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;
     (function (Date, ProjectTitle, date, day, filledPages, iframeSrc, month, pages) {
       var ProjectTitle = 'Project'
 var pages = [
+	'events',
 	'main',
 	'category',
 	'story',
