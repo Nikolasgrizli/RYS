@@ -204,6 +204,20 @@
 	}
 	&__item{
 		user-select: none;
+		@include rmin(768){
+			& > .rubricator__child{
+				--child-gap: 1.7em;
+			}
+			& > .rubricator__child > .rubricator__item > .rubricator__child{
+				--child-gap: 2.4em;
+			}
+			& > .rubricator__child > .rubricator__item > .rubricator__child > .rubricator__item > .rubricator__child{
+				--child-gap: 3.1em;
+			}
+			& > .rubricator__child > .rubricator__item > .rubricator__child > .rubricator__item > .rubricator__child > .rubricator__child{
+				--child-gap: 3.8em;
+			}
+		}
 	}
 	label{
 		cursor: pointer;
@@ -230,18 +244,7 @@
 			.is-open > &{
 				max-height: 1000px;
 			}
-			.rubricator__item > .rubricator__child{
-				--child-gap: 1.7em;
-			}
-			.rubricator__item > .rubricator__child > .rubricator__item > .rubricator__child{
-				--child-gap: 2.4em;
-			}
-			.rubricator__item > .rubricator__child > .rubricator__item > .rubricator__child > .rubricator__item > .rubricator__child{
-				--child-gap: 3.1em;
-			}
-			.rubricator__item > .rubricator__child > .rubricator__item > .rubricator__child > .rubricator__item > .rubricator__child > .rubricator__child{
-				--child-gap: 3.8em;
-			}
+
 		}
 		@include r(767){
 			position: absolute;
