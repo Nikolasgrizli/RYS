@@ -1914,7 +1914,7 @@ var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMP
   "id": "disclaimer",
   "use": "disclaimer-usage",
   "viewBox": "0 0 38 30",
-  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 38 30\" id=\"disclaimer\"><g clip-path=\"url(#disclaimer_a)\" fill=\"#333\"><path d=\"M30.5 29.21h-21a3.238 3.238 0 0 1-2.848-1.653 3.253 3.253 0 0 1 .02-3.295l10.5-17.804A3.254 3.254 0 0 1 20 4.844c1.175 0 2.231.604 2.828 1.614l10.5 17.804a3.253 3.253 0 0 1 .027 3.295 3.238 3.238 0 0 1-2.848 1.653H30.5ZM20 27.898h10.5c.715 0 1.352-.368 1.713-.991a1.937 1.937 0 0 0-.013-1.975L21.7 7.128a1.954 1.954 0 0 0-1.693-.972 1.94 1.94 0 0 0-1.694.972l-10.5 17.804a1.952 1.952 0 0 0-.013 1.975 1.936 1.936 0 0 0 1.707.99h10.5H20Z\" /><path d=\"M20 21.25a.658.658 0 0 1-.656-.656v-9.188c0-.36.295-.656.656-.656.36 0 .656.295.656.656v9.188c0 .36-.295.656-.656.656Zm0 3.367a.656.656 0 1 0 0-1.313.656.656 0 0 0 0 1.313ZM2.924 18.9a1.932 1.932 0 0 1-1.51-.721 1.941 1.941 0 0 1-.301-1.982l3.813-9.555A1.959 1.959 0 0 1 6.402 5.44a1.976 1.976 0 0 1 1.805.597l4.364 4.725c.25.269.23.682-.04.925a.654.654 0 0 1-.925-.04L7.242 6.925a.65.65 0 0 0-.604-.204.642.642 0 0 0-.492.4l-3.813 9.556a.65.65 0 0 0 .099.663.636.636 0 0 0 .63.23l5.355-.992a.665.665 0 0 1 .768.525.665.665 0 0 1-.525.768l-5.355.991c-.125.026-.25.033-.374.033l-.007.006Z\" /><path d=\"M7.741 13.355a.659.659 0 0 1-.643-.538l-.597-3.229a.665.665 0 0 1 .525-.767.66.66 0 0 1 .768.525l.597 3.228a.664.664 0 0 1-.643.781h-.007Zm.361 1.936a.656.656 0 1 0 0-1.312.656.656 0 0 0 0 1.313Zm27.293-1.26a2.12 2.12 0 0 1-.354-.033l-6.713-1.247a.658.658 0 0 1 .242-1.292l6.714 1.246a.667.667 0 0 0 .63-.236.642.642 0 0 0 .098-.656l-3.82-9.555a.65.65 0 0 0-.485-.407.669.669 0 0 0-.604.197l-5.105 5.519a.649.649 0 0 1-.925.033.655.655 0 0 1-.04-.926l5.106-5.519a1.965 1.965 0 0 1 3.268.61l3.82 9.556c.268.67.157 1.41-.296 1.969a1.98 1.98 0 0 1-1.536.728v.013Z\" /><path d=\"M30.591 8.492c-.039 0-.078 0-.118-.013a.658.658 0 0 1-.525-.768l.598-3.228a.658.658 0 0 1 1.292.242l-.597 3.23a.659.659 0 0 1-.643.537h-.006Zm-.354 1.937a.656.656 0 1 0 0-1.313.656.656 0 0 0 0 1.313Z\" /></g><defs><clipPath id=\"disclaimer_a\"><path fill=\"#fff\" d=\"M0 0h38v30H0z\" /></clipPath></defs></symbol>"
+  "content": "<symbol xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 38 30\" id=\"disclaimer\"><g clip-path=\"url(#disclaimer_a)\"><path d=\"M30.5 29.21h-21a3.238 3.238 0 0 1-2.848-1.653 3.253 3.253 0 0 1 .02-3.295l10.5-17.804A3.254 3.254 0 0 1 20 4.844c1.175 0 2.231.604 2.828 1.614l10.5 17.804a3.253 3.253 0 0 1 .027 3.295 3.238 3.238 0 0 1-2.848 1.653H30.5ZM20 27.898h10.5c.715 0 1.352-.368 1.713-.991a1.937 1.937 0 0 0-.013-1.975L21.7 7.128a1.954 1.954 0 0 0-1.693-.972 1.94 1.94 0 0 0-1.694.972l-10.5 17.804a1.952 1.952 0 0 0-.013 1.975 1.936 1.936 0 0 0 1.707.99h10.5H20Z\" /><path d=\"M20 21.25a.658.658 0 0 1-.656-.656v-9.188c0-.36.295-.656.656-.656.36 0 .656.295.656.656v9.188c0 .36-.295.656-.656.656Zm0 3.367a.656.656 0 1 0 0-1.313.656.656 0 0 0 0 1.313ZM2.924 18.9a1.932 1.932 0 0 1-1.51-.721 1.941 1.941 0 0 1-.301-1.982l3.813-9.555A1.959 1.959 0 0 1 6.402 5.44a1.976 1.976 0 0 1 1.805.597l4.364 4.725c.25.269.23.682-.04.925a.654.654 0 0 1-.925-.04L7.242 6.925a.65.65 0 0 0-.604-.204.642.642 0 0 0-.492.4l-3.813 9.556a.65.65 0 0 0 .099.663.636.636 0 0 0 .63.23l5.355-.992a.665.665 0 0 1 .768.525.665.665 0 0 1-.525.768l-5.355.991c-.125.026-.25.033-.374.033l-.007.006Z\" /><path d=\"M7.741 13.355a.659.659 0 0 1-.643-.538l-.597-3.229a.665.665 0 0 1 .525-.767.66.66 0 0 1 .768.525l.597 3.228a.664.664 0 0 1-.643.781h-.007Zm.361 1.936a.656.656 0 1 0 0-1.312.656.656 0 0 0 0 1.313Zm27.293-1.26a2.12 2.12 0 0 1-.354-.033l-6.713-1.247a.658.658 0 0 1 .242-1.292l6.714 1.246a.667.667 0 0 0 .63-.236.642.642 0 0 0 .098-.656l-3.82-9.555a.65.65 0 0 0-.485-.407.669.669 0 0 0-.604.197l-5.105 5.519a.649.649 0 0 1-.925.033.655.655 0 0 1-.04-.926l5.106-5.519a1.965 1.965 0 0 1 3.268.61l3.82 9.556c.268.67.157 1.41-.296 1.969a1.98 1.98 0 0 1-1.536.728v.013Z\" /><path d=\"M30.591 8.492c-.039 0-.078 0-.118-.013a.658.658 0 0 1-.525-.768l.598-3.228a.658.658 0 0 1 1.292.242l-.597 3.23a.659.659 0 0 1-.643.537h-.006Zm-.354 1.937a.656.656 0 1 0 0-1.313.656.656 0 0 0 0 1.313Z\" /></g><defs><clipPath id=\"disclaimer_a\"><path fill=\"#fff\" d=\"M0 0h38v30H0z\" /></clipPath></defs></symbol>"
 });
 var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
 /* harmony default export */ __webpack_exports__["default"] = (symbol);
@@ -2024,7 +2024,7 @@ var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMP
   "id": "mute",
   "use": "mute-usage",
   "viewBox": "0 0 15 15",
-  "content": "<symbol viewBox=\"0 0 15 15\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" id=\"mute\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M7.724 1.053A.5.5 0 0 1 8 1.5v12a.5.5 0 0 1-.8.4L3.333 11H1.5A1.5 1.5 0 0 1 0 9.5v-4A1.5 1.5 0 0 1 1.5 4h1.833L7.2 1.1a.5.5 0 0 1 .524-.047ZM7 2.5 3.8 4.9a.5.5 0 0 1-.3.1h-2a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h2a.5.5 0 0 1 .3.1L7 12.5v-10Zm7.854 2.646a.5.5 0 0 1 0 .708L13.207 7.5l1.647 1.646a.5.5 0 0 1-.708.708L12.5 8.207l-1.646 1.647a.5.5 0 0 1-.708-.708L11.793 7.5l-1.647-1.646a.5.5 0 0 1 .708-.708L12.5 6.793l1.646-1.647a.5.5 0 0 1 .708 0Z\" fill=\"#000\" /></symbol>"
+  "content": "<symbol viewBox=\"0 0 15 15\" xmlns=\"http://www.w3.org/2000/svg\" id=\"mute\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M7.724 1.053A.5.5 0 0 1 8 1.5v12a.5.5 0 0 1-.8.4L3.333 11H1.5A1.5 1.5 0 0 1 0 9.5v-4A1.5 1.5 0 0 1 1.5 4h1.833L7.2 1.1a.5.5 0 0 1 .524-.047ZM7 2.5 3.8 4.9a.5.5 0 0 1-.3.1h-2a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h2a.5.5 0 0 1 .3.1L7 12.5v-10Zm7.854 2.646a.5.5 0 0 1 0 .708L13.207 7.5l1.647 1.646a.5.5 0 0 1-.708.708L12.5 8.207l-1.646 1.647a.5.5 0 0 1-.708-.708L11.793 7.5l-1.647-1.646a.5.5 0 0 1 .708-.708L12.5 6.793l1.646-1.647a.5.5 0 0 1 .708 0Z\" /></symbol>"
 });
 var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
 /* harmony default export */ __webpack_exports__["default"] = (symbol);
@@ -2185,6 +2185,28 @@ var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WE
 
 /***/ }),
 
+/***/ 663:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "selected",
+  "use": "selected-usage",
+  "viewBox": "0 0 72 72",
+  "content": "<symbol xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 72 72\" id=\"selected\"><path d=\"M41.063 64.23c-1.413 0-2.696-1.15-2.983-1.426l-9.97-7.038a.7.7 0 0 1-.092-.077 3.21 3.21 0 0 1-.948-2.287c0-.864.337-1.676.948-2.287a3.238 3.238 0 0 1 4.54-.034l4.04 3.11a3.21 3.21 0 0 1 .912-1.81.698.698 0 0 1 .08-.07l8.714-6.409c.323-.305 2.328-2.063 5.517-2.063 2.934 0 5.812 1.022 6.459 1.266h6.197a.703.703 0 1 1 0 1.406h-6.329a.704.704 0 0 1-.26-.05c-.03-.012-3.083-1.215-6.068-1.215-2.84 0-4.548 1.675-4.565 1.692a.69.69 0 0 1-.08.07l-8.705 6.401a1.831 1.831 0 0 0 .627 2.948c.221.092.46.14.7.139a1.817 1.817 0 0 0 1.293-.536.686.686 0 0 1 .046-.042l5.17-4.321a.704.704 0 0 1 .903 1.079l-5.15 4.302a3.214 3.214 0 0 1-2.263.924 3.213 3.213 0 0 1-2.287-.948 3.221 3.221 0 0 1-.528-.694l-5.316-4.09a.697.697 0 0 1-.068-.06 1.83 1.83 0 0 0-3.12 1.292c0 .47.175.912.496 1.252l9.964 7.033a.677.677 0 0 1 .091.077c.297.294 1.242 1.06 2.034 1.06.65 0 2.931-1.253 4.673-2.414a.735.735 0 0 1 .036-.022l7.577-4.42c.228-.149 2.164-1.371 4.168-1.371h6.96a.703.703 0 1 1 0 1.406h-6.96c-1.656 0-3.39 1.137-3.408 1.148a.888.888 0 0 1-.035.022l-7.576 4.42c-.703.468-4.04 2.637-5.434 2.637ZM37.17 47.45c-1.849 0-3.674-.721-5.114-2.11a27.465 27.465 0 0 1-1.43-1.523c-.81-.91-1.575-1.77-2.523-2.412-.38-.257-.868-.45-1.385-.654-1.069-.421-2.28-.9-2.858-2.132-.777-1.656-.337-3.745 1.12-5.323.302-.329.631-.623.95-.907.683-.611 1.329-1.189 1.573-2 .111-.37.153-.804.198-1.262.092-.938.195-2 .954-2.829.147-.16.31-.302.49-.424.875-.595 1.936-.588 2.953-.492 1.7.16 3.274-.05 4.68-.63 2.864-1.18 6.873-1.336 8.749 2.108.6 1.103.651 2.244.7 3.346.058 1.296.108 2.416 1.025 3.344.144.146.297.294.453.446.883.858 1.885 1.83 2.215 3.113.275 1.07-.017 2.114-.823 2.938-.927.947-2.112 1.487-3.26 2.008-.43.196-.838.382-1.227.585-.759.4-1.284 1.087-1.84 1.816-.624.817-1.27 1.663-2.301 2.192a7.227 7.227 0 0 1-3.298.803Zm-7.233-20.414c-.09.06-.171.132-.244.212-.442.483-.515 1.227-.592 2.015-.05.506-.1 1.029-.251 1.531-.358 1.19-1.222 1.963-1.983 2.643a12.28 12.28 0 0 0-.854.812c-.81.878-1.527 2.393-.88 3.773.341.727 1.196 1.064 2.1 1.421.567.223 1.152.454 1.66.798 1.092.74 1.952 1.707 2.784 2.64.456.513.887.997 1.355 1.447 1.9 1.832 4.505 2.24 6.797 1.067.748-.383 1.27-1.068 1.824-1.793.624-.818 1.27-1.664 2.304-2.207.424-.222.869-.425 1.3-.62 1.075-.49 2.092-.952 2.835-1.712.468-.478.62-1.003.466-1.604-.231-.9-1.082-1.726-1.832-2.455-.164-.159-.324-.314-.474-.466-1.297-1.313-1.367-2.884-1.429-4.269-.044-.987-.086-1.92-.53-2.736-1.43-2.627-4.653-2.44-6.979-1.481-1.619.667-3.418.913-5.348.73-.704-.067-1.498-.108-2.03.254Zm7.857 14.997c-1.184 0-1.848-.801-2.389-1.455a7.058 7.058 0 0 0-.526-.59c-.289-.278-.688-.317-1.315-.358-.494-.032-1.054-.068-1.588-.314-1.26-.58-2.03-1.58-2.111-2.742-.081-1.16.537-2.253 1.697-3a.704.704 0 1 1 .761 1.183c-.715.46-1.1 1.087-1.055 1.719.044.634.517 1.204 1.296 1.562.298.138.683.163 1.091.19.679.043 1.524.098 2.198.745.238.228.44.472.635.708.547.66.86 1 1.457.937.952-.104 1.994-1.01 1.91-2.024a.703.703 0 1 1 1.402-.116c.154 1.866-1.542 3.362-3.16 3.538a2.823 2.823 0 0 1-.303.017Zm3.267-8.178a.703.703 0 0 1-.7-.655c-.047-.665-.276-1.163-.702-1.522-.946-.798-2.563-.66-2.578-.658a.703.703 0 0 1-.142-1.399c.09-.009 2.214-.209 3.627.982.722.61 1.125 1.45 1.197 2.5a.704.704 0 0 1-.702.752ZM20.18 28.16c-2.935 0-5.813-1.021-6.46-1.266H7.523a.703.703 0 0 1 0-1.406h6.329a.7.7 0 0 1 .26.05c.03.012 3.083 1.216 6.068 1.216 2.84 0 4.548-1.676 4.565-1.693a.697.697 0 0 1 .08-.07l8.705-6.401a1.831 1.831 0 0 0-.034-2.55 1.815 1.815 0 0 0-1.293-.536c-.488 0-.947.19-1.293.535a.71.71 0 0 1-.046.043l-5.171 4.32a.702.702 0 1 1-.902-1.079l5.149-4.302a3.214 3.214 0 0 1 2.263-.923 3.211 3.211 0 0 1 2.287.947c.207.206.384.44.528.694l5.316 4.091a.66.66 0 0 1 .069.06 1.83 1.83 0 0 0 3.12-1.293c0-.47-.176-.912-.497-1.252l-9.963-7.032a.704.704 0 0 1-.092-.078c-.296-.294-1.242-1.06-2.033-1.06-.65 0-2.931 1.253-4.673 2.414a.7.7 0 0 1-.036.022l-7.577 4.42c-.228.149-2.164 1.371-4.168 1.371h-6.96a.703.703 0 1 1 0-1.406h6.96c1.656 0 3.39-1.137 3.408-1.148a.73.73 0 0 1 .035-.022l7.576-4.419c.703-.468 4.04-2.637 5.434-2.637 1.413 0 2.696 1.15 2.983 1.426l9.97 7.037a.694.694 0 0 1 .092.077 3.21 3.21 0 0 1 .947 2.287c0 .864-.336 1.676-.947 2.287a3.238 3.238 0 0 1-4.54.034l-4.04-3.11a3.212 3.212 0 0 1-.912 1.811.7.7 0 0 1-.08.07l-8.714 6.409c-.323.304-2.328 2.062-5.516 2.062Z\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
 /***/ 734:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -2222,7 +2244,29 @@ var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMP
   "id": "volume",
   "use": "volume-usage",
   "viewBox": "0 0 15 15",
-  "content": "<symbol viewBox=\"0 0 15 15\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" id=\"volume\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M7.47 1.05a.5.5 0 0 1 .28.45v12a.5.5 0 0 1-.807.395L3.221 11H1.5A1.5 1.5 0 0 1 0 9.5v-4A1.5 1.5 0 0 1 1.5 4h1.721l3.722-2.895a.5.5 0 0 1 .527-.054Zm-.72 1.472L3.7 4.895A.5.5 0 0 1 3.393 5H1.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1.893a.5.5 0 0 1 .307.105l3.05 2.373V2.522Zm3.528 1.326a.4.4 0 0 1 .555.111 6.407 6.407 0 0 1 0 7.081.4.4 0 0 1-.666-.443 5.607 5.607 0 0 0 0-6.194.4.4 0 0 1 .111-.555Zm2.4-2.418a.4.4 0 0 0-.61.518 8.602 8.602 0 0 1 0 11.104.4.4 0 0 0 .61.518 9.402 9.402 0 0 0 0-12.14Z\" fill=\"#000\" /></symbol>"
+  "content": "<symbol viewBox=\"0 0 15 15\" xmlns=\"http://www.w3.org/2000/svg\" id=\"volume\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M7.47 1.05a.5.5 0 0 1 .28.45v12a.5.5 0 0 1-.807.395L3.221 11H1.5A1.5 1.5 0 0 1 0 9.5v-4A1.5 1.5 0 0 1 1.5 4h1.721l3.722-2.895a.5.5 0 0 1 .527-.054Zm-.72 1.472L3.7 4.895A.5.5 0 0 1 3.393 5H1.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1.893a.5.5 0 0 1 .307.105l3.05 2.373V2.522Zm3.528 1.326a.4.4 0 0 1 .555.111 6.407 6.407 0 0 1 0 7.081.4.4 0 0 1-.666-.443 5.607 5.607 0 0 0 0-6.194.4.4 0 0 1 .111-.555Zm2.4-2.418a.4.4 0 0 0-.61.518 8.602 8.602 0 0 1 0 11.104.4.4 0 0 0 .61.518 9.402 9.402 0 0 0 0-12.14Z\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
+/***/ 561:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "words",
+  "use": "words-usage",
+  "viewBox": "0 0 72 72",
+  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 72 72\" id=\"words\"><g clip-path=\"url(#words_a)\" stroke-width=\"1.6\" stroke-miterlimit=\"10\"><path d=\"M21.1 27.72v-5.642h29.8v5.643M36 22v28m-5.765.322h11.53M7.137 14v44m57.726-44v45.836M13.5 7.137H58M13.5 64.863H58M14.11 8.11a6 6 0 1 1-12.001 0 6 6 0 0 1 12 0Zm0 55.78a6 6 0 1 1-12 0 6 6 0 0 1 12 0ZM69.89 8.11a6 6 0 1 1-12 0 6 6 0 0 1 12 0Zm0 55.78a6 6 0 1 1-12 0 6 6 0 0 1 12 0Z\" /></g><defs><clipPath id=\"words_a\"><path fill=\"#fff\" d=\"M0 0h72v72H0z\" /></clipPath></defs></symbol>"
 });
 var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
 /* harmony default export */ __webpack_exports__["default"] = (symbol);
@@ -3265,8 +3309,10 @@ var map = {
 	"./rubric.svg": 120,
 	"./search.svg": 782,
 	"./seasons.svg": 7,
+	"./selected.svg": 663,
 	"./text.svg": 734,
-	"./volume.svg": 105
+	"./volume.svg": 105,
+	"./words.svg": 561
 };
 
 
@@ -4536,7 +4582,7 @@ var initMap = function initMap() {
           Map = _yield$google$maps$im.Map;
           markerIcon = (_markerIcon = {
             path: google.maps.SymbolPath.CIRCLE
-          }, _defineProperty(_markerIcon, "path", 'M28.5 0C12.785 0 0 12.8347 0 28.6107C0 48.1891 25.5047 76.9314 26.5906 78.1454C27.6105 79.2859 29.3913 79.2838 30.4094 78.1454C31.4953 76.9314 57 48.1891 57 28.6107C56.9997 12.8347 44.2148 0 28.5 0ZM28.5 43.0055C20.5934 43.0055 14.1611 36.548 14.1611 28.6107C14.1611 20.6733 20.5936 14.216 28.5 14.216C36.4064 14.216 42.8388 20.6735 42.8388 28.6108C42.8388 36.5482 36.4064 43.0055 28.5 43.0055Z'), _defineProperty(_markerIcon, "fillColor", '#333'), _defineProperty(_markerIcon, "fillOpacity", 1), _defineProperty(_markerIcon, "scale", .9), _defineProperty(_markerIcon, "anchor", new google.maps.Point(11, 11)), _markerIcon); // const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+          }, _defineProperty(_markerIcon, "path", 'M28.5 0C12.785 0 0 12.8347 0 28.6107C0 48.1891 25.5047 76.9314 26.5906 78.1454C27.6105 79.2859 29.3913 79.2838 30.4094 78.1454C31.4953 76.9314 57 48.1891 57 28.6107C56.9997 12.8347 44.2148 0 28.5 0ZM28.5 43.0055C20.5934 43.0055 14.1611 36.548 14.1611 28.6107C14.1611 20.6733 20.5936 14.216 28.5 14.216C36.4064 14.216 42.8388 20.6735 42.8388 28.6108C42.8388 36.5482 36.4064 43.0055 28.5 43.0055Z'), _defineProperty(_markerIcon, "fillColor", '#BC4CC6'), _defineProperty(_markerIcon, "strokeColor", '#BC4CC6'), _defineProperty(_markerIcon, "fillOpacity", 1), _defineProperty(_markerIcon, "scale", .5), _defineProperty(_markerIcon, "anchor", new google.maps.Point(11, 11)), _markerIcon); // const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
           mapSimpleElement = document.getElementById("mapSimple");
           mapFilterElement = document.getElementById("mapFilter");
           if (mapSimpleElement) {

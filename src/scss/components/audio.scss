@@ -3,7 +3,7 @@
 	--volume-before-width: 100%;
 	--buffered-width: 0%;
 	&__inner{
-		border: 3px solid var(--color-text);
+		border: 3px solid var(--color-main);
 		padding: 3rem;
 		position: relative;
 		width: 100%;
@@ -36,7 +36,7 @@
 			left: 0;
 			width: var(--seek-before-width);
 			height: .2em;
-			background-color: var(--color-text);
+			background-color: var(--color-main);
 			cursor: pointer;
 		}
 		&::-webkit-slider-thumb {
@@ -45,7 +45,7 @@
 			box-sizing: content-box;
 			height: 1em;
 			width: 1em;
-			background-color: var(--color-text);
+			background-color: var(--color-main);
 			cursor: pointer;
 			margin: -.4em 0 0 0;
 		}
@@ -60,7 +60,7 @@
 		}
 
 		&::-moz-range-progress {
-			background-color: var(--color-text);
+			background-color: var(--color-main);
 		}
 
 		&::-moz-focus-outer {
@@ -71,7 +71,7 @@
 			box-sizing: content-box;
 			height: 1em;
 			width: 1em;
-			background-color: var(--color-text);
+			background-color: var(--color-main);
 			cursor: pointer;
 		}
 
@@ -89,7 +89,7 @@
 		}
 
 		&::-ms-fill-lower {
-			background-color: var(--color-text);
+			background-color: var(--color-main);
 		}
 
 		&::-ms-fill-upper {
@@ -100,13 +100,13 @@
 			box-sizing: content-box;
 			height: 1em;
 			width: 1em;
-			background-color: var(--color-text);
+			background-color: var(--color-main);
 			cursor: pointer;
 		}
 
 		&:active::-ms-thumb {
 			transform: scale(1.2);
-			background: var(--color-text);
+			background: var(--color-main);
 		}
 	}
 
@@ -201,7 +201,7 @@
 			margin: 2em auto 0;
 			width: 6rem;
 			height: 6rem;
-			background-color: var(--color-text);
+			background-color: var(--color-main);
 			overflow: hidden;
 
 			.svg-icon{
@@ -225,6 +225,7 @@
 			margin-left: 1em;
 			width: 4rem;
 			height: 4rem;
+			color: var(--color-main);
 			.svg-icon{
 				max-width: 70%;
 				max-height: 70%;

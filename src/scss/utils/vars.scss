@@ -50,11 +50,13 @@ $transition-slow: .6s cubic-bezier(0.08, 1.00, 0.21, 1.00);
 
 	//colors
 	@include defineColorRGB(--color-text, #322C34);
-	@include defineColorRGB(--color-main, #333333);
+	@include defineColorRGB(--color-main, #BC4CC6);
 	@include defineColorRGB(--color-error, #FB5C41);
+	--color-main_300: #DFAFE2;
+	--color-main_100: #F6EDF6;
 	--color-bg: #ffffff;
 	--color-bg_dark: #F1F1F1;
-	--color-bg_gray: #F6F6F6;
+	--color-bg_gray: #FDFAFD;
 	--color-border: #F1F1F1;
 	--color-gray: #959399;
 

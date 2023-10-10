@@ -29,13 +29,13 @@
 		color: var(--color-bg);
 		background-color: var(--color-main);
 		&:hover {
-			background-color: var(-color-main);
+			background-color: darken(#bc4cc6, 10%);
 		}
 	}
 	&_transparent {
-		color: var(--color-text);
+		color: var(--color-main);
 		background-color: var(--color-bg);
-		border: 1px solid;
+		border: 1px solid ;
 		&:hover {
 			color: var(--color-bg);
 			background-color: var(--color-main);

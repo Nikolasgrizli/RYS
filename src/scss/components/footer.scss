@@ -12,6 +12,13 @@
 	&__info{
 		margin-left: auto;
 		margin-right: auto;
+		.footer__item{
+			&:not(:last-child){
+				a{
+					color: var(--color-main);
+				}
+			}
+		}
 	}
 	&__list{
 		.top{

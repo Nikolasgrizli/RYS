@@ -248,9 +248,10 @@ export const initMap = ()=> {
 		const markerIcon = {
 			path: google.maps.SymbolPath.CIRCLE,
 			path: 'M28.5 0C12.785 0 0 12.8347 0 28.6107C0 48.1891 25.5047 76.9314 26.5906 78.1454C27.6105 79.2859 29.3913 79.2838 30.4094 78.1454C31.4953 76.9314 57 48.1891 57 28.6107C56.9997 12.8347 44.2148 0 28.5 0ZM28.5 43.0055C20.5934 43.0055 14.1611 36.548 14.1611 28.6107C14.1611 20.6733 20.5936 14.216 28.5 14.216C36.4064 14.216 42.8388 20.6735 42.8388 28.6108C42.8388 36.5482 36.4064 43.0055 28.5 43.0055Z',
-			fillColor: '#333',
+			fillColor: '#BC4CC6',
+			strokeColor: '#BC4CC6',
 			fillOpacity: 1,
-			scale: .9,
+			scale: .5,
 			anchor: new google.maps.Point(11,11),
 		}
 		// const { AdvancedMarkerView } = await google.maps.importLibrary("marker");

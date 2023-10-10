@@ -392,7 +392,10 @@
 
 	&__table {
 		text-align: left;
-
+		.svg-icon,
+		a{
+			color: var(--color-main);
+		}
 		.svg-icon {
 			width: 1em;
 			height: 1em;
@@ -459,6 +462,7 @@
 		text-decoration: none;
 		.tooltipster-box &{
 			text-decoration: underline;
+			color: var(--color-main);
 			&:hover{
 				text-decoration: none;
 			}
@@ -474,8 +478,7 @@
 
 
 .hs-disclaimer {
-	border: 1px solid var(--text, #333);
-	background-color: var(--grey, #F6F6F6);
+	background-color: var(--color-bg_gray);
 	font-size: 80%;
 
 	&__inner {
@@ -485,6 +488,7 @@
 		.svg-icon {
 			flex: 0 0 2.5em;
 			height: 2.5em;
+			color: var(--color-main);
 		}
 
 		.text {
