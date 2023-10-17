@@ -1,0 +1,14 @@
+mixin articlesIntro(img,title,subtitle)
+	section.section.section_intro
+		.container.container_wide
+			.intro&attributes(attributes)
+				.intro__bg(style=`background-image: url(${img || 'assets/img/articles/intro.jpg'});`)
+				.intro__content
+					h1.intro__title!=title || 'Цифровий архів фольклору'
+					.intro__subtitle!=subtitle || 'Слобожанщини та Полтавщини'
+					.intro__btn
+						a.btn.btn_main(href='#')
+							i.icon
+								+icon('search').icon-search
+							span Пошук пісні
+

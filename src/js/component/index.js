@@ -28,20 +28,59 @@ document.body.className += isTouch ? ' touch' : ' no-touch';
 
 
 const headerMenu = document.querySelector('.header__nav');
+const isMobileMenu = window.matchMedia('(max-width: 1023px)').matches;
+const checkIfHoverOnElemOrChildren = (parent) => {
+	return new Promise((resolve, reject) => {
+	  const onMouseMove = (e) => {
+		const elem = document.elementFromPoint(e.clientX, e.clientY);
+		if (elem) {
+		  if (parent.contains(elem)) {
+			document.removeEventListener('mousemove', onMouseMove);
+			resolve(true); // Курсор находится над элементом или его потомком
+		  } else {
+			resolve(false); // Курсор находится над другим элементом
+		  }
+		}
+	  };
+
+	  document.addEventListener('mousemove', onMouseMove);
+	});
+  };
 
 if(!!headerMenu){
-
-    // if(document.body.classList.contains('no-touch')){
-        [...headerMenu.querySelectorAll('.menu-item-has-children')].forEach(elem => {
-            // checkPopupRightPosition(elem.querySelector('.child-list'))
-            elem.addEventListener('mouseenter', (e)=>{
-                elem.classList.add('is-open');
-            })
-            elem.addEventListener('mouseleave', (e)=>{
-                elem.classList.remove('is-open');
-            })
-        })
-    // }
+	[...headerMenu.querySelectorAll('.menu-item-has-children')].forEach(elem => {
+		if(isMobileMenu || isTouch){
+			elem.addEventListener('click', (e)=>{
+				elem.classList.toggle('is-open');
+			})
+		} else {
+			elem.addEventListener('mouseenter', (e)=>{
+				elem.classList.add('is-open');
+			})
+			elem.addEventListener('mouseleave', (e)=>{
+				console.log('mouseleave');
+				setTimeout(() => {
+					checkIfHoverOnElemOrChildren(elem)
+					.then((isHoveredOnElementOrChildren) => {
+						if (!isHoveredOnElementOrChildren) {
+							elem.classList.remove('is-open');
+						}
+					})
+					  .catch((error) => {
+						console.error('Произошла ошибка:', error);
+					});
+					// if(!checkIfHoverOnElemOrChildren(e)){
+					// }
+				}, 500);
+			})
+		}
+	})
+	document.addEventListener('click', (e)=>{
+		const isOpened = headerMenu.querySelector('.menu-item-has-children.is-open');
+		if(isOpened && !isOpened.contains(e.target)){
+			isOpened.classList.remove('is-open');
+		}
+	})
 }
 
 (function () {

@@ -1,0 +1,105 @@
+extends ./layout/main.pug
+
+block variables
+	- headerType = 'folklore';
+	- headerClass = 'header_folklore header_folklore-transparent';
+	- layoutClass = 'layout_main--noGap layout_main--old';
+
+
+block content
+
+
+
+
+	main.main
+		.homePage
+			+articlesIntro()
+
+			.homePage__info.page-info
+				.page-info__item
+					+icon('note').icon-note
+					.text
+						.top Пісень:
+						.bottom 1282
+				.page-info__item
+					+icon('note').icon-note
+					.text
+						.top Жанрів:
+						.bottom 21
+				.page-info__item
+					+icon('note').icon-note
+					.text
+						.top Виконавців::
+						.bottom 102
+				.page-info__item
+					+icon('note').icon-note
+					.text
+						.top Населених пунктів:
+						.bottom 53
+
+			+finder()
+
+
+			.homePage__sounds.hps
+				.hps__inner
+					.hps__sorting
+						.hps__sorting-label Сортувати за:
+						.hps__sorting-btns
+							a.hps__sorting-btn(href="#")  Вибір редакції
+							a.hps__sorting-btn(href="#")  Вибір користувачів
+							a.hps__sorting-btn(href="#")  Кількість прослуховувань
+							a.hps__sorting-btn(href="#")  За алфовітом
+							a.hps__sorting-btn.hps__sorting-btn--active(href="#")  Останні додані
+						//- .hps__sorting-all
+						//- 	a(href="#")  Показати всі
+
+					table.hps__table
+						thead.hps__thead
+							tr.hps__tr
+								th.hps__th Назва
+								th.hps__th Жанр
+								th.hps__th Місце
+								th.hps__th Трив
+								th.hps__th Аудіо
+								th.hps__th Текст
+								th.hps__th Ноти
+						tbody.hps__tbody
+							tr.hps__tr
+								td.hps__td Серед двору, двору
+								td.hps__td
+									span Щедрівка
+
+								td.hps__td с. Велика Гомільша, Зміївський район
+								td.hps__td 03:37
+								td.hps__td.hps__td--audio
+									button
+										+icon('play').icon-play
+									button
+										+icon('pause').icon-play
+									.player
+
+								td.hps__td
+									+icon('text').icon-text
+								td.hps__td
+									+icon('note').icon-note
+
+					.hps__pagination
+						ul.pagination
+							li.pagination__item
+								a.pagination__link(href="#")  Перша
+							li.pagination__item
+								a.pagination__link(href="#")  2
+							li.pagination__item
+								a.pagination__link(href="#")  3
+							li.pagination__item
+								.pagination__link(href="#")  ....
+							li.pagination__item
+								a.pagination__link(href="#")  67
+							li.pagination__item
+								a.pagination__link(href="#")  68
+							li.pagination__item
+								a.pagination__link(href="#")  Остання
+
+					.hps__info
+						p «Пісні Слобідської України» - це репринтне перевидання першої на Лівобережжі України фонографічної збірки. З появою фонографа відкрилися нові можливості для фіксації фактурного обсягу народних пісень, характеру варіантних змін у тексті пісні. Вони розглядаються вже не тільки з естетичного загальнокультурного кута зору, але і як фактологічний матеріал для етнографічних, діалектологічних та історичних досліджень згідно з музично-стильовими особливостями та ритмо-структурною типологією цього жанру фольклору.
+						p До збірки «Фольклорні осередки Харківщини» увійшли зразки українського та російського обрядового фольклору, записаного у селах Балаклійського, Великобурлуцького, Ізюмського та Первомайського районів Харківської області впродовж останньої чверті ХХ століття. Більшість представлених матеріалів зібрана співробітниками Харківського обласного центру народної творчості.

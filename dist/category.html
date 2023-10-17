@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ua">
 
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="telephone=no" name="format-detection">
     <meta name="HandheldFriendly" content="true">
     <title>ProjectName</title>
@@ -28,7 +28,6 @@
     <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="assets/css/main.css" rel="stylesheet">
   </head>
 
   <body class="body">
@@ -55,6 +54,7 @@
               <div class="container">
                 <div class="category">
                   <div class="category__left">
+                    <!--BEGIN breadcrumbs-->
                     <div class="breadcrumbs__wrapper">
                       <div class="breadcrumbs__container">
                         <ol class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
@@ -67,6 +67,7 @@
                         </ol>
                       </div>
                     </div>
+                    <!--END header-->
                     <h1>Весілля</h1>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim, aliquam! Sapiente dolorem suscipit, aperiam, deleniti reprehenderit commodi, id hic minima eos labore aliquid harum sint perferendis odio itaque eveniet architecto.</p>
                     <p>ipsum dolor sit amet consectetur adipisicing elit. Enim, aliquam! Sapiente dolorem suscipit, aperiam, deleniti reprehenderit commodi, id</p>
@@ -92,122 +93,28 @@
                     </h2>
                     <form class="categories__left sidebar">
                       <div class="sidebar__inner">
-                        <div class="sidebar__search search"><input class="search__input" id="search" name="search" placeholder="Пошук за текстом"><button class="search__btn" type="submit"><svg class="svg-icon">
+                        <div class="sidebar__search search"><input class="search__input" id="search" type="text" name="search" placeholder="Пошук за текстом"><button class="search__btn" type="submit"><svg class="svg-icon">
                               <use xlink:href="#search"></use>
                             </svg></button></div>
                         <div class="sidebar__places">
-                          <div class="customSelect"><select class="custom-select_multiple js-custom-select wide" name="customSelect" data-options='{"searchable":true,"defaultSelected":false,"placeholder":"Обрати населений пункт","multiple":true}' multiple="multiple" id="places">
+                          <div class="customSelect"><select class="custom-select_multiple js-custom-select wide" name="customSelect" data-options='{"searchable":true,"defaultSelected":false,"placeholder":"Обрати населений пункт","multiple":true}' multiple id="places">
                               <option value="">Обрати населений пункт</option>
-                              <option value=" м. Ізюм, Ізюмський район">м. Ізюм, Ізюмський район</option>
-                              <option value=" м. Балаклія, Балаклійський район">м. Балаклія, Балаклійський район</option>
-                              <option value=" Новий Бурлук, Чугуївський район">Новий Бурлук, Чугуївський район</option>
-                              <option value=" с. Іванівка, Ізюмський район">с. Іванівка, Ізюмський район</option>
-                              <option value=" с. Іванівка, Чаплинський район">с. Іванівка, Чаплинський район</option>
-                              <option value=" с. Абазівка, Зачепилівський район">с. Абазівка, Зачепилівський район</option>
-                              <option value=" с. Артемівка, Чугуївський район">с. Артемівка, Чугуївський район</option>
-                              <option value=" с. Багата Чернещина, Сахновщинський район">с. Багата Чернещина, Сахновщинський район</option>
-                              <option value=" с. Балтазарівка, Чаплинський район">с. Балтазарівка, Чаплинський район</option>
-                              <option value=" с. Басове, Золочівський район">с. Басове, Золочівський район</option>
-                              <option value=" с. Березівка, Борисівський район ">с. Березівка, Борисівський район</option>
-                              <option value=" с. Берестовенька, Красноградський район">с. Берестовенька, Красноградський район</option>
-                              <option value=" с. Будне, Охтирський район">с. Будне, Охтирський район</option>
-                              <option value=" с. Бузове (Перша Бузова), Вовчанський район">с. Бузове (Перша Бузова), Вовчанський район</option>
-                              <option value=" с. Вʼязова, Краснокутський район">с. Вʼязова, Краснокутський район</option>
-                              <option value=" с. Варварівка, Бєлгородський район">с. Варварівка, Бєлгородський район</option>
-                              <option value=" с. Велика Гомільша, Зміївський район">с. Велика Гомільша, Зміївський район</option>
-                              <option value=" с. Вишневе, Валківський район">с. Вишневе, Валківський район</option>
-                              <option value=" с. Гасенки, Миргородський район">с. Гасенки, Миргородський район</option>
-                              <option value=" с. Геніївка, Зміївський район">с. Геніївка, Зміївський район</option>
-                              <option value=" с. Гетьманівка, Шевченківський район">с. Гетьманівка, Шевченківський район</option>
-                              <option value=" с. Гракове, Чугуївський район">с. Гракове, Чугуївський район</option>
-                              <option value=" с. Грузьке, Борисівський район">с. Грузьке, Борисівський район</option>
-                              <option value=" с. Грушуваха, Барвінківський район">с. Грушуваха, Барвінківський район</option>
-                              <option value=" с. Дворічне, Дворічанський район">с. Дворічне, Дворічанський район</option>
-                              <option value=" с. Дворічний Кут, Дергачівський район">с. Дворічний Кут, Дергачівський район</option>
-                              <option value=" с. Деревки, Котелевський район">с. Деревки, Котелевський район</option>
-                              <option value=" с. Дмитрівка, Первомайський район">с. Дмитрівка, Первомайський район</option>
-                              <option value=" с. Добровілля, Близнюківський район">с. Добровілля, Близнюківський район</option>
-                              <option value=" с. Добропілля, Валківський район">с. Добропілля, Валківський район</option>
-                              <option value=" с. Дорошівка, Дворічанський район">с. Дорошівка, Дворічанський район</option>
-                              <option value=" с. Другий Лиман, Дворічанський район">с. Другий Лиман, Дворічанський район</option>
-                              <option value=" с. Духовниче, Охтирський район">с. Духовниче, Охтирський район</option>
-                              <option value=" с. Жовтневе (Богданівське), Дворічанський район">с. Жовтневе (Богданівське), Дворічанський район</option>
-                              <option value=" с. Задонецьке, Зміївський район">с. Задонецьке, Зміївський район</option>
-                              <option value=" с. Залиман, Балаклійський район">с. Залиман, Балаклійський район</option>
-                              <option value=" с. Калинове, Борівський район">с. Калинове, Борівський район</option>
-                              <option value=" с. Катеринівка, Лозівський район">с. Катеринівка, Лозівський район</option>
-                              <option value=" с. Киселі, Первомайський район">с. Киселі, Первомайський район</option>
-                              <option value=" с. Клюшниківка, Миргородський район">с. Клюшниківка, Миргородський район</option>
-                              <option value=" с. Козача Лопань, Дергачівський район">с. Козача Лопань, Дергачівський район</option>
-                              <option value=" с. Корбині Івани, Богодухівський район">с. Корбині Івани, Богодухівський район</option>
-                              <option value=" с. Костянтинівка, Сахновщинський район">с. Костянтинівка, Сахновщинський район</option>
-                              <option value=" с. Кручик, Богодухівський район">с. Кручик, Богодухівський район</option>
-                              <option value=" с. Крячківка, Пирятинський район">с. Крячківка, Пирятинський район</option>
-                              <option value=" с. Куземин, Охтирський район">с. Куземин, Охтирський район</option>
-                              <option value=" с. Кунцеве, Новосанжарський район">с. Кунцеве, Новосанжарський район</option>
-                              <option value=" с. Кутьківка, Дворічанський район">с. Кутьківка, Дворічанський район</option>
-                              <option value=" с. Лантратівка, Охтирський район">с. Лантратівка, Охтирський район</option>
-                              <option value=" с. Лиман, Зміївський район">с. Лиман, Зміївський район</option>
-                              <option value=" с. Лиман, кут Кучерівка, Зміївський район">с. Лиман, кут Кучерівка, Зміївський район</option>
-                              <option value=" с. Любимівка Каховський район">с. Любимівка Каховський район</option>
-                              <option value=" с. Лютенські Будища, Зіньківський район">с. Лютенські Будища, Зіньківський район</option>
-                              <option value=" с. Максимівка, Сахновщинський район">с. Максимівка, Сахновщинський район</option>
-                              <option value=" с. Матяшівка, кут Кут, Великобагачанський район ">с. Матяшівка, кут Кут, Великобагачанський район</option>
-                              <option value=" с. Матяшівка, кут Ліски, Великобагачанський район">с. Матяшівка, кут Ліски, Великобагачанський район</option>
-                              <option value=" с. Матяшівка, кут Центр, Великобагачанський район ">с. Матяшівка, кут Центр, Великобагачанський район</option>
-                              <option value=" с. Мельникове, Валківський район">с. Мельникове, Валківський район</option>
-                              <option value=" с. Мечнікове, Дворічанський район">с. Мечнікове, Дворічанський район</option>
-                              <option value=" с. Миколаївка, Дворічанський район">с. Миколаївка, Дворічанський район</option>
-                              <option value=" с. Миколаївка, Лозівський район">с. Миколаївка, Лозівський район</option>
-                              <option value=" с. Михайлівка, Котелевський район">с. Михайлівка, Котелевський район</option>
-                              <option value=" с. Моначинівка, Куп'янський район">с. Моначинівка, Куп'янський район</option>
-                              <option value=" с. Морозівка, Балаклійський район">с. Морозівка, Балаклійський район</option>
-                              <option value=" с. Мохнач, Зміївський район">с. Мохнач, Зміївський район</option>
-                              <option value=" с. Нова Чернещина, Сахновщинський район">с. Нова Чернещина, Сахновщинський район</option>
-                              <option value=" с. Новий Мерчик, Валківський район">с. Новий Мерчик, Валківський район</option>
-                              <option value=" с. Новомиколаївка Шевченківський район">с. Новомиколаївка Шевченківський район</option>
-                              <option value=" с. Огіївка, Сахновщинський район">с. Огіївка, Сахновщинський район</option>
-                              <option value=" с. Одноробівка, Золочівський район">с. Одноробівка, Золочівський район</option>
-                              <option value=" с. Одрадне, Дворічанський район">с. Одрадне, Дворічанський район</option>
-                              <option value=" с. Олександрівка, Валківський район">с. Олександрівка, Валківський район</option>
-                              <option value=" с. Очеретове, Валківський район">с. Очеретове, Валківський район</option>
-                              <option value=" с. Очкине, Середино-Будський район">с. Очкине, Середино-Будський район</option>
-                              <option value=" с. Піски-Радьківські, Борівський район">с. Піски-Радьківські, Борівський район</option>
-                              <option value=" с. Петрівське (Петровское), Балаклійський район">с. Петрівське (Петровское), Балаклійський район</option>
-                              <option value=" с. Петропілля, Лозівський район">с. Петропілля, Лозівський район</option>
-                              <option value=" с. Плоске, Великобурлуцький район">с. Плоске, Великобурлуцький район</option>
-                              <option value=" с. Польова, Дергачівський район">с. Польова, Дергачівський район</option>
-                              <option value=" с. Правда (Комправда), Первомайський район">с. Правда (Комправда), Первомайський район</option>
-                              <option value=" с. Рачівка, Чаплинський район">с. Рачівка, Чаплинський район</option>
-                              <option value=" с. Рубани, Охтирський район">с. Рубани, Охтирський район</option>
-                              <option value=" с. Рябина, Великописарівський район">с. Рябина, Великописарівський район</option>
-                              <option value=" с. Сковородинівка, Золочівський район">с. Сковородинівка, Золочівський район</option>
-                              <option value=" с. Скрипаї, Зміївський район">с. Скрипаї, Зміївський район</option>
-                              <option value=" с. Софіївка Каховський район">с. Софіївка Каховський район</option>
-                              <option value=" с. Стригуни, Борисівський район">с. Стригуни, Борисівський район</option>
-                              <option value=" с. Строганівка, Чаплинський район">с. Строганівка, Чаплинський район</option>
-                              <option value=" с. Тавільжанка, Дворічанський район">с. Тавільжанка, Дворічанський район</option>
-                              <option value=" с. Терни, Лубенський район">с. Терни, Лубенський район</option>
-                              <option value=" с. Тернова (Терновая), Харківський район">с. Тернова (Терновая), Харківський район</option>
-                              <option value=" с. Тернуватка, Сахновщинський район">с. Тернуватка, Сахновщинський район</option>
-                              <option value=" с. Устивиця, Великобагачанський район">с. Устивиця, Великобагачанський район</option>
-                              <option value=" с. Хотмизьк, Борисівський район">с. Хотмизьк, Борисівський район</option>
-                              <option value=" с. Чемужівка, Зміївський район">с. Чемужівка, Зміївський район</option>
-                              <option value=" с. Чепіль, Балаклійський район">с. Чепіль, Балаклійський район</option>
-                              <option value=" с. Черкаська Лозова, Харківський район">с. Черкаська Лозова, Харківський район</option>
-                              <option value=" с. Чернещина, Краснокутський район">с. Чернещина, Краснокутський район</option>
-                              <option value=" с. Шарівка, Валківський район">с. Шарівка, Валківський район</option>
-                              <option value=" с. Шелудьківка, Зміївський район">с. Шелудьківка, Зміївський район</option>
-                              <option value=" с. Яковенкове, Балаклійський район">с. Яковенкове, Балаклійський район</option>
-                              <option value=" с. Ясенове, Охтирський район">с. Ясенове, Охтирський район</option>
-                              <option value=" сел. Велика Данилівка, м. Харків">сел. Велика Данилівка, м. Харків</option>
-                              <option value=" сел. Печеніги, Чугуївський район">сел. Печеніги, Чугуївський район</option>
-                              <option value=" смт Гоголеве, Великобагачанський район">смт Гоголеве, Великобагачанський район</option>
-                              <option value=" смт Гоголеве, хутір Марченки, Великобагачанський район ">смт Гоголеве, хутір Марченки, Великобагачанський район</option>
-                              <option value=" смт Дворічна, Дворічанський район">смт Дворічна, Дворічанський район</option>
-                              <option value=" смт Котельва, Котелевський район">смт Котельва, Котелевський район</option>
-                              <option value=" смт Краснокутськ, Краснокутський район">смт Краснокутськ, Краснокутський район</option>
-                              <option value=" смт Чкаловське, Чугуївський район">смт Чкаловське, Чугуївський район</option>
+                              <option value="77">м. Балаклія, Балаклійський район</option>
+                              <option value="52">м. Ізюм, Ізюмський район</option>
+                              <option value="108">Новий Бурлук, Чугуївський район</option>
+                              <option value="114">с. Абазівка, Зачепилівський район</option>
+                              <option value="39">с. Артемівка, Чугуївський район</option>
+                              <option value="54">с. Багата Чернещина, Сахновщинський район</option>
+                              <option value="120">с. Балтазарівка, Чаплинський район</option>
+                              <option value="49">с. Басове, Золочівський район</option>
+                              <option value="5">с. Березівка, Борисівський район</option>
+                              <option value="42">с. Берестовенька, Красноградський район</option>
+                              <option value="73">с. Будне, Охтирський район</option>
+                              <option value="101">с. Бузове (Перша Бузова), Вовчанський район</option>
+                              <option value="22">с. Вʼязова, Краснокутський район</option>
+                              <option value="90">с. Варварівка, Бєлгородський район</option>
+                              <option value="60">с. Велика Гомільша, Зміївський район</option>
+                              <option value="43">с. Вишневе, Валківський район</option>
                             </select></div>
                         </div><button class="btn btn_mobile-filter js-modal-filter"><span>Категорії</span></button>
                         <div class="sidebar__rubricator rubricator">
@@ -244,31 +151,31 @@
                             </div>
                             <div class="rubricator__scroll-part">
                               <div class="rubricator__item">
-                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_llneh4hj" id="rubricator_llneh4hj"><span class="pseudo"></span></label>
+                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_5dlsp6vd" id="rubricator_5dlsp6vd"><span class="pseudo"></span></label>
                                   <div class="rubricator__title">Народний Календар</div>
                                   <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                 </div>
                                 <div class="rubricator__child">
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_glckot7s" id="rubricator_glckot7s"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_83814bsz" id="rubricator_83814bsz"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Календар 1</div>
                                       <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                     </div>
                                     <div class="rubricator__child">
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_5e78tsfj" id="rubricator_5e78tsfj"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_47u3qtn8" id="rubricator_47u3qtn8"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">sub Календар 1 1</div>
                                           <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                         </div>
                                         <div class="rubricator__child">
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_munlacpq" id="rubricator_munlacpq"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_dg5jzyjl" id="rubricator_dg5jzyjl"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">Щедрий вечiр (Щедрий святвечiр)б Меланки</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
                                           </div>
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_kqgabu9g" id="rubricator_kqgabu9g"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_bvjoz3kb" id="rubricator_bvjoz3kb"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">sub sub Календар 1 1 2</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
@@ -278,13 +185,13 @@
                                     </div>
                                   </div>
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_omye7m5d" id="rubricator_omye7m5d"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_3ywwbikq" id="rubricator_3ywwbikq"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Календар 2</div>
                                       <div class="rubricator__num">25</div>
                                     </div>
                                   </div>
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_0vpwes2b" id="rubricator_0vpwes2b"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_xu3worzi" id="rubricator_xu3worzi"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Календар 3</div>
                                       <div class="rubricator__num">25</div>
                                     </div>
@@ -292,43 +199,43 @@
                                 </div>
                               </div>
                               <div class="rubricator__item">
-                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_837pzmpz" id="rubricator_837pzmpz"><span class="pseudo"></span></label>
+                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_hofdzwoa" id="rubricator_hofdzwoa"><span class="pseudo"></span></label>
                                   <div class="rubricator__title">Родинні Традиції</div>
                                   <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                 </div>
                                 <div class="rubricator__child">
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_4nw6n0xu" id="rubricator_4nw6n0xu"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_pkmwd490" id="rubricator_pkmwd490"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Весілля</div>
                                       <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                     </div>
                                     <div class="rubricator__child">
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_4ah9etsr" id="rubricator_4ah9etsr"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_04m8wnc4" id="rubricator_04m8wnc4"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">Передвесільні обряди</div>
                                           <div class="rubricator__num">25</div>
                                         </div>
                                       </div>
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_7gy64zzx" id="rubricator_7gy64zzx"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_9seoig8k" id="rubricator_9seoig8k"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">Весільна неділя</div>
                                           <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                         </div>
                                         <div class="rubricator__child">
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_1v4hy5oy" id="rubricator_1v4hy5oy"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_4sryflcx" id="rubricator_4sryflcx"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">Весільни чини</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
                                           </div>
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_i5iymfzh" id="rubricator_i5iymfzh"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_cqww1z15" id="rubricator_cqww1z15"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">Обсипання</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
                                           </div>
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_g1sq6kjh" id="rubricator_g1sq6kjh"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_ny03ktts" id="rubricator_ny03ktts"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">“світильник” (“меч”, “шабля”)</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
@@ -338,7 +245,7 @@
                                     </div>
                                   </div>
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_vqotpsb7" id="rubricator_vqotpsb7"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_yohkcsib" id="rubricator_yohkcsib"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Вагітність</div>
                                       <div class="rubricator__num">25</div>
                                     </div>
@@ -346,25 +253,25 @@
                                 </div>
                               </div>
                               <div class="rubricator__item">
-                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_pfu6qkhx" id="rubricator_pfu6qkhx"><span class="pseudo"></span></label>
+                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_g7sol7wa" id="rubricator_g7sol7wa"><span class="pseudo"></span></label>
                                   <div class="rubricator__title">Народний Календар</div>
                                   <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                 </div>
                                 <div class="rubricator__child">
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_6dygffo7" id="rubricator_6dygffo7"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_vlo7g3qy" id="rubricator_vlo7g3qy"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Календар 1</div>
                                       <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                     </div>
                                     <div class="rubricator__child">
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_a7jf7fdn" id="rubricator_a7jf7fdn"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_mvgbi4n0" id="rubricator_mvgbi4n0"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">sub Календар 1 1</div>
                                           <div class="rubricator__num">25</div>
                                         </div>
                                       </div>
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_7f0bk37g" id="rubricator_7f0bk37g"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_se5ofcjg" id="rubricator_se5ofcjg"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">sub Календар 1 2</div>
                                           <div class="rubricator__num">25</div>
                                         </div>
@@ -372,13 +279,13 @@
                                     </div>
                                   </div>
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_347eaomv" id="rubricator_347eaomv"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_ug76hi9n" id="rubricator_ug76hi9n"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Календар 2</div>
                                       <div class="rubricator__num">25</div>
                                     </div>
                                   </div>
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_57rngzi8" id="rubricator_57rngzi8"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_7pacr076" id="rubricator_7pacr076"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Календар 3</div>
                                       <div class="rubricator__num">25</div>
                                     </div>
@@ -386,43 +293,43 @@
                                 </div>
                               </div>
                               <div class="rubricator__item">
-                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_xialuj77" id="rubricator_xialuj77"><span class="pseudo"></span></label>
+                                <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_nnksmouu" id="rubricator_nnksmouu"><span class="pseudo"></span></label>
                                   <div class="rubricator__title">Родинні Традиції</div>
                                   <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                 </div>
                                 <div class="rubricator__child">
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_ebpu6blo" id="rubricator_ebpu6blo"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_off2wti3" id="rubricator_off2wti3"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Весілля</div>
                                       <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                     </div>
                                     <div class="rubricator__child">
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_nhbq9ssu" id="rubricator_nhbq9ssu"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_hy4rkcu9" id="rubricator_hy4rkcu9"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">Передвесільні обряди</div>
                                           <div class="rubricator__num">25</div>
                                         </div>
                                       </div>
                                       <div class="rubricator__item">
-                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_p38ssbdt" id="rubricator_p38ssbdt"><span class="pseudo"></span></label>
+                                        <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_mkegee59" id="rubricator_mkegee59"><span class="pseudo"></span></label>
                                           <div class="rubricator__title">Весільна неділя</div>
                                           <div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
                                         </div>
                                         <div class="rubricator__child">
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_mikye3x4" id="rubricator_mikye3x4"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_et4su74a" id="rubricator_et4su74a"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">Весільни чини</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
                                           </div>
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_aegaf3fm" id="rubricator_aegaf3fm"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_9tf8x3ia" id="rubricator_9tf8x3ia"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">Обсипання</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
                                           </div>
                                           <div class="rubricator__item">
-                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_z7vkwo3p" id="rubricator_z7vkwo3p"><span class="pseudo"></span></label>
+                                            <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_wm57n11w" id="rubricator_wm57n11w"><span class="pseudo"></span></label>
                                               <div class="rubricator__title">“світильник” (“меч”, “шабля”)</div>
                                               <div class="rubricator__num">25</div>
                                             </div>
@@ -432,7 +339,7 @@
                                     </div>
                                   </div>
                                   <div class="rubricator__item">
-                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_e9d1rimt" id="rubricator_e9d1rimt"><span class="pseudo"></span></label>
+                                    <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_yxkgozgl" id="rubricator_yxkgozgl"><span class="pseudo"></span></label>
                                       <div class="rubricator__title">Вагітність</div>
                                       <div class="rubricator__num">25</div>
                                     </div>
@@ -598,7 +505,7 @@
     <script src="https://cdn.jsdelivr.net/npm/tooltipster@4.2.8/dist/js/tooltipster.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script defer="defer" src="assets/js/main.js"></script>
+    <script defer src="assets/js/main.js"></script>
   </body>
 
 </html>

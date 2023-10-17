@@ -1,22 +1,115 @@
 mixin header(data)
 	- data = data || {}
+	-
+		var links = [
+			{
+				type: 'default',
+				list: [
+					{
+						"text": 'Як шукати',
+						"link": '#'
+					},
+					{
+						"text": 'Мапа',
+						"link": '#'
+					},
+					{
+						"text": 'Рубрикатор',
+						"link": '#'
+					},
+					{
+						"text": 'Про нас',
+						"link": '#'
+					},
+				]
+			},
+			{
+				type: 'folklore',
+				list: [
+					{
+						"text": "Мапа",
+						"link": "https://www.folklore.kh.ua/#map-title"
+					},
+					{
+						"text": "Про нас",
+						"link": "https://www.folklore.kh.ua/site/contact"
+					},
+					{
+						"text": "Добірки пісень",
+						"link": "https://www.folklore.kh.ua/#menu-item-article",
+						"innerList": [
+							{
+								"text": "\"Котячі\" колискові",
+								"link": "https://www.folklore.kh.ua/site/article?id=4"
+							},
+							{
+								"text": "Колядки дорослих",
+								"link": "https://www.folklore.kh.ua/site/article?id=5"
+							},
+							{
+								"text": "Дитячі колядки",
+								"link": "https://www.folklore.kh.ua/site/article?id=6"
+							},
+							{
+								"text": "Строкові пісні",
+								"link": "https://www.folklore.kh.ua/site/article?id=8"
+							},
+							{
+								"text": "Меланки і щедрівки молоді",
+								"link": "https://www.folklore.kh.ua/site/article?id=9"
+							},
+							{
+								"text": "Як \"звучить\" слобожанське Різдво: святкова ніч і ранок",
+								"link": "https://www.folklore.kh.ua/site/article?id=7"
+							},
+							{
+								"text": "Народні пісні про війну. Козацькі",
+								"link": "https://www.folklore.kh.ua/site/article?id=1"
+							},
+							{
+								"text": "Вербні веснянки",
+								"link": "https://www.folklore.kh.ua/site/article?id=3"
+							},
+							{
+								"text": "Солдатські та рекрутські пісні",
+								"link": "https://www.folklore.kh.ua/site/article?id=2"
+							}
+						]
+					},
+					{
+						"text": "Ваша Думка",
+						"link": "https://docs.google.com/forms/d/e/1FAIpQLSft_m4PCYb58rqGBfQRYnqWJoIT5Yfal06EYum_dQXDNDzDzw/formResponse"
+					}
+				]
+			}
+
+		]
 
 	.header(class=headerClass)
 		.header__container
 			a.logo-site(href="/")
-				img(src=`${pathPrefix}img/logos/logo.svg`, alt="", width="320" height="59")
+				if(data == 'default')
+					img(src=`${pathPrefix}img/logos/logo.svg`, alt="", width="320" height="59")
+				else if(data == 'folklore')
+					img.logo-folklore.logo-folklore_white(src=`${pathPrefix}img/logos/logo_folklore_white.svg`, alt="", width="251" height="54")
+					img.logo-folklore.logo-folklore_colored(src=`${pathPrefix}img/logos/logo_folklore.svg`, alt="", width="251" height="54")
 
 
 			nav.header__nav
 				ul.nav.nav-header
-					li.menu-item
-						a.nav__link(href='#') Як шукати
-					li.menu-item
-						a.nav__link(href='#') Мапа
-					li.menu-item
-						a.nav__link(href='#') Рубрикатор
-					li.menu-item
-						a.nav__link(href='#') Про нас
+					each item in links
+						if(item.type === data)
+							each line in item.list
+								li.menu-item(class=line.innerList && 'menu-item-has-children')
+									if(line.innerList)
+										button.nav__link= line.text
+										ul.sub-menu
+											each innerLine in line.innerList
+												li.menu-item
+													a.nav__link(href=innerLine.link)= innerLine.text
+									else
+										a.nav__link(href=line.link)= line.text
+
 			.header__trigger.js-menu-trigger
 				span
 

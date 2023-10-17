@@ -187,6 +187,11 @@ strong,
 		&.layout_main--noGap{
 			padding-top: 0;
 		}
+		&.layout_main--old{
+			.contaner{
+				@extend .container_old;
+			}
+		}
 	}
 }
 
@@ -200,6 +205,17 @@ strong,
 		max-width: 100%;
 		padding-left: 8rem;
 		padding-right: 8rem;
+	}
+	&_old{
+		@include rmin(1024){
+			padding-inline: 1em;
+		}
+		@include rIn(1024,1200){
+			max-width: 90rem;
+		}
+		@include rmin(1201){
+			max-width: 110rem;
+		}
 	}
 }
 

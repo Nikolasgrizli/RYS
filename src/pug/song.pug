@@ -1,0 +1,141 @@
+extends ./layout/main.pug
+
+block variables
+	- headerClass = 'header_transparent'
+	- layoutClass = 'layout_main--noGap'
+
+
+block content
+	main.main
+		.page-content.page-content_index-page
+			.main-sections
+				section.mainPage.mainPage_1
+					.mainPage__container
+						.mainPage__content
+							h1.mainPage__title
+								| Цифровий Архів Етнографічних Матеріалів Слобожанщини та Полтавщини
+							p.mainPage__text
+								| Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu
+							a.btn.btn_main(href='#')
+								i.icon
+									+icon('search').icon-search
+								span Шукати розповіді
+						.mainPage__image
+							-
+								let figureImg= {
+									name:   "main_1",
+									ext:    'jpg',
+									w:      960,
+									h:      960,
+								}
+							.img-shadow
+								+figureImg(figureImg)
+
+				section.mainPage.mainPage_2
+					.mainPage__container
+						.mainPage__image
+							-
+								let figureImg2= {
+									name:   "main_2",
+									ext:    'jpg',
+									w:      960,
+									h:      960,
+								}
+							.img-shadow
+								+figureImg(figureImg2)
+						.mainPage__content
+							h2.h1.mainPage__title
+								| Як шукати
+							ul.mainPage__links
+								li
+									a(href="#")
+										.icon
+											+icon('rubric').icon-rubric
+											.text За каталогом
+								li
+									a(href="#")
+										.icon
+											+icon('place').icon-place
+											.text За місцем
+								li
+									a(href="#")
+										.icon
+											+icon('words').icon-event
+											.text За словами
+								li
+									a(href="#")
+										.icon
+											+icon('selected').icon-seasons
+											.text Вибране
+
+
+				section.mainPage.mainPage_3
+					.mainPage__container
+						.mainPage__content
+							h2.h1.mainPage__title
+								| Випадкова Розповідь
+							.mainPage__story.storyPreview
+								h3.storyPreview__title Жнива
+
+								.storyPreview__place
+									+icon('marker')
+									span.text
+										| Село Михайлівка Котелевського району Полтавської області
+								.storyPreview__teller Розповіла Близнюк Віра Пилипівна (1926 р.н.) у 1996 році
+								.storyPreview__text
+									.storyPreview__icon
+										+icon('quotes')
+									p – Ото батько косе з утра, мама пов’яже, у стайки покладуть. А тоді вносять його в двір, простиляють шось чи змазують харашо землю і молотять тоді. Так це щє помню, як батько віяв.
+									p: strong – Чим молотили, ціпом?
+									p – Ціпами.
+
+							a.btn.btn_transparent(href='#')
+								span читати далі
+								i.icon
+									+icon('arrow-right').icon-arrow
+						.mainPage__image
+							-
+								let figureImg3= {
+									name:   "main_3",
+									ext:    'jpg',
+									w:      960,
+									h:      960,
+								}
+							.img-shadow
+								+figureImg(figureImg3)
+
+				section.mainPage.mainPage_4
+					.mainPage__container
+						.mainPage__image.mainPage__image_map
+							-
+								let mapMarkers = [
+									{
+										position: '50.0474173,34.883056',
+										title: 'Село Михайлівка Котелевського району Полтавської області'
+									},
+									{
+										position: '50.0220034,34.1185991',
+										title: 'Село Чернещина району Полтавської області'
+									},
+									{
+										position: '49.821966,34.327104',
+										title: 'Село Нелюбовка Полтавської області'
+									},
+									{
+										position: '49.8971653,34.3344312',
+										title: 'Село Ордановка Полтавської області'
+									},
+
+								]
+							.map
+								#mapFilter.googleMap(data-points=mapMarkers)
+						.mainPage__content
+							h2.h1.mainPage__title
+								| Місця запису
+							p.mainPage__text
+								| Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu
+
+
+
+
+			+rubricator()

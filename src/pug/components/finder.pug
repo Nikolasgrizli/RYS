@@ -1,0 +1,137 @@
+mixin finderItem(data)
+	-
+		var type = data.type || 'text';
+	.finder__item.fi
+		+tag((type === 'double') ? 'div' : 'label').fi__label
+			if(type !== 'checkbox')
+				span.fi__label-text!=data.labelText
+			if(type === 'checkbox')
+				input(type="checkbox", id=data.id, name="")
+			else if(type === 'double')
+				input(type="text", name="fromYear", placeholder='вiд ...', data-field="year")
+				input(type="text", name="toYear", placeholder='до ...', data-field="year")
+			else if(type === 'select')
+				+customSelect(data.select).js-custom-select.wide(id=data.id)
+			else
+				input(type="text", name="", placeholder!=data.placeholder, id=data.id)
+			if(type === 'checkbox')
+				span.fi__label-text--checkbox!=data.labelText
+
+			if(data.error)
+				.fi__error Значення "Рiк" має бути цілим числом.
+
+mixin finder()
+	.finder
+		.finder__container.container
+			.finder__inner
+				h2.finder__title Введіть параметри по яких шукати пісні
+				.finder__list
+					-
+						var fList = [
+							{
+								type: 'text',
+								labelText: 'Назва',
+								id: 'name',
+								placeholder: 'Введіть назву'
+							},
+							{
+								type: 'select',
+								labelText: 'ЖАНРИ',
+								id: 'genre',
+								select: {
+									searchable: true,
+									defaultSelected: false,
+									placeholder: 'Обрати жанр ...',
+									multiple: true,
+									arr: GENRES,
+								}
+							},
+							{
+								type: 'select',
+								labelText: 'МОТИВИ',
+								id: 'motives',
+								select: {
+									searchable: true,
+									defaultSelected: false,
+									placeholder: 'Обрати мотив ...',
+									multiple: true,
+									arr: MOTIVES,
+								}
+							},
+							{
+								type: 'text',
+								labelText: 'ТЕКСТ',
+								id: 'text',
+								placeholder: 'Введіть текст ...'
+							},
+							{
+								type: 'double',
+								labelText: 'РIК',
+							},
+							{
+								type: 'checkbox',
+								labelText: 'Є ноти',
+								id: 'withNotes'
+							},
+							{
+								type: 'checkbox',
+								labelText: 'Є текст',
+								id: 'withText'
+							},
+							{
+								type: 'select',
+								labelText: 'ОБЛАСТЬ',
+								id: 'states',
+								select: {
+									searchable: true,
+									defaultSelected: false,
+									placeholder: 'Обрати область ...',
+									multiple: false,
+									arr: STATES,
+								}
+							},
+							{
+								type: 'select',
+								labelText: 'РЕГІОН',
+								id: 'regions',
+								select: {
+									searchable: true,
+									defaultSelected: false,
+									placeholder: 'Обрати регіон ...',
+									multiple: false,
+									arr: REGIONS,
+								}
+							},
+							{
+								type: 'select',
+								labelText: 'МІСЦЕ ЗАПИСУ',
+								id: 'places',
+								select: {
+									searchable: true,
+									defaultSelected: false,
+									placeholder: 'Обрати населений пункт ...',
+									multiple: true,
+									arr: PLACES,
+								}
+							},
+							{
+								type: 'select',
+								labelText: 'ВИКОНАВЦІ',
+								id: 'singers',
+								select: {
+									searchable: true,
+									defaultSelected: false,
+									placeholder: 'Обрати виконавця ...',
+									multiple: false,
+									arr: SINGERS,
+								}
+							},
+						]
+					each item in fList
+						+finderItem(item)(id=item.id)
+
+					a.btn.btn_transparent(href='#')
+						span Скинути
+
+					a.btn.btn_main(href='#')
+						span Шукати
