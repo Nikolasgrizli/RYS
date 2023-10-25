@@ -1,6 +1,8 @@
 mixin tag(tag)
 	if tag === 'a'
 		a()&attributes(attributes): block
+	else if tag === 'label'
+		label()&attributes(attributes): block
 	else if tag === 'ul'
 		ul()&attributes(attributes): block
 	else if tag === 'ol'

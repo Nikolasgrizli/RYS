@@ -8,7 +8,11 @@ mixin iconWithTooltip(name,description = name, cls = '')
 			dataTooltip['data-tooltip-content'] = `#tooltip_content-${uniq}`;
 		}
 	.iconWithTooltip.js-tooltipster(class= cls ? cls : '')&attributes(dataTooltip)
-		+icon(name)
+		if(name.includes(':'))
+			- let substring = name.split(':')[1];
+			span!=substring
+		else
+			+icon(name)
 
 		if('data-tooltip-content' in dataTooltip)
 			.tooltip_templates.tooltip_templates_icon-description
