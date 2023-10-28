@@ -89,140 +89,331 @@ jQuery(function ($) {
 /***/ 182:
 /***/ (function() {
 
-var playIconContainer = document.getElementById('play-icon');
-var audioPlayerContainer = document.getElementById('audio-player-container');
-var seekSlider = document.getElementById('seek-slider');
-var volumeSlider = document.getElementById('volume-slider');
-var muteIconContainer = document.getElementById('mute-icon');
-var playState = 'play';
-var muteState = 'unmute';
-if (audioPlayerContainer) {
-  var playAnimation = function playAnimation() {
-    function play() {
-      playIconContainer.classList.add('is-playing');
-    }
-    function pause() {
-      playIconContainer.classList.remove('is-playing');
-    }
+(function audioPlayers() {
+  var audioPlayerContainers = document.querySelectorAll('.audio-player');
+  var listMusic = document.querySelectorAll('.js-list-music');
+
+  // helper functions
+  function playAnimation(playIconContainer) {
     return {
-      play: play,
-      pause: pause
+      play: function play() {
+        playIconContainer.classList.add('is-playing');
+      },
+      pause: function pause() {
+        playIconContainer.classList.remove('is-playing');
+      }
     };
-  };
-  var muteAnimation = function muteAnimation() {
-    function mute() {
-      muteIconContainer.classList.add('is-muted');
-    }
-    function unmute() {
-      muteIconContainer.classList.remove('is-muted');
-    }
+  }
+  function muteAnimation(muteIconContainer, audio) {
     return {
-      mute: mute,
-      unmute: unmute
+      mute: function mute() {
+        muteIconContainer.classList.add('is-muted');
+        audio.muted = true;
+      },
+      unmute: function unmute() {
+        muteIconContainer.classList.remove('is-muted');
+        audio.muted = false;
+      }
     };
-  };
-  var player = playAnimation();
-  var mute = muteAnimation();
-  player.pause();
-  playIconContainer.addEventListener('click', function () {
-    if (playState === 'play') {
-      audio.play();
-      // playAnimation.playSegments([14, 27], true);
-      player.play();
-      requestAnimationFrame(whilePlaying);
-      playState = 'pause';
-    } else {
+  }
+  function stopAllAudio() {
+    audioPlayerContainers.forEach(function (container) {
+      var audio = container.querySelector('audio');
+      var playButton = container.querySelector('.audio-player__play');
       audio.pause();
-      // playAnimation.playSegments([0, 14], true);
-      player.pause();
-      cancelAnimationFrame(raf);
-      playState = 'play';
-    }
-  });
-  muteIconContainer.addEventListener('click', function () {
-    if (muteState === 'unmute') {
-      // muteAnimation.playSegments([0, 15], true);
-      mute.mute();
-      audio.muted = true;
-      muteState = 'mute';
-    } else {
-      // muteAnimation.playSegments([15, 25], true);
-      mute.unmute();
-      audio.muted = false;
-      muteState = 'unmute';
-    }
-  });
-  var showRangeProgress = function showRangeProgress(rangeInput) {
-    if (rangeInput === seekSlider) audioPlayerContainer.style.setProperty('--seek-before-width', rangeInput.value / rangeInput.max * 100 + '%');else audioPlayerContainer.style.setProperty('--volume-before-width', rangeInput.value / rangeInput.max * 100 + '%');
-  };
-  seekSlider.addEventListener('input', function (e) {
-    showRangeProgress(e.target);
-  });
-  volumeSlider.addEventListener('input', function (e) {
-    showRangeProgress(e.target);
-  });
-
-  /** Implementation of the functionality of the audio player */
-
-  var audio = document.querySelector('audio');
-  var durationContainer = document.getElementById('duration');
-  var currentTimeContainer = document.getElementById('current-time');
-  var outputContainer = document.getElementById('volume-output');
-  var raf = null;
+      playAnimation(playButton).pause();
+    });
+  }
   var calculateTime = function calculateTime(secs) {
     var minutes = Math.floor(secs / 60);
     var seconds = Math.floor(secs % 60);
     var returnedSeconds = seconds < 10 ? "0".concat(seconds) : "".concat(seconds);
     return "".concat(minutes, ":").concat(returnedSeconds);
   };
-  var displayDuration = function displayDuration() {
-    durationContainer.textContent = calculateTime(audio.duration);
-  };
-  var setSliderMax = function setSliderMax() {
-    seekSlider.max = Math.floor(audio.duration);
-  };
-  var displayBufferedAmount = function displayBufferedAmount() {
-    if (audio.buffered.length > 0) {
-      var bufferedAmount = Math.floor(audio.buffered.end(audio.buffered.length - 1));
-      audioPlayerContainer.style.setProperty('--buffered-width', "".concat(bufferedAmount / seekSlider.max * 100, "%"));
+  var audioPlayers = [];
+  audioPlayerContainers.forEach(function (container, i) {
+    var audio = container.querySelector('audio');
+    var playButton = container.querySelector('.js-Player-play');
+    var muteIconContainer = container.querySelector('.js-Player-mute');
+    var seekSlider = container.querySelector('.audio-player__slider_track input[type="range"]');
+    var currentTimeContainer = container.querySelector('.currentTime');
+    var volumeSlider = container.querySelector('.audio-player__slider_volume input');
+    var durationContainer = container.querySelector('.duration');
+    var outputContainer = document.querySelector('.volume-output');
+    var closestLine = container.closest('.js-list-music-item');
+    var closestList = container.closest('.js-list-music');
+    var songId = i;
+    if (!!closestLine && !!closestList) {
+      var _closestList$dataset, _closestLine$dataset;
+      songId = (closestList === null || closestList === void 0 || (_closestList$dataset = closestList.dataset) === null || _closestList$dataset === void 0 ? void 0 : _closestList$dataset.musicList) + '' + (closestLine === null || closestLine === void 0 || (_closestLine$dataset = closestLine.dataset) === null || _closestLine$dataset === void 0 ? void 0 : _closestLine$dataset.index);
     }
-  };
-  var whilePlaying = function whilePlaying() {
-    seekSlider.value = Math.floor(audio.currentTime);
-    currentTimeContainer.textContent = calculateTime(seekSlider.value);
-    audioPlayerContainer.style.setProperty('--seek-before-width', "".concat(seekSlider.value / seekSlider.max * 100, "%"));
-    raf = requestAnimationFrame(whilePlaying);
-  };
-  if (audio.readyState > 0) {
-    displayDuration();
-    setSliderMax();
-    displayBufferedAmount();
-  } else {
-    audio.addEventListener('loadedmetadata', function () {
+    var player = playAnimation(playButton);
+    var mute = muteAnimation(muteIconContainer, audio);
+    var playState = 'play';
+    var muteState = 'unmute';
+    var raf = null;
+    player.pause();
+
+    // helper functions
+
+    var displayDuration = function displayDuration() {
+      durationContainer.textContent = calculateTime(audio.duration);
+    };
+    var setSliderMax = function setSliderMax() {
+      seekSlider.max = Math.floor(audio.duration);
+    };
+    var displayBufferedAmount = function displayBufferedAmount() {
+      if (audio.buffered.length > 0) {
+        var bufferedAmount = Math.floor(audio.buffered.end(audio.buffered.length - 1));
+        container.style.setProperty('--buffered-width', "".concat(bufferedAmount / seekSlider.max * 100, "%"));
+      }
+    };
+    var whilePlaying = function whilePlaying() {
+      seekSlider.value = Math.floor(audio.currentTime);
+      currentTimeContainer.textContent = calculateTime(seekSlider.value);
+      container.style.setProperty('--seek-before-width', "".concat(seekSlider.value / seekSlider.max * 100, "%"));
+      raf = requestAnimationFrame(whilePlaying);
+    };
+    var letsPlay = function letsPlay() {
+      audio.play();
+      player.play();
+      requestAnimationFrame(whilePlaying);
+      playState = 'pause';
+    };
+    var letsStop = function letsStop() {
+      audio.pause();
+      player.pause();
+      cancelAnimationFrame(raf);
+      playState = 'play';
+    };
+    var pushThisAudio = function pushThisAudio() {
+      audioPlayers.push({
+        'id': songId,
+        'player': audio,
+        letsPlay: letsPlay,
+        letsStop: letsStop
+      });
+    };
+    if (audio.readyState > 0) {
       displayDuration();
       setSliderMax();
       displayBufferedAmount();
+      pushThisAudio();
+    } else {
+      audio.addEventListener('loadedmetadata', function () {
+        displayDuration();
+        setSliderMax();
+        displayBufferedAmount();
+        pushThisAudio();
+      });
+    }
+    audio.addEventListener('progress', displayBufferedAmount);
+
+    // play/stop audio
+    playButton.addEventListener('click', function (e) {
+      // stopAllAudio();
+      // playAudio(audio);
+
+      if (playState === 'play') {
+        letsPlay();
+      } else {
+        letsStop();
+      }
+    });
+
+    // mute/unmute audio
+    muteIconContainer.addEventListener('click', function () {
+      if (muteState === 'unmute') {
+        mute.mute();
+        audio.muted = true;
+        muteState = 'mute';
+      } else {
+        mute.unmute();
+        audio.muted = false;
+        muteState = 'unmute';
+      }
+    });
+    var showRangeProgress = function showRangeProgress(rangeInput) {
+      console.log(rangeInput === seekSlider);
+      if (rangeInput === seekSlider) {
+        container.style.setProperty('--seek-before-width', rangeInput.value / rangeInput.max * 100 + '%');
+      } else {
+        container.style.setProperty('--volume-before-width', rangeInput.value / rangeInput.max * 100 + '%');
+      }
+    };
+    seekSlider.addEventListener('input', function (e) {
+      showRangeProgress(e.target);
+      currentTimeContainer.textContent = calculateTime(seekSlider.value);
+      if (!audio.paused) {
+        cancelAnimationFrame(raf);
+      }
+    });
+    seekSlider.addEventListener('change', function () {
+      audio.currentTime = seekSlider.value;
+      if (!audio.paused) {
+        requestAnimationFrame(whilePlaying);
+      }
+    });
+    volumeSlider.addEventListener('input', function (e) {
+      showRangeProgress(e.target);
+      var value = e.target.value;
+      outputContainer.textContent = value;
+      audio.volume = value / 100;
+    });
+  });
+  console.log(audioPlayers);
+
+  // helper functions
+  function createNodeListIterator(nodeList) {
+    var index = 0;
+    return {
+      get: function get(index) {
+        if (index >= 0 && index < nodeList.length) {
+          this.index = index;
+          return {
+            value: nodeList[index],
+            done: false
+          };
+        } else {
+          return {
+            done: true
+          };
+        }
+      },
+      next: function next() {
+        if (index < nodeList.length - 1) {
+          index++;
+          return {
+            value: nodeList[index],
+            done: false
+          };
+        } else {
+          return {
+            done: true
+          };
+        }
+      },
+      prev: function prev() {
+        if (index > 0) {
+          index--;
+          return {
+            value: nodeList[index],
+            done: false
+          };
+        } else {
+          return {
+            done: true
+          };
+        }
+      }
+    };
+  }
+  function getCurrentLineIndex(elem) {
+    return +elem.closest('.js-list-music-item').dataset.index;
+  }
+  function getCurrentIndex(elem) {
+    var listIndx = elem.closest('.js-list-music').dataset.musicList;
+    var lineIndx = elem.closest('.js-list-music-item').dataset.index;
+    return listIndx + '' + lineIndx;
+  }
+  function getNeededPlayer(innerId) {
+    return audioPlayers.filter(function (player) {
+      return player.id === innerId;
+    })[0];
+  }
+  function getActivePlayer() {
+    return audioPlayers.filter(function (audioPlayer) {
+      return !audioPlayer.player.paused;
     });
   }
-  audio.addEventListener('progress', displayBufferedAmount);
-  seekSlider.addEventListener('input', function () {
-    currentTimeContainer.textContent = calculateTime(seekSlider.value);
-    if (!audio.paused) {
-      cancelAnimationFrame(raf);
-    }
-  });
-  seekSlider.addEventListener('change', function () {
-    audio.currentTime = seekSlider.value;
-    if (!audio.paused) {
-      requestAnimationFrame(whilePlaying);
-    }
-  });
-  volumeSlider.addEventListener('input', function (e) {
-    var value = e.target.value;
-    outputContainer.textContent = value;
-    audio.volume = value / 100;
-  });
-}
+  if (listMusic.length) {
+    listMusic.forEach(function (list) {
+      var players = list.querySelectorAll('.hps__player');
+
+      // const players = createNodeListIterator(players);
+      // console.log(players.get(0));
+      // console.log(players.next());
+      // console.log(players.next());
+      // console.log(players.prev());
+
+      var iconNote = list.querySelector('.icon-note');
+      iconNote.addEventListener('click', function () {
+        console.log(getActivePlayer());
+      });
+      players.forEach(function (player) {
+        var playButton = player.querySelector('.hps__player-btn');
+        var prevTrackButton = player.querySelector('.js-Player-prev');
+        var nextTrackButton = player.querySelector('.js-Player-next');
+        var currentLineIndex = getCurrentLineIndex(player);
+        var fullIndx = getCurrentIndex(player);
+        // console.log(fullIndx);
+
+        if (currentLineIndex === 0) {
+          prevTrackButton.classList.add('is-disabled');
+        }
+        if (currentLineIndex === players.length - 1) {
+          nextTrackButton.classList.add('is-disabled');
+        }
+        playButton.addEventListener('click', function (e) {
+          if (player.classList.contains('is-player-active')) {
+            player.classList.remove('is-player-active');
+            getNeededPlayer(fullIndx).letsStop();
+          } else {
+            if (getActivePlayer().length) {
+              var activeModalPlayer = document.querySelectorAll('.is-player-active');
+              if (activeModalPlayer.length) {
+                activeModalPlayer.forEach(function (activePlayer) {
+                  activePlayer.classList.remove('is-player-active');
+                });
+              }
+              getActivePlayer().forEach(function (activePlayer) {
+                getNeededPlayer(activePlayer.id).letsStop();
+              });
+            }
+            player.classList.add('is-player-active');
+            getNeededPlayer(fullIndx).letsPlay();
+          }
+        });
+        nextTrackButton.addEventListener('click', function () {
+          if (currentLineIndex < players.length - 1) {
+            player.classList.remove('is-player-active');
+            getNeededPlayer(fullIndx).letsStop();
+            players[currentLineIndex + 1].classList.add('is-player-active');
+            getNeededPlayer(getCurrentIndex(players[currentLineIndex + 1])).letsPlay();
+          }
+        });
+        prevTrackButton.addEventListener('click', function () {
+          if (currentLineIndex > 0) {
+            player.classList.remove('is-player-active');
+            getNeededPlayer(fullIndx).letsStop();
+            players[currentLineIndex - 1].classList.add('is-player-active');
+            getNeededPlayer(getCurrentIndex(players[currentLineIndex - 1])).letsPlay();
+          }
+        });
+
+        // 	if(nextPlayer) {
+        // 		activePlayer.classList.remove('is-player-active');
+        // 		audioPlayers[getCurrentLineIndex(activePlayer)].letsStop();
+        // 		nextPlayer.classList.add('is-player-active');
+        // 		audioPlayers[getCurrentLineIndex(nextPlayer)].letsPlay();
+        // 	}
+        // });
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.hps__player')) {
+        var activePlayers = document.querySelectorAll('.is-player-active');
+        if (activePlayers.length) {
+          activePlayers.forEach(function (activePlayer) {
+            activePlayer.classList.remove('is-player-active');
+            getNeededPlayer(getCurrentIndex(activePlayer)).letsStop();
+          });
+        }
+      }
+    });
+  }
+})();
 
 /***/ }),
 
@@ -1923,6 +2114,50 @@ var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WE
 
 /***/ }),
 
+/***/ 671:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "docs",
+  "use": "docs-usage",
+  "viewBox": "0 0 15 15",
+  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 15 15\" id=\"docs\"><g clip-path=\"url(#docs_a)\" fill=\"#D2D2D2\"><path d=\"M9.85.543v2.53h2.53L9.85.543Z\" /><path d=\"M8.765 4.157V0H2.078v15h10.844V4.157H8.764Zm2.35 8.403h-7.23v-1.472h7.23v1.472Zm0-2.53h-7.23V8.5h7.23v1.53Zm0-2.53h-7.23V5.87h7.23V7.5Z\" /></g><defs><clipPath id=\"docs_a\"><path fill=\"#fff\" d=\"M0 0h15v15H0z\" /></clipPath></defs></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
+/***/ 531:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "download",
+  "use": "download-usage",
+  "viewBox": "0 0 757 733",
+  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 757 733\" id=\"download\"><path d=\"M132 665h492M378 69v463.556m0 0L583 367M378 532.556 173 367\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
 /***/ 81:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -1939,6 +2174,28 @@ var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMP
   "use": "event-usage",
   "viewBox": "0 0 72 72",
   "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 72 72\" id=\"event\"><path d=\"M32.64 43.428c3.868 4.385 6.928 9.098 7.684 12.665l-6.332 2.252c-1.678-3.665-4.905-7.94-8.59-11.757-3.82-3.682-8.095-6.908-11.763-8.585l2.253-6.329c3.725.79 8.7 4.085 13.244 8.19m14.827-17.56 4.436-5.333a1.452 1.452 0 0 1 2.048 0l4.523 4.516a1.45 1.45 0 0 1 0 2.047L39.6 36.298m-3.972-3.966 5.128-6.164m-9.646 2.564c4.77-7.66 3.264-14.996 2.15-19.524-1.357-5.523-9.037-4.212-7.467 1.631 1.337 4.985 1.92 8.918.983 15.234m16.57 14.922c7.808-4.212 14.963-2.359 19.387-1.031 5.452 1.635 3.754 9.234-2.007 7.372-4.773-1.545-8.593-2.326-14.641-1.804m-8.36-11.26c-7.853-7.582-17.655-13.22-20.057-7.438-.028.065-.259.69-.435 1.076L4.959 62.393c-.703 1.98-.493 3.456.42 4.208.752.908 2.228 1.122 4.21.42L44.09 54.753c.387-.177 1.012-.407 1.078-.436 5.785-2.4.143-12.197-7.443-20.046ZM18.36 53.627c2.471 2.56 4.737 5.326 6.468 7.977l-7.212 2.56a60.716 60.716 0 0 0-4.54-5.256 60.718 60.718 0 0 0-5.258-4.537l2.561-7.208c2.652 1.73 5.42 3.995 7.981 6.465ZM59.386 1.93l-.88 3.094c-.099.337-.095.44-.428.625l-2.952 1.627c-.571.317-.563.469-.016.83l2.693 1.903c.288.206.399.502.469.88l.571 3.094c.099.65.251.69.773.296l2.471-1.903c.255-.197.712-.32 1.032-.275l3.088.41c.654.083.76-.028.527-.64l-1.057-2.967c-.128-.362-.177-.67-.029-.995l1.377-2.996c.292-.583.227-.719-.431-.706l-3.368.065c-.382.004-.431-.086-.682-.329l-2.311-2.24c-.469-.451-.666-.398-.847.227Zm-11.92 2.342-4.112-2.375c-.464-.267-1.15-.144-1.336.362l-2.24 6.049c-.19.505-.108 1.068.357 1.335l2.228 1.29c.47.268.995.054 1.337-.36l4.124-4.965c.345-.415.11-1.069-.358-1.336Zm15.958 15.72h6.225c.707 0 1.402.587 1.283 1.281l-1.423 8.339c-.12.694-.58 1.282-1.283 1.282H64.85c-.707 0-1.163-.588-1.283-1.282l-1.426-8.338c-.12-.695.58-1.283 1.283-1.283Zm-61.376 2.1L8.06 20.48c.683-.185 1.505.206 1.571.904l.785 8.425c.066.703-.226 1.389-.908 1.57l-3.26.875c-.683.18-1.275-.267-1.571-.908L1.139 23.66c-.296-.641.227-1.389.91-1.57ZM52.634 66.17l-4.054 4.052c-.46.46-1.295.53-1.669 0l-4.506-6.358c-.379-.53-.461-1.212 0-1.672l2.195-2.195c.46-.46 1.143-.378 1.674 0l6.36 4.504c.53.374.461 1.208 0 1.669ZM14.59 2.102l.958 3.358c.107.366.102.477.464.678l3.203 1.767c.621.341.613.506.021.9l-2.924 2.067c-.316.222-.435.543-.514.954l-.616 3.357c-.111.703-.276.748-.843.32l-2.677-2.066c-.28-.214-.773-.346-1.122-.3l-3.351.447c-.708.09-.827-.032-.572-.694l1.147-3.218c.14-.394.193-.731.033-1.08L6.3 5.34c-.32-.637-.246-.785.465-.769l3.66.07c.415.008.464-.09.74-.357l2.508-2.43c.51-.492.723-.435.917.247Zm48.794 49.713-1.797 3c-.198.329-.222.436-.625.535l-3.557.879c-.69.172-.724.333-.25.867l2.29 2.758c.246.295.28.636.246 1.052l-.271 3.41c-.078.707.07.793.732.526l3.125-1.302c.329-.136.839-.136 1.163 0l3.13 1.303c.657.266.805.18.731-.527l-.275-3.41c-.033-.416 0-.757.246-1.053l2.295-2.757c.472-.534.436-.694-.255-.867l-3.557-.88c-.403-.098-.427-.205-.625-.534l-1.797-3c-.361-.608-.583-.608-.95 0Z\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
+/***/ 20:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "facebook",
+  "use": "facebook-usage",
+  "viewBox": "0 0 16 16",
+  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" id=\"facebook\"><path d=\"M13.656 0H2.344A2.347 2.347 0 0 0 0 2.344v11.312A2.347 2.347 0 0 0 2.344 16h4.719v-5.656H5.188V7.53h1.875V5.625a2.816 2.816 0 0 1 2.812-2.813h2.844v2.813H9.875v1.906h2.844l-.469 2.813H9.875V16h3.781A2.347 2.347 0 0 0 16 13.656V2.344A2.347 2.347 0 0 0 13.656 0Z\" fill=\"#fff\" /></symbol>"
 });
 var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
 /* harmony default export */ __webpack_exports__["default"] = (symbol);
@@ -2011,6 +2268,28 @@ var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WE
 
 /***/ }),
 
+/***/ 705:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "like",
+  "use": "like-usage",
+  "viewBox": "0 0 17 16",
+  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 17 16\" id=\"like\"><path d=\"M1.676 6.703C.752 6.703 0 7.455 0 8.38v5.362c0 .924.752 1.676 1.676 1.676h2.01c.378 0 .725-.127 1.006-.34V6.704H1.676Zm14.411 2.514c0-.403-.16-.779-.436-1.056.313-.342.472-.801.429-1.28-.079-.851-.846-1.519-1.748-1.519h-4.14c.204-.622.533-1.764.533-2.68C10.725 1.226 9.489 0 8.714 0 8.017 0 7.52.392 7.499.408a.337.337 0 0 0-.126.262v2.273l-1.93 4.182-.08.041v7.184c.545.258 1.235.396 1.675.396h6.153c.73 0 1.368-.492 1.518-1.17.078-.35.033-.702-.12-1.007a1.501 1.501 0 0 0 .67-2.012 1.5 1.5 0 0 0 .828-1.34Z\" fill=\"#fff\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
 /***/ 783:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -2049,6 +2328,28 @@ var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMP
   "use": "mute-usage",
   "viewBox": "0 0 15 15",
   "content": "<symbol viewBox=\"0 0 15 15\" xmlns=\"http://www.w3.org/2000/svg\" id=\"mute\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M7.724 1.053A.5.5 0 0 1 8 1.5v12a.5.5 0 0 1-.8.4L3.333 11H1.5A1.5 1.5 0 0 1 0 9.5v-4A1.5 1.5 0 0 1 1.5 4h1.833L7.2 1.1a.5.5 0 0 1 .524-.047ZM7 2.5 3.8 4.9a.5.5 0 0 1-.3.1h-2a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h2a.5.5 0 0 1 .3.1L7 12.5v-10Zm7.854 2.646a.5.5 0 0 1 0 .708L13.207 7.5l1.647 1.646a.5.5 0 0 1-.708.708L12.5 8.207l-1.646 1.647a.5.5 0 0 1-.708-.708L11.793 7.5l-1.647-1.646a.5.5 0 0 1 .708-.708L12.5 6.793l1.646-1.647a.5.5 0 0 1 .708 0Z\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
+/***/ 558:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "next",
+  "use": "next-usage",
+  "viewBox": "0 0 724 726",
+  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 724 726\" id=\"next\"><g clip-path=\"url(#next_a)\"><path d=\"M595.333 129.667v466.666M-38-37h800v800H-38V-37Zm511.237 414.06L154.281 580.033c-11.095 7.06-25.614-.91-25.614-14.06V160.028c0-13.152 14.519-21.122 25.614-14.061L473.237 348.94c10.293 6.547 10.293 21.573 0 28.12Z\" stroke=\"#fff\" stroke-width=\"66.667\" stroke-linecap=\"round\" /></g><defs><clipPath id=\"next_a\"><path fill=\"#fff\" d=\"M0 0h724v726H0z\" /></clipPath></defs></symbol>"
 });
 var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
 /* harmony default export */ __webpack_exports__["default"] = (symbol);
@@ -2137,6 +2438,50 @@ var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMP
   "use": "play-usage",
   "viewBox": "0 0 15 15",
   "content": "<symbol viewBox=\"0 0 15 15\" xmlns=\"http://www.w3.org/2000/svg\" id=\"play\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M3.242 2.322a.5.5 0 0 1 .491-.014l9 4.75a.5.5 0 0 1 0 .884l-9 4.75A.5.5 0 0 1 3 12.25v-9.5a.5.5 0 0 1 .242-.428ZM4 3.579v7.842L11.429 7.5 4 3.58Z\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
+/***/ 265:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "play_filled",
+  "use": "play_filled-usage",
+  "viewBox": "0 0 724 726",
+  "content": "<symbol viewBox=\"0 0 724 726\" xmlns=\"http://www.w3.org/2000/svg\" id=\"play_filled\"><path d=\"M205.139 102.039C155.911 73.803 116 96.934 116 153.663v418.633c0 56.786 39.911 79.887 89.139 51.678l365.928-209.845c49.244-28.246 49.244-74.009 0-102.249L205.139 102.039Z\" /></symbol>"
+});
+var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
+/* harmony default export */ __webpack_exports__["default"] = (symbol);
+
+/***/ }),
+
+/***/ 389:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(854);
+/* harmony import */ var _node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(348);
+/* harmony import */ var _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
+  "id": "prev",
+  "use": "prev-usage",
+  "viewBox": "0 0 724 726",
+  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 724 726\" id=\"prev\"><g clip-path=\"url(#prev_a)\"><path d=\"M128.667 596.333V129.667M762 763H-38V-37h800v800ZM250.763 348.94l318.956-202.973c11.095-7.06 25.614.91 25.614 14.06v405.945c0 13.152-14.519 21.122-25.614 14.061L250.763 377.06c-10.293-6.547-10.293-21.573 0-28.12Z\" stroke=\"#fff\" stroke-width=\"66.667\" stroke-linecap=\"round\" /></g><defs><clipPath id=\"prev_a\"><path fill=\"#fff\" transform=\"rotate(-180 362 363)\" d=\"M0 0h724v726H0z\" /></clipPath></defs></symbol>"
 });
 var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
 /* harmony default export */ __webpack_exports__["default"] = (symbol);
@@ -3365,16 +3710,23 @@ var map = {
 	"./category.svg": 102,
 	"./close.svg": 174,
 	"./disclaimer.svg": 809,
+	"./docs.svg": 671,
+	"./download.svg": 531,
 	"./event.svg": 81,
+	"./facebook.svg": 20,
 	"./fb.svg": 459,
 	"./genre.svg": 172,
 	"./insta.svg": 534,
+	"./like.svg": 705,
 	"./marker.svg": 783,
 	"./mute.svg": 752,
+	"./next.svg": 558,
 	"./note.svg": 143,
 	"./pause.svg": 329,
 	"./place.svg": 547,
 	"./play.svg": 541,
+	"./play_filled.svg": 265,
+	"./prev.svg": 389,
 	"./quotes.svg": 294,
 	"./rubric.svg": 120,
 	"./search.svg": 782,
@@ -4818,8 +5170,8 @@ jQuery(function ($) {
     animation: 'drop',
     position: 'bottom',
     arrow: false,
-    trigger: !isMobile() ? 'hover' : 'click',
-    maxWidth: 170
+    trigger: !isMobile() ? 'hover' : 'click'
+    // maxWidth: 250
   });
 });
 

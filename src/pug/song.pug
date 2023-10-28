@@ -1,141 +1,259 @@
 extends ./layout/main.pug
 
 block variables
-	- headerClass = 'header_transparent'
-	- layoutClass = 'layout_main--noGap'
+	- headerType = 'folklore';
+	- headerClass = 'header_folklore';
+	- layoutClass = 'layout_main--old';
 
 
 block content
 	main.main
-		.page-content.page-content_index-page
-			.main-sections
-				section.mainPage.mainPage_1
-					.mainPage__container
-						.mainPage__content
-							h1.mainPage__title
-								| Цифровий Архів Етнографічних Матеріалів Слобожанщини та Полтавщини
-							p.mainPage__text
-								| Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu
-							a.btn.btn_main(href='#')
-								i.icon
-									+icon('search').icon-search
-								span Шукати розповіді
-						.mainPage__image
-							-
-								let figureImg= {
-									name:   "main_1",
-									ext:    'jpg',
-									w:      960,
-									h:      960,
-								}
-							.img-shadow
-								+figureImg(figureImg)
+		.container.container_old
+			.page-content
+				section
+					+breadcrumbs([{name: 'Назва пісні'}])
+					h1 Назва пісні
 
-				section.mainPage.mainPage_2
-					.mainPage__container
-						.mainPage__image
-							-
-								let figureImg2= {
-									name:   "main_2",
-									ext:    'jpg',
-									w:      960,
-									h:      960,
-								}
-							.img-shadow
-								+figureImg(figureImg2)
-						.mainPage__content
-							h2.h1.mainPage__title
-								| Як шукати
-							ul.mainPage__links
-								li
-									a(href="#")
-										.icon
-											+icon('rubric').icon-rubric
-											.text За каталогом
-								li
-									a(href="#")
-										.icon
-											+icon('place').icon-place
-											.text За місцем
-								li
-									a(href="#")
-										.icon
-											+icon('words').icon-event
-											.text За словами
-								li
-									a(href="#")
-										.icon
-											+icon('selected').icon-seasons
-											.text Вибране
+					.history__container
+						.history__left
+							.song-table__wrapper
+								table.song-table
+									tr
+										th  Назва
+										td Краков'як
+									tr
+										th Жанр
+										td Інструментальна музика, танець
 
+									tr
+										th Мотиви
+										td ---
+									tr
+										th Дата
+										td 29.07.2007 р.
 
-				section.mainPage.mainPage_3
-					.mainPage__container
-						.mainPage__content
-							h2.h1.mainPage__title
-								| Випадкова Розповідь
-							.mainPage__story.storyPreview
-								h3.storyPreview__title Жнива
+									tr
+										th Місце запису
+										td с. Бугаївка, Вовчанський район, Харківська область, Слобожанщина, Україна
+									tr
+										th Записано від
+										td Ткаченко Микола Омелянович, 1931 р.н.
 
-								.storyPreview__place
-									+icon('marker')
-									span.text
-										| Село Михайлівка Котелевського району Полтавської області
-								.storyPreview__teller Розповіла Близнюк Віра Пилипівна (1926 р.н.) у 1996 році
-								.storyPreview__text
-									.storyPreview__icon
-										+icon('quotes')
-									p – Ото батько косе з утра, мама пов’яже, у стайки покладуть. А тоді вносять його в двір, простиляють шось чи змазують харашо землю і молотять тоді. Так це щє помню, як батько віяв.
-									p: strong – Чим молотили, ціпом?
-									p – Ціпами.
+									tr
+										th Записали
+										td  Н. П. Олійник, Г. В. Лук'янець
 
-							a.btn.btn_transparent(href='#')
-								span читати далі
-								i.icon
-									+icon('arrow-right').icon-arrow
-						.mainPage__image
-							-
-								let figureImg3= {
-									name:   "main_3",
-									ext:    'jpg',
-									w:      960,
-									h:      960,
-								}
-							.img-shadow
-								+figureImg(figureImg3)
+									tr
+										th Нотація
+										td
+											a(href="https://www.folklore.kh.ua/uploads/notes/5dd67c8a965559.02784903.pdf" download).uploadLink
+												+icon('download').icon-download
+												span Завантажити файл PDF
+									tr
+										th Інше
+										td
+											a(href="https://www.folklore.kh.ua/uploads/notes/5dd67c8a965559.02784903.pdf" download).uploadLink
+												+icon('download').icon-download
+												span Завантажити файл PDF
 
-				section.mainPage.mainPage_4
-					.mainPage__container
-						.mainPage__image.mainPage__image_map
-							-
-								let mapMarkers = [
-									{
-										position: '50.0474173,34.883056',
-										title: 'Село Михайлівка Котелевського району Полтавської області'
-									},
-									{
-										position: '50.0220034,34.1185991',
-										title: 'Село Чернещина району Полтавської області'
-									},
-									{
-										position: '49.821966,34.327104',
-										title: 'Село Нелюбовка Полтавської області'
-									},
-									{
-										position: '49.8971653,34.3344312',
-										title: 'Село Ордановка Полтавської області'
-									},
+							+audio('https://www.folklore.kh.ua/uploads/sounds/5ddfbbfce83761.01958452.mp3', true)
 
-								]
-							.map
-								#mapFilter.googleMap(data-points=mapMarkers)
-						.mainPage__content
-							h2.h1.mainPage__title
-								| Місця запису
-							p.mainPage__text
-								| Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu
+							.song-likes
+								a(href="https://www.folklore.kh.ua/uploads/sounds/5de51f5545c4f6.61806895.mp3" download).btn.btn_transparent.like-btn
+									+icon('download').icon-download
+									span Завантажити запис
+
+								span.like-count
+									span 43
+
+								a(href="#").btn.btn_like-orange.like-btn
+									+icon('like')
+									span Подобається
+
+								a(href="https://www.facebook.com/sharer/sharer.php?u=https://www.folklore.kh.ua/site/track?id=950").btn.btn_like-blue.like-btn
+									+icon('facebook')
+									span Поділитися
+
+							img(src="https://www.folklore.kh.ua/uploads/photo/5e2700e1915914.97045758.jpg", alt="")
 
 
+						.history__right
+							.word-container
+								p
+									| Із-за гори сонце сяє,
+									br
+									| Козак коника сідлає (ж),
+									br
+									| А дівчина горко плаче.
+								p
+									| Та дівчина горко плаче:
+									br
+									| "Не їдь, серце, козаче,
+									br
+									| Ой я й умру за тобою.
+								p
+									| Та бо я ж умру за тобою,
+									br
+									| За твоєю красотою,
+									br
+									| Молоденький козаченько".
+								p
+									| Та питалася дівка красна
+									br
+									| Молодого козаченька:
+									br
+									| "А де будем ночувати?".
+								p
+									| "Та єсть у полі скирта сіна,
+									br
+									| А то ж наша постіль біла,
+									br
+									| Молодая дівчинонька".
+								p
+									| Та питалася дівка красна
+									br
+									| Молодого козаченька:
+									br
+									| "А шо будем вечеряти?".
+								p
+									| "Та шо я буду їсти булку,
+									br
+									| А ти, дівко, думай думку,
+									br
+									| Молодая дівчинонька".
+								p
+									| Та питалася дівка красна
+									br
+									| Молодого козаченька:
+									br
+									| "А чим будем укриваться?".
+								p
+									| "Мене вкриє чорна хмара,
+									br
+									| Тебе вкриє людська слава,
+									br
+									| Молодая дівчинонька".
+
+					.hs-disclaimer
+						.hs-disclaimer__inner
+							+icon('disclaimer')
+							.text
+								p Редакція сайту ставиться з повагою до всіх етнічних і релігійних груп. Також ми розуміємо погляди прихильників мовного пуризму. Публікація образливих або лайливих слів є необхідністю задля збереження фольклорних матеріалів у тому вигляді, в якому вони побутували на момент запису.
+
+					.homePage__sounds.hps
+						.hps__inner
+							h2 Варіанти виконання та схожі пісні:
+							table.hps__table.js-list-music(data-music-list="0")
+								thead.hps__thead
+									tr.hps__tr
+										th.hps__th Назва
+										th.hps__th Жанр
+										th.hps__th Місце
+										th.hps__th Трив
+										th.hps__th Аудіо
+										th.hps__th Текст
+										th.hps__th Ноти
+								tbody.hps__tbody
+									tr.hps__tr.js-list-music-item(data-index="0")
+										td.hps__td: span.nowrap cheeses achieve their final shape when the curds are pressed into a mold or form. The harder the cheese, the more pressure is applied. The pressure drives out moisture—the molds are designed to allow
+										td.hps__td.hps__td--genre
+											.hps__genre
+												span.genreName Щедрівка
+												+iconWithTooltip('docs:1','Козацька, Чумацька', '', 'js-tooltipster-min')
+													p Козацька
+
+										td.hps__td: span.nowrap с. Велика Гомільша, Зміївський район
+										td.hps__td 03:37
+										td.hps__td.hps__td--audio
+											.hps__player
+												button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
+													+icon('play_filled').iconTable-play
+													+icon('pause').iconTable-pause
+												.hps__player-modal
+													+audio('https://assets.codepen.io/4358584/Anitek_-_Komorebi.mp3', false, true)
+
+										td.hps__td.hps__svgTableIconWrapper
+											+iconWithTooltip('docs','Текст', '', 'js-tooltipster-min')
+												p Серед двору, двору стояла бірьоза,#[br] Щедрий вечір, добрий вечір!  А на тій бірьозі дзіндзірьова кора,#[br] Щедрий вечір, добрий вечір!  Дзіндзірьова кора, золотеє гілля,#[br] Щедрий вечір,...
+										td.hps__td.hps__svgTableIconWrapper
+											+icon('note').icon-note
+									tr.hps__tr.js-list-music-item(data-index="1")
+										td.hps__td: span.nowrap Ой та й  з-за гори, ой та й з-за кручі (фрагмент)
+										td.hps__td.hps__td--genre
+											span.genreName Пісні з особистого та родинного життя
+											+iconWithTooltip('docs:2','Козацька, Чумацька', '', 'js-tooltipster-min')
+												p Козацька, Чумацька
+
+										td.hps__td: span.nowrap с. Велика Гомільша, Зміївський район
+										td.hps__td 03:37
+										td.hps__td.hps__td--audio
+											.hps__player
+												button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
+													+icon('play_filled').iconTable-play
+													+icon('pause').iconTable-pause
+												.hps__player-modal
+													+audio('https://www.folklore.kh.ua/uploads/sounds/5ddfbbfce83761.01958452.mp3', false, true)
 
 
-			+rubricator()
+										td.hps__td.hps__svgTableIconWrapper
+											+iconWithTooltip('docs','Текст', '', 'js-tooltipster-min')
+												p Серед двору, двору стояла бірьоза,#[br] Щедрий вечір, добрий вечір!  А на тій бірьозі дзіндзірьова кора,#[br] Щедрий вечір, добрий вечір!  Дзіндзірьова кора, золотеє гілля,#[br] Щедрий вечір,...
+										td.hps__td.hps__svgTableIconWrapper
+											+icon('note').icon-note
+
+							h2 Можливо, вам також сподобаються:
+							table.hps__table.js-list-music(data-music-list="1")
+								thead.hps__thead
+									tr.hps__tr
+										th.hps__th Назва
+										th.hps__th Жанр
+										th.hps__th Місце
+										th.hps__th Трив
+										th.hps__th Аудіо
+										th.hps__th Текст
+										th.hps__th Ноти
+								tbody.hps__tbody
+									tr.hps__tr.js-list-music-item(data-index="0")
+										td.hps__td: span.nowrap Серед двору, двору
+										td.hps__td.hps__td--genre
+											.hps__genre
+												span Щедрівка
+
+										td.hps__td: span.nowrap с. Велика Гомільша, Зміївський район
+										td.hps__td 03:37
+										td.hps__td.hps__td--audio
+											.hps__player
+												button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
+													+icon('play_filled').iconTable-play
+													+icon('pause').iconTable-pause
+												.hps__player-modal
+													+audio('https://www.folklore.kh.ua/uploads/sounds/5e021b4f06e7b0.67635320.mp3', false, true)
+
+										td.hps__td.hps__svgTableIconWrapper
+											+iconWithTooltip('docs','Текст', '', 'js-tooltipster-min')
+												p Серед двору, двору стояла бірьоза,#[br] Щедрий вечір, добрий вечір!  А на тій бірьозі дзіндзірьова кора,#[br] Щедрий вечір, добрий вечір!  Дзіндзірьова кора, золотеє гілля,#[br] Щедрий вечір,...
+										td.hps__td.hps__svgTableIconWrapper
+											+icon('note').icon-note
+									tr.hps__tr.js-list-music-item(data-index="1")
+										td.hps__td Ой та й  з-за гори, ой та й з-за кручі (фрагмент)
+										td.hps__td.hps__td--genre
+											span.genreName Пісні з особистого та родинного життя
+											+iconWithTooltip('docs:2','Козацька, Чумацька', '', 'js-tooltipster-min')
+												p Козацька, Чумацька
+
+										td.hps__td с. Велика Гомільша, Зміївський район
+										td.hps__td 03:37
+										td.hps__td.hps__td--audio
+											.hps__player
+												button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
+													+icon('play_filled').iconTable-play
+													+icon('pause').iconTable-pause
+												.hps__player-modal
+													+audio('https://www.folklore.kh.ua/uploads/sounds/5d9dced8287ae2.41725692.mp3', false, true)
+
+
+										td.hps__td.hps__svgTableIconWrapper
+											+iconWithTooltip('docs','Текст', '', 'js-tooltipster-min')
+												p Серед двору, двору стояла бірьоза,#[br] Щедрий вечір, добрий вечір!  А на тій бірьозі дзіндзірьова кора,#[br] Щедрий вечір, добрий вечір!  Дзіндзірьова кора, золотеє гілля,#[br] Щедрий вечір,...
+										td.hps__td.hps__svgTableIconWrapper
+											+icon('note').icon-note

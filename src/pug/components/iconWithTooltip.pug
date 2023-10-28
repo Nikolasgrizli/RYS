@@ -1,4 +1,4 @@
-mixin iconWithTooltip(name,description = name, cls = '')
+mixin iconWithTooltip(name,description = name, cls = '', type='js-tooltipster')
 	-
 		let dataTooltip = {};
 		const uniq = cyrb53(name,getRandomArbitrary(1,4))
@@ -7,7 +7,7 @@ mixin iconWithTooltip(name,description = name, cls = '')
 		} else {
 			dataTooltip['data-tooltip-content'] = `#tooltip_content-${uniq}`;
 		}
-	.iconWithTooltip.js-tooltipster(class= cls ? cls : '')&attributes(dataTooltip)
+	.iconWithTooltip(class= cls ? (type + ' ' + cls) : type)&attributes(dataTooltip)
 		if(name.includes(':'))
 			- let substring = name.split(':')[1];
 			span!=substring

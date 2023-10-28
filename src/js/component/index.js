@@ -109,7 +109,7 @@ jQuery(function ($) {
         position: 'bottom',
         arrow: false,
         trigger: (!isMobile()) ? 'hover' : 'click',
-        maxWidth: 170
+        // maxWidth: 250
     });
 });
 

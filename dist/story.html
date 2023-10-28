@@ -138,24 +138,25 @@
                       <div class="googleMap" id="mapSimple" data-position="50.0474173,34.883056" title="Село Михайлівка Котелевського району Полтавської області"></div>
                     </div>
                     <div class="hs-audio">
-                      <div class="audio-player" id="audio-player-container">
+                      <div class="audio-player">
                         <div class="audio-player__inner"><audio class="audio-player__hidden" src="https://assets.codepen.io/4358584/Anitek_-_Komorebi.mp3" preload="metadata" loop=""></audio>
                           <h4 class="audio-player__title">Слухати аудіо</h4>
                           <div class="audio-player__controls">
                             <div class="audio-player__controls-top">
-                              <div class="audio-player__slider audio-player__slider_track"><span class="time" id="current-time">0:00</span><input id="seek-slider" type="range" max="100" value="0"><span class="time" id="duration">0:00</span></div>
+                              <div class="audio-player__slider audio-player__slider_track"><span class="time currentTime">0:00</span><input type="range" max="100" value="0"><span class="time duration">0:00</span></div>
                               <div class="audio-player__volume">
-                                <div class="audio-player__slider audio-player__slider_volume"><input id="volume-slider" type="range" max="100" value="100"><output id="volume-output">100</output></div><button class="audio-player__mute" id="mute-icon"><svg class="svg-icon icon-volume">
+                                <div class="audio-player__slider audio-player__slider_volume"><input type="range" max="100" value="100"><output class="time volume-output">100</output></div><button class="audio-player__mute js-Player-mute"><svg class="svg-icon icon-volume">
                                     <use xlink:href="#volume"></use>
                                   </svg><svg class="svg-icon icon-mute">
                                     <use xlink:href="#mute"></use>
                                   </svg></button>
                               </div>
-                            </div><button class="audio-player__play" id="play-icon"><svg class="svg-icon icon-play">
-                                <use xlink:href="#play"></use>
-                              </svg><svg class="svg-icon icon-pause">
-                                <use xlink:href="#pause"></use>
-                              </svg></button>
+                            </div>
+                            <div class="audio-player__controls-bottom"><button class="audio-player__play js-Player-play"><svg class="svg-icon icon-play">
+                                  <use xlink:href="#play"></use>
+                                </svg><svg class="svg-icon icon-pause">
+                                  <use xlink:href="#pause"></use>
+                                </svg></button></div>
                           </div>
                         </div>
                       </div>

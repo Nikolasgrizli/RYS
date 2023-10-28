@@ -1,22 +1,30 @@
-#audio-player-container.audio-player
-	.audio-player__inner
-		audio.audio-player__hidden(src='https://assets.codepen.io/4358584/Anitek_-_Komorebi.mp3' preload='metadata' loop='')
-		h4.audio-player__title Слухати аудіо
-		.audio-player__controls
-			.audio-player__controls-top
-				.audio-player__slider.audio-player__slider_track
-					span#current-time.time 0:00
-					input#seek-slider(type='range' max='100' value='0')
-					span#duration.time 0:00
-				.audio-player__volume
-					.audio-player__slider.audio-player__slider_volume
-						input#volume-slider(type='range' max='100' value='100')
-						output#volume-output 100
-					button#mute-icon.audio-player__mute
-						+icon('volume').icon-volume
-						+icon('mute').icon-mute
+mixin audio(src, title, prevNext)
+	.audio-player
+		.audio-player__inner
+			audio.audio-player__hidden(src=src || 'https://assets.codepen.io/4358584/Anitek_-_Komorebi.mp3', preload='metadata', loop='')
+			if title
+				h4.audio-player__title Слухати аудіо
+			.audio-player__controls
+				.audio-player__controls-top
+					.audio-player__slider.audio-player__slider_track
+						span.time.currentTime 0:00
+						input(type='range' max='100' value='0')
+						span.time.duration 0:00
+					.audio-player__volume
+						.audio-player__slider.audio-player__slider_volume
+							input(type='range' max='100' value='100')
+							output.time.volume-output 100
+						button.audio-player__mute.js-Player-mute
+							+icon('volume').icon-volume
+							+icon('mute').icon-mute
 
-
-			button#play-icon.audio-player__play
-				+icon('play').icon-play
-				+icon('pause').icon-pause
+				.audio-player__controls-bottom
+					if(prevNext)
+						button.audio-player__play.audio-player__playPrevious.js-Player-prev
+							+icon('prev').icon-playPrev
+					button.audio-player__play.js-Player-play
+						+icon('play').icon-play
+						+icon('pause').icon-pause
+					if(prevNext)
+						button.audio-player__play.audio-player__playNext.js-Player-next
+							+icon('next').icon-playNext

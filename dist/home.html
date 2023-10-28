@@ -285,7 +285,7 @@
                     <div class="hps__sorting-label">Сортувати за:</div>
                     <div class="hps__sorting-btns"><a class="hps__sorting-btn" href="#">Вибір редакції</a><a class="hps__sorting-btn" href="#"> Вибір користувачів</a><a class="hps__sorting-btn" href="#"> Кількість прослуховувань</a><a class="hps__sorting-btn" href="#"> За алфовітом</a><a class="hps__sorting-btn hps__sorting-btn--active" href="#"> Останні додані</a></div>
                   </div>
-                  <table class="hps__table">
+                  <table class="hps__table js-list-music" data-music-list="0">
                     <thead class="hps__thead">
                       <tr class="hps__tr">
                         <th class="hps__th">Назва</th>
@@ -298,67 +298,131 @@
                       </tr>
                     </thead>
                     <tbody class="hps__tbody">
-                      <tr class="hps__tr">
-                        <td class="hps__td">Серед двору, двору</td>
-                        <td class="hps__td"><span>Щедрівка</span></td>
-                        <td class="hps__td">с. Велика Гомільша, Зміївський район</td>
+                      <tr class="hps__tr js-list-music-item" data-index="0">
+                        <td class="hps__td"><span class="nowrap">cheeses achieve their final shape when the curds are pressed into a mold or form. The harder the cheese, the more pressure is applied. The pressure drives out moisture—the molds are designed to allow</span></td>
+                        <td class="hps__td hps__td--genre">
+                          <div class="hps__genre"><span class="genreName">Щедрівка</span>
+                            <div class="iconWithTooltip js-tooltipster-min" data-tooltip-content="#tooltip_content-5270867375890991"><span>1</span>
+                              <div class="tooltip_templates tooltip_templates_icon-description">
+                                <div class="p-2" id="tooltip_content-5270867375890991">
+                                  <p>Козацька</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="hps__td"><span class="nowrap">с. Велика Гомільша, Зміївський район</span></td>
                         <td class="hps__td">03:37</td>
                         <td class="hps__td hps__td--audio">
-                          <div class="hps__player"><button class="hps__player-btn hps__player-btn--play"><svg class="svg-icon icon-play">
-                                <use xlink:href="#play"></use>
-                              </svg></button><button class="hps__player-btn hps__player-btn--stop"><svg class="svg-icon icon-play">
+                          <div class="hps__player"><button class="hps__player-btn hps__player-btn--play hps__svgTableIconWrapper"><svg class="svg-icon iconTable-play">
+                                <use xlink:href="#play_filled"></use>
+                              </svg><svg class="svg-icon iconTable-pause">
                                 <use xlink:href="#pause"></use>
-                              </svg></button></div>
-                          <div class="player"></div>
+                              </svg></button>
+                            <div class="hps__player-modal">
+                              <div class="audio-player">
+                                <div class="audio-player__inner"><audio class="audio-player__hidden" src="https://assets.codepen.io/4358584/Anitek_-_Komorebi.mp3" preload="metadata" loop=""></audio>
+                                  <div class="audio-player__controls">
+                                    <div class="audio-player__controls-top">
+                                      <div class="audio-player__slider audio-player__slider_track"><span class="time currentTime">0:00</span><input type="range" max="100" value="0"><span class="time duration">0:00</span></div>
+                                      <div class="audio-player__volume">
+                                        <div class="audio-player__slider audio-player__slider_volume"><input type="range" max="100" value="100"><output class="time volume-output">100</output></div><button class="audio-player__mute js-Player-mute"><svg class="svg-icon icon-volume">
+                                            <use xlink:href="#volume"></use>
+                                          </svg><svg class="svg-icon icon-mute">
+                                            <use xlink:href="#mute"></use>
+                                          </svg></button>
+                                      </div>
+                                    </div>
+                                    <div class="audio-player__controls-bottom"><button class="audio-player__play audio-player__playPrevious js-Player-prev"><svg class="svg-icon icon-playPrev">
+                                          <use xlink:href="#prev"></use>
+                                        </svg></button><button class="audio-player__play js-Player-play"><svg class="svg-icon icon-play">
+                                          <use xlink:href="#play"></use>
+                                        </svg><svg class="svg-icon icon-pause">
+                                          <use xlink:href="#pause"></use>
+                                        </svg></button><button class="audio-player__play audio-player__playNext js-Player-next"><svg class="svg-icon icon-playNext">
+                                          <use xlink:href="#next"></use>
+                                        </svg></button></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </td>
-                        <td class="hps__td">
-                          <div class="iconWithTooltip js-tooltipster" data-tooltip-content="#tooltip_content-4630713589135503"><svg class="svg-icon">
-                              <use xlink:href="#text"></use>
+                        <td class="hps__td hps__svgTableIconWrapper">
+                          <div class="iconWithTooltip js-tooltipster-min" data-tooltip-content="#tooltip_content-7126038589132410"><svg class="svg-icon">
+                              <use xlink:href="#docs"></use>
                             </svg>
                             <div class="tooltip_templates tooltip_templates_icon-description">
-                              <div class="p-2" id="tooltip_content-4630713589135503">
+                              <div class="p-2" id="tooltip_content-7126038589132410">
                                 <p>Серед двору, двору стояла бірьоза,<br>Щедрий вечір, добрий вечір! А на тій бірьозі дзіндзірьова кора,<br>Щедрий вечір, добрий вечір! Дзіндзірьова кора, золотеє гілля,<br>Щедрий вечір,...</p>
                               </div>
                             </div>
                           </div>
                         </td>
-                        <td class="hps__td"><svg class="svg-icon icon-note">
+                        <td class="hps__td hps__svgTableIconWrapper"><svg class="svg-icon icon-note">
                             <use xlink:href="#note"></use>
                           </svg></td>
                       </tr>
-                      <tr class="hps__tr">
-                        <td class="hps__td">Ой та й з-за гори, ой та й з-за кручі (фрагмент)</td>
-                        <td class="hps__td"><span>Пісні з особистого та родинного життя</span>
-                          <div class="iconWithTooltip js-tooltipster" data-tooltip-content="#tooltip_content-8909239943031372"><span>2</span>
+                      <tr class="hps__tr js-list-music-item" data-index="1">
+                        <td class="hps__td"><span class="nowrap">Ой та й з-за гори, ой та й з-за кручі (фрагмент)</span></td>
+                        <td class="hps__td hps__td--genre"><span class="genreName">Пісні з особистого та родинного життя</span>
+                          <div class="iconWithTooltip js-tooltipster-min" data-tooltip-content="#tooltip_content-475428364622692"><span>2</span>
                             <div class="tooltip_templates tooltip_templates_icon-description">
-                              <div class="p-2" id="tooltip_content-8909239943031372">
+                              <div class="p-2" id="tooltip_content-475428364622692">
                                 <p>Козацька, Чумацька</p>
                               </div>
                             </div>
                           </div>
                         </td>
-                        <td class="hps__td">с. Велика Гомільша, Зміївський район</td>
+                        <td class="hps__td"><span class="nowrap">с. Велика Гомільша, Зміївський район</span></td>
                         <td class="hps__td">03:37</td>
                         <td class="hps__td hps__td--audio">
-                          <div class="hps__player"><button class="hps__player-btn hps__player-btn--play"><svg class="svg-icon icon-play">
-                                <use xlink:href="#play"></use>
-                              </svg></button><button class="hps__player-btn hps__player-btn--stop"><svg class="svg-icon icon-play">
+                          <div class="hps__player"><button class="hps__player-btn hps__player-btn--play hps__svgTableIconWrapper"><svg class="svg-icon iconTable-play">
+                                <use xlink:href="#play_filled"></use>
+                              </svg><svg class="svg-icon iconTable-pause">
                                 <use xlink:href="#pause"></use>
-                              </svg></button></div>
-                          <div class="player"></div>
+                              </svg></button>
+                            <div class="hps__player-modal">
+                              <div class="audio-player">
+                                <div class="audio-player__inner"><audio class="audio-player__hidden" src="https://www.folklore.kh.ua/uploads/sounds/5ddfbbfce83761.01958452.mp3" preload="metadata" loop=""></audio>
+                                  <div class="audio-player__controls">
+                                    <div class="audio-player__controls-top">
+                                      <div class="audio-player__slider audio-player__slider_track"><span class="time currentTime">0:00</span><input type="range" max="100" value="0"><span class="time duration">0:00</span></div>
+                                      <div class="audio-player__volume">
+                                        <div class="audio-player__slider audio-player__slider_volume"><input type="range" max="100" value="100"><output class="time volume-output">100</output></div><button class="audio-player__mute js-Player-mute"><svg class="svg-icon icon-volume">
+                                            <use xlink:href="#volume"></use>
+                                          </svg><svg class="svg-icon icon-mute">
+                                            <use xlink:href="#mute"></use>
+                                          </svg></button>
+                                      </div>
+                                    </div>
+                                    <div class="audio-player__controls-bottom"><button class="audio-player__play audio-player__playPrevious js-Player-prev"><svg class="svg-icon icon-playPrev">
+                                          <use xlink:href="#prev"></use>
+                                        </svg></button><button class="audio-player__play js-Player-play"><svg class="svg-icon icon-play">
+                                          <use xlink:href="#play"></use>
+                                        </svg><svg class="svg-icon icon-pause">
+                                          <use xlink:href="#pause"></use>
+                                        </svg></button><button class="audio-player__play audio-player__playNext js-Player-next"><svg class="svg-icon icon-playNext">
+                                          <use xlink:href="#next"></use>
+                                        </svg></button></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </td>
-                        <td class="hps__td">
-                          <div class="iconWithTooltip js-tooltipster" data-tooltip-content="#tooltip_content-4055792103329030"><svg class="svg-icon">
-                              <use xlink:href="#text"></use>
+                        <td class="hps__td hps__svgTableIconWrapper">
+                          <div class="iconWithTooltip js-tooltipster-min" data-tooltip-content="#tooltip_content-7126038589132410"><svg class="svg-icon">
+                              <use xlink:href="#docs"></use>
                             </svg>
                             <div class="tooltip_templates tooltip_templates_icon-description">
-                              <div class="p-2" id="tooltip_content-4055792103329030">
+                              <div class="p-2" id="tooltip_content-7126038589132410">
                                 <p>Серед двору, двору стояла бірьоза,<br>Щедрий вечір, добрий вечір! А на тій бірьозі дзіндзірьова кора,<br>Щедрий вечір, добрий вечір! Дзіндзірьова кора, золотеє гілля,<br>Щедрий вечір,...</p>
                               </div>
                             </div>
                           </div>
                         </td>
-                        <td class="hps__td"><svg class="svg-icon icon-note">
+                        <td class="hps__td hps__svgTableIconWrapper"><svg class="svg-icon icon-note">
                             <use xlink:href="#note"></use>
                           </svg></td>
                       </tr>

@@ -423,11 +423,19 @@
 	$red: red($value);
 	$green: green($value);
 	$blue: blue($value);
+	$hue:  hue($value);
+	$saturation:  saturation($value);
+	$lightness:  lightness($value);
 	#{$color-name}: unquote("rgb(#{$red}, #{$green}, #{$blue})");
 	#{$color-name}-rgb: $red, $green, $blue;
 	#{$color-name}-r: $red;
 	#{$color-name}-g: $green;
 	#{$color-name}-b: $blue;
+	#{$color-name}-h: $hue;
+	#{$color-name}-s: $saturation;
+	#{$color-name}-l: $lightness;
+
+
 }
 
 // replace substring with another string

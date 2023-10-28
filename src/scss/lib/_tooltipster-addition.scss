@@ -1,0 +1,25 @@
+.tooltipster-sidetip.tooltipster-shadow2{
+	.tooltipster-content{
+		p{
+			&:first-child{
+				margin-top: 0;
+			}
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+
+}
+body{
+	.tooltipster-base.tooltipster-drop{
+		transform: translateX(0%) translateY(-20px);
+		&.tooltipster-show{
+			transform: translateX(0%) translateY(0);
+		}
+	}
+
+	.tooltipster-sidetip.tooltipster-shadow .tooltipster-box, .tooltipster-sidetip.tooltipster-shadow2 .tooltipster-box {
+		box-shadow: 0 4px 35px 0px rgba(0, 0, 0, 0.05);
+	}
+}

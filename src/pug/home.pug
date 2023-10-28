@@ -15,6 +15,8 @@ block content
 		.homePage
 			+articlesIntro()
 			.container.container_old
+				//- +audio('https://www.folklore.kh.ua/uploads/sounds/5ddfbbfce83761.01958452.mp3', false, true)
+
 				.homePage__info.page-info
 					.page-info__item
 						+icon('note').icon-note
@@ -42,6 +44,7 @@ block content
 
 				.homePage__sounds.hps
 					.hps__inner
+
 						.hps__sorting
 							.hps__sorting-label Сортувати за:
 							.hps__sorting-btns
@@ -53,7 +56,8 @@ block content
 							//- .hps__sorting-all
 							//- 	a(href="#")  Показати всі
 
-						table.hps__table
+
+						table.hps__table.js-list-music(data-music-list="0")
 							thead.hps__thead
 								tr.hps__tr
 									th.hps__th Назва
@@ -64,48 +68,108 @@ block content
 									th.hps__th Текст
 									th.hps__th Ноти
 							tbody.hps__tbody
-								tr.hps__tr
-									td.hps__td Серед двору, двору
-									td.hps__td
-										span Щедрівка
+								tr.hps__tr.js-list-music-item(data-index="0")
+									td.hps__td: span.nowrap cheeses achieve their final shape when the curds are pressed into a mold or form. The harder the cheese, the more pressure is applied. The pressure drives out moisture—the molds are designed to allow
+									td.hps__td.hps__td--genre
+										.hps__genre
+											span.genreName Щедрівка
+											+iconWithTooltip('docs:1','Козацька, Чумацька', '', 'js-tooltipster-min')
+												p Козацька
 
-									td.hps__td с. Велика Гомільша, Зміївський район
+									td.hps__td: span.nowrap с. Велика Гомільша, Зміївський район
 									td.hps__td 03:37
 									td.hps__td.hps__td--audio
 										.hps__player
-											button.hps__player-btn.hps__player-btn--play
-												+icon('play').icon-play
-											button.hps__player-btn.hps__player-btn--stop
-												+icon('pause').icon-play
-										.player
+											button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
+												+icon('play_filled').iconTable-play
+												+icon('pause').iconTable-pause
+											.hps__player-modal
+												+audio('https://assets.codepen.io/4358584/Anitek_-_Komorebi.mp3', false, true)
 
-									td.hps__td
-										+iconWithTooltip('text','Текст')
+									td.hps__td.hps__svgTableIconWrapper
+										+iconWithTooltip('docs','Текст', '', 'js-tooltipster-min')
 											p Серед двору, двору стояла бірьоза,#[br] Щедрий вечір, добрий вечір!  А на тій бірьозі дзіндзірьова кора,#[br] Щедрий вечір, добрий вечір!  Дзіндзірьова кора, золотеє гілля,#[br] Щедрий вечір,...
-									td.hps__td
+									td.hps__td.hps__svgTableIconWrapper
 										+icon('note').icon-note
-								tr.hps__tr
-									td.hps__td Ой та й  з-за гори, ой та й з-за кручі (фрагмент)
-									td.hps__td
-										span Пісні з особистого та родинного життя
-										+iconWithTooltip('text:2','Козацька, Чумацька')
+								tr.hps__tr.js-list-music-item(data-index="1")
+									td.hps__td: span.nowrap Ой та й  з-за гори, ой та й з-за кручі (фрагмент)
+									td.hps__td.hps__td--genre
+										span.genreName Пісні з особистого та родинного життя
+										+iconWithTooltip('docs:2','Козацька, Чумацька', '', 'js-tooltipster-min')
 											p Козацька, Чумацька
 
-									td.hps__td с. Велика Гомільша, Зміївський район
+									td.hps__td: span.nowrap с. Велика Гомільша, Зміївський район
 									td.hps__td 03:37
 									td.hps__td.hps__td--audio
 										.hps__player
-											button.hps__player-btn.hps__player-btn--play
-												+icon('play').icon-play
-											button.hps__player-btn.hps__player-btn--stop
-												+icon('pause').icon-play
-										.player
+											button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
+												+icon('play_filled').iconTable-play
+												+icon('pause').iconTable-pause
+											.hps__player-modal
+												+audio('https://www.folklore.kh.ua/uploads/sounds/5ddfbbfce83761.01958452.mp3', false, true)
 
-									td.hps__td
-										+iconWithTooltip('text','Текст')
+
+									td.hps__td.hps__svgTableIconWrapper
+										+iconWithTooltip('docs','Текст', '', 'js-tooltipster-min')
 											p Серед двору, двору стояла бірьоза,#[br] Щедрий вечір, добрий вечір!  А на тій бірьозі дзіндзірьова кора,#[br] Щедрий вечір, добрий вечір!  Дзіндзірьова кора, золотеє гілля,#[br] Щедрий вечір,...
-									td.hps__td
+									td.hps__td.hps__svgTableIconWrapper
 										+icon('note').icon-note
+
+						//- table.hps__table.js-list-music(data-music-list="1")
+						//- 	thead.hps__thead
+						//- 		tr.hps__tr
+						//- 			th.hps__th Назва
+						//- 			th.hps__th Жанр
+						//- 			th.hps__th Місце
+						//- 			th.hps__th Трив
+						//- 			th.hps__th Аудіо
+						//- 			th.hps__th Текст
+						//- 			th.hps__th Ноти
+						//- 	tbody.hps__tbody
+						//- 		tr.hps__tr.js-list-music-item(data-index="0")
+						//- 			td.hps__td: span.nowrap Серед двору, двору
+						//- 			td.hps__td.hps__td--genre
+						//- 				.hps__genre
+						//- 					span Щедрівка
+
+						//- 			td.hps__td: span.nowrap с. Велика Гомільша, Зміївський район
+						//- 			td.hps__td 03:37
+						//- 			td.hps__td.hps__td--audio
+						//- 				.hps__player
+						//- 					button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
+						//- 						+icon('play_filled').iconTable-play
+						//- 						+icon('pause').iconTable-pause
+						//- 					.hps__player-modal
+						//- 						+audio('https://www.folklore.kh.ua/uploads/sounds/5e021b4f06e7b0.67635320.mp3', false, true)
+
+						//- 			td.hps__td.hps__svgTableIconWrapper
+						//- 				+iconWithTooltip('docs','Текст', '', 'js-tooltipster-min')
+						//- 					p Серед двору, двору стояла бірьоза,#[br] Щедрий вечір, добрий вечір!  А на тій бірьозі дзіндзірьова кора,#[br] Щедрий вечір, добрий вечір!  Дзіндзірьова кора, золотеє гілля,#[br] Щедрий вечір,...
+						//- 			td.hps__td.hps__svgTableIconWrapper
+						//- 				+icon('note').icon-note
+						//- 		tr.hps__tr.js-list-music-item(data-index="1")
+						//- 			td.hps__td Ой та й  з-за гори, ой та й з-за кручі (фрагмент)
+						//- 			td.hps__td
+						//- 				span Пісні з особистого та родинного життя
+						//- 				+iconWithTooltip('docs:2','Козацька, Чумацька', '', 'js-tooltipster-min')
+						//- 					p Козацька, Чумацька
+
+						//- 			td.hps__td с. Велика Гомільша, Зміївський район
+						//- 			td.hps__td 03:37
+						//- 			td.hps__td.hps__td--audio
+						//- 				.hps__player
+						//- 					button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
+						//- 						+icon('play_filled').iconTable-play
+						//- 						+icon('pause').iconTable-pause
+						//- 					.hps__player-modal
+						//- 						+audio('https://www.folklore.kh.ua/uploads/sounds/5d9dced8287ae2.41725692.mp3', false, true)
+
+
+						//- 			td.hps__td.hps__svgTableIconWrapper
+						//- 				+iconWithTooltip('docs','Текст', '', 'js-tooltipster-min')
+						//- 					p Серед двору, двору стояла бірьоза,#[br] Щедрий вечір, добрий вечір!  А на тій бірьозі дзіндзірьова кора,#[br] Щедрий вечір, добрий вечір!  Дзіндзірьова кора, золотеє гілля,#[br] Щедрий вечір,...
+						//- 			td.hps__td.hps__svgTableIconWrapper
+						//- 				+icon('note').icon-note
 
 						.hps__pagination
 							ul.pagination
