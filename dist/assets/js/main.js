@@ -2150,8 +2150,8 @@ __webpack_require__.r(__webpack_exports__);
 var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMPORTED_MODULE_0___default())({
   "id": "download",
   "use": "download-usage",
-  "viewBox": "0 0 757 733",
-  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 757 733\" id=\"download\"><path d=\"M132 665h492M378 69v463.556m0 0L583 367M378 532.556 173 367\" /></symbol>"
+  "viewBox": "0 0 12 13",
+  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 12 13\" id=\"download\"><mask id=\"download_b\" style=\"mask-type:alpha\" maskUnits=\"userSpaceOnUse\" x=\"0\" y=\"0\" width=\"12\" height=\"13\"><path fill=\"url(#download_a)\" d=\"M0 .5h12v12H0z\" /></mask><g mask=\"url(#download_b)\"><path fill=\"#BC4CC6\" d=\"M0 .5h18.857v18H0z\" /></g><defs><pattern id=\"download_a\" patternContentUnits=\"objectBoundingBox\" width=\"1\" height=\"1\"><use xlink:href=\"#download_c\" transform=\"scale(.02083)\" /></pattern><image id=\"download_c\" width=\"48\" height=\"48\" xlink:href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAAmJLR0QA/4ePzL8AAADJSURBVFjDY2AgFvxHg1QHoxaMWjBqwagFoxaMWjBqAQ6wCMNQXHAheRZwM1wnyvjbDHzk+kGX4TtB438wGFESTPkELcijLB4YGTbgNX4rUAWFQJDhIU7jnzCIUCM12TL8wWr8XwYnauWBBqwW1FMvkzEx7MUw/hADMzXzsTTDaxTj3zHIUbuo8GL4Bzf+H4M/Aw3ARLgFExhoAtgZzoKNv8TAwUAjoMLwkeELgwYDDUEsEI6CUTAKBh/4T1P4h9YW/KW1Bf9obgEAKLEDEsLPvz8AAAAASUVORK5CYII=\"></image></defs></symbol>"
 });
 var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
 /* harmony default export */ __webpack_exports__["default"] = (symbol);
