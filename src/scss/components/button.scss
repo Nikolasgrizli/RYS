@@ -41,6 +41,54 @@
 			background-color: var(--color-main);
 		}
 	}
+	&_checkbox{
+		position: relative;
+		input[type="checkbox"]{
+			position: absolute;
+			opacity: 0;
+			width: 0;
+			height: 0;
+
+			&:checked~.text {
+				&::after {
+					opacity: 1;
+				}
+				&::before{
+					background-color: var(--color-main);
+				}
+			}
+		}
+		.text{
+			padding-left: 1.83em;
+			&::before{
+				content: '';
+				width: 1em;
+				height: 1em;
+				position: absolute;
+				background-color: var(--color-bg);
+				border: 1px solid var(--color-main);
+				left: 1em;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			&::after {
+				content: '';
+				width: 1em;
+				height: 1em;
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='9' viewBox='0 0 11 9' fill='none'%3E%3Cpath d='M9.54531 0L11 1.58514L4.19518 9L0 4.42884L1.45469 2.84369L4.19518 5.82976L9.54531 0Z' fill='white'/%3E%3C/svg%3E");
+				background-size: 60%;
+				background-repeat: no-repeat;
+				background-position: center;
+				position: absolute;
+				left: 1em;
+				top: 50%;
+				transform: translateY(-50%);
+				transition: $transition-base;
+				opacity: 0;
+			}
+		}
+	}
+	.icon-play_filled,
 	.icon-search{
 		width: 1em;
 		height: 1em;

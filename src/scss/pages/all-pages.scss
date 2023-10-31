@@ -837,8 +837,12 @@
 				color: var(--color-bg);
 			}
 		}
+		.btn_checkbox{
+			margin-left: auto;
+		}
 	}
 	&__table{
+		margin-bottom: 2em;
 		font-size: 80%;
 		width: 100%;
 		table-layout: fixed;
@@ -846,30 +850,45 @@
 			width: 1.2em;
 			height: 1.2em;
 		}
+		&-wrapper{
+			display: block;
+			width: 100%;
+			position: relative;
+			margin-bottom: 1em;
+		}
+	}
+	&__tbody{
+		.hps__tr{
+			vertical-align: middle;
+			&:nth-child(even){
+				background-color: rgba(var(--color-text-rgb),.015);
+			}
+		}
 	}
 	&__td{
 		padding-block: .5em;
 	}
 	&__th,
 	&__td{
-		&:nth-child(-n+3){
-			padding-inline: .5em;
-		}
-		&:nth-child(n+4){
+		&:first-child,
+		&:nth-child(n+5){
 			text-align: center;
 		}
 
-		&:first-child{
+		&:nth-child(2){
 			width: 30%;
 			max-width: 30%;
-		}
-		&:nth-child(2){
-			width: 14%;
-			max-width: 14%;
+			padding-inline: .5em;
 		}
 		&:nth-child(3){
+			width: 14%;
+			max-width: 14%;
+			padding-inline: .5em;
+		}
+		&:nth-child(4){
 			width: 20%;
 			max-width: 20%;
+			padding-inline: .5em;
 		}
 		&.hps__td--genre{
 			&::after{
@@ -1040,6 +1059,34 @@
 	}
 	100%{
 		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.hps__table-play-bottomElements{
+	min-height: 2.5em;
+    position: relative;
+}
+
+.js-play-all{
+	position: absolute;
+	top: 0.1em;
+	right: 0;
+	font-size: 80%;
+	padding: 0.7em 1em;
+	min-width: 12em;
+	.is-active{
+		display: flex;
+	}
+	.is-not-active{
+		display: none;
+	}
+	&.is-playing {
+		.is-active{
+			display: none;
+		}
+		.is-not-active{
+			display: flex;
+		}
 	}
 }
 

@@ -234,7 +234,7 @@ jQuery(function ($) {
       }
     });
     var showRangeProgress = function showRangeProgress(rangeInput) {
-      console.log(rangeInput === seekSlider);
+      // console.log(rangeInput === seekSlider);
       if (rangeInput === seekSlider) {
         container.style.setProperty('--seek-before-width', rangeInput.value / rangeInput.max * 100 + '%');
       } else {
@@ -261,7 +261,8 @@ jQuery(function ($) {
       audio.volume = value / 100;
     });
   });
-  console.log(audioPlayers);
+
+  // console.log(audioPlayers);
 
   // helper functions
   function createNodeListIterator(nodeList) {
@@ -326,9 +327,16 @@ jQuery(function ($) {
       return !audioPlayer.player.paused;
     });
   }
+  function playNext(player, currentLineIndex, players, fullIndx) {
+    player.classList.remove('is-player-active');
+    getNeededPlayer(fullIndx).letsStop();
+    players[currentLineIndex + 1].classList.add('is-player-active');
+    getNeededPlayer(getCurrentIndex(players[currentLineIndex + 1])).letsPlay();
+  }
   if (listMusic.length) {
     listMusic.forEach(function (list) {
       var players = list.querySelectorAll('.hps__player');
+      var btnPlayAll = list.querySelector('.js-play-all');
 
       // const players = createNodeListIterator(players);
       // console.log(players.get(0));
@@ -336,10 +344,12 @@ jQuery(function ($) {
       // console.log(players.next());
       // console.log(players.prev());
 
-      var iconNote = list.querySelector('.icon-note');
-      iconNote.addEventListener('click', function () {
-        console.log(getActivePlayer());
-      });
+      // const iconNote = list.querySelector('.icon-note');
+
+      // iconNote.addEventListener('click', () => {
+      // 	console.log(getActivePlayer())
+      // });
+
       players.forEach(function (player) {
         var playButton = player.querySelector('.hps__player-btn');
         var prevTrackButton = player.querySelector('.js-Player-prev');
@@ -355,9 +365,10 @@ jQuery(function ($) {
           nextTrackButton.classList.add('is-disabled');
         }
         playButton.addEventListener('click', function (e) {
+          var currentPlayer = getNeededPlayer(fullIndx);
           if (player.classList.contains('is-player-active')) {
             player.classList.remove('is-player-active');
-            getNeededPlayer(fullIndx).letsStop();
+            currentPlayer.letsStop();
           } else {
             if (getActivePlayer().length) {
               var activeModalPlayer = document.querySelectorAll('.is-player-active');
@@ -371,36 +382,67 @@ jQuery(function ($) {
               });
             }
             player.classList.add('is-player-active');
-            getNeededPlayer(fullIndx).letsPlay();
+            currentPlayer.letsPlay();
+            var endedHandler = function endedHandler() {
+              player.classList.remove('is-player-active');
+              currentPlayer.letsStop();
+              console.log('sdf');
+              var nextPlayerBtnWrapper = currentPlayer.player.closest('.js-list-music-item').nextElementSibling;
+              if (nextPlayerBtnWrapper) {
+                var btn = nextPlayerBtnWrapper.querySelector('.hps__player-btn');
+                btn.click();
+              } else {
+                if (btnPlayAll.classList.contains('is-playing')) {
+                  btnPlayAll.classList.remove('is-playing');
+                }
+              }
+              currentPlayer.player.removeEventListener('ended', endedHandler);
+            };
+            currentPlayer.player.addEventListener('ended', endedHandler);
           }
         });
         nextTrackButton.addEventListener('click', function () {
-          if (currentLineIndex < players.length - 1) {
-            player.classList.remove('is-player-active');
-            getNeededPlayer(fullIndx).letsStop();
-            players[currentLineIndex + 1].classList.add('is-player-active');
-            getNeededPlayer(getCurrentIndex(players[currentLineIndex + 1])).letsPlay();
+          var nextPlayerBtnWrapper = nextTrackButton.closest('.js-list-music-item').nextElementSibling;
+          if (nextPlayerBtnWrapper) {
+            var btn = nextPlayerBtnWrapper.querySelector('.hps__player-btn');
+            btn.click();
           }
-        });
-        prevTrackButton.addEventListener('click', function () {
-          if (currentLineIndex > 0) {
-            player.classList.remove('is-player-active');
-            getNeededPlayer(fullIndx).letsStop();
-            players[currentLineIndex - 1].classList.add('is-player-active');
-            getNeededPlayer(getCurrentIndex(players[currentLineIndex - 1])).letsPlay();
-          }
+          // if(currentLineIndex < players.length - 1){
+          // 		playNext(player, currentLineIndex, players, fullIndx);
+          // 	}
         });
 
-        // 	if(nextPlayer) {
-        // 		activePlayer.classList.remove('is-player-active');
-        // 		audioPlayers[getCurrentLineIndex(activePlayer)].letsStop();
-        // 		nextPlayer.classList.add('is-player-active');
-        // 		audioPlayers[getCurrentLineIndex(nextPlayer)].letsPlay();
-        // 	}
-        // });
+        prevTrackButton.addEventListener('click', function () {
+          var prevPlayerBtnWrapper = prevTrackButton.closest('.js-list-music-item').previousElementSibling;
+          if (prevPlayerBtnWrapper) {
+            var btn = prevPlayerBtnWrapper.querySelector('.hps__player-btn');
+            btn.click();
+          }
+          // if(currentLineIndex > 0){
+          // 	player.classList.remove('is-player-active');
+          // 	getNeededPlayer(fullIndx).letsStop();
+          // 	players[currentLineIndex - 1].classList.add('is-player-active');
+          // 	getNeededPlayer(getCurrentIndex(players[currentLineIndex - 1])).letsPlay();
+          // }
+        });
+      });
+
+      btnPlayAll.addEventListener('click', function () {
+        if (btnPlayAll.classList.contains('is-playing')) {
+          btnPlayAll.classList.remove('is-playing');
+          getActivePlayer().forEach(function (activePlayer) {
+            getNeededPlayer(activePlayer.id).letsStop();
+          });
+          return;
+        } else {
+          btnPlayAll.classList.add('is-playing');
+          var firstPlayer = players[0];
+          setTimeout(function () {
+            firstPlayer.querySelector('.hps__player-btn').click();
+          }, 100);
+        }
       });
     });
-
     document.addEventListener('click', function (e) {
       if (!e.target.closest('.hps__player')) {
         var activePlayers = document.querySelectorAll('.is-player-active');
@@ -408,6 +450,13 @@ jQuery(function ($) {
           activePlayers.forEach(function (activePlayer) {
             activePlayer.classList.remove('is-player-active');
             getNeededPlayer(getCurrentIndex(activePlayer)).letsStop();
+          });
+          var btnPlayAll = document.querySelectorAll('.js-play-all');
+          // console.log(btnPlayAll);
+          btnPlayAll.forEach(function (btn) {
+            if (btn.classList.contains('is-playing')) {
+              btn.classList.remove('is-playing');
+            }
           });
         }
       }
@@ -2371,7 +2420,7 @@ var symbol = new (_node_modules_svg_baker_runtime_browser_symbol_js__WEBPACK_IMP
   "id": "note",
   "use": "note-usage",
   "viewBox": "0 0 60 61",
-  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 60 61\" id=\"note\"><path d=\"M51.462 41.979v.005a7.136 7.136 0 0 1-7.115 7.537c-3.931 0-7.129-3.197-7.129-7.128 0-3.93 3.198-7.128 7.128-7.128 1.831 0 3.502.694 4.766 1.833l.167.15V18.942l-.12.023-25.703 5.033-.08.016v23.148h-.028l.003.103.002.061.003.15c0 3.931-3.197 7.129-7.128 7.129-3.93 0-7.128-3.198-7.128-7.128s3.198-7.128 7.128-7.128a7.1 7.1 0 0 1 4.797 1.86l.168.153V13.048l30.269-5.927V41.98ZM23.376 21.668v.121l.119-.023 25.703-5.033.08-.016V9.773l-.118.024-25.703 5.032-.081.016v6.822ZM49.279 42.06v-.007a4.951 4.951 0 0 0-4.933-4.605 4.951 4.951 0 0 0-4.945 4.945 4.95 4.95 0 0 0 4.945 4.946 4.95 4.95 0 0 0 4.933-4.606v-.673Zm-37.996 5.417a4.951 4.951 0 0 0 4.945 4.945 4.95 4.95 0 0 0 4.945-4.945 4.95 4.95 0 0 0-4.945-4.945 4.95 4.95 0 0 0-4.945 4.945Z\" fill=\"#D2D2D2\" stroke=\"#fff\" stroke-width=\".2\" /></symbol>"
+  "content": "<symbol fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 60 61\" id=\"note\"><path d=\"M51.462 41.979v.005a7.136 7.136 0 0 1-7.115 7.537c-3.931 0-7.129-3.197-7.129-7.128 0-3.93 3.198-7.128 7.128-7.128 1.831 0 3.502.694 4.766 1.833l.167.15V18.942l-.12.023-25.703 5.033-.08.016v23.148h-.028l.003.103.002.061.003.15c0 3.931-3.197 7.129-7.128 7.129-3.93 0-7.128-3.198-7.128-7.128s3.198-7.128 7.128-7.128a7.1 7.1 0 0 1 4.797 1.86l.168.153V13.048l30.269-5.927V41.98ZM23.376 21.668v.121l.119-.023 25.703-5.033.08-.016V9.773l-.118.024-25.703 5.032-.081.016v6.822ZM49.279 42.06v-.007a4.951 4.951 0 0 0-4.933-4.605 4.951 4.951 0 0 0-4.945 4.945 4.95 4.95 0 0 0 4.945 4.946 4.95 4.95 0 0 0 4.933-4.606v-.673Zm-37.996 5.417a4.951 4.951 0 0 0 4.945 4.945 4.95 4.95 0 0 0 4.945-4.945 4.95 4.95 0 0 0-4.945-4.945 4.95 4.95 0 0 0-4.945 4.945Z\" fill=\"#959399\" stroke=\"#959399\" stroke-width=\".2\" /></symbol>"
 });
 var result = _node_modules_svg_sprite_loader_runtime_browser_sprite_build_js__WEBPACK_IMPORTED_MODULE_1___default().add(symbol);
 /* harmony default export */ __webpack_exports__["default"] = (symbol);

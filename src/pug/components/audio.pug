@@ -1,7 +1,7 @@
-mixin audio(src, title, prevNext)
+mixin audio(src, title, prevNext, loop = true)
 	.audio-player
 		.audio-player__inner
-			audio.audio-player__hidden(src=src || 'https://assets.codepen.io/4358584/Anitek_-_Komorebi.mp3', preload='metadata', loop='')
+			audio.audio-player__hidden(src=src || 'https://assets.codepen.io/4358584/Anitek_-_Komorebi.mp3', preload='metadata', loop=loop)
 			if title
 				h4.audio-player__title Слухати аудіо
 			.audio-player__controls

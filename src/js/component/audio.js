@@ -73,6 +73,7 @@
 		let muteState = 'unmute';
 		let raf = null;
 
+
 		player.pause();
 
 
@@ -94,6 +95,7 @@
 			seekSlider.value = Math.floor(audio.currentTime);
 			currentTimeContainer.textContent = calculateTime(seekSlider.value);
 			container.style.setProperty('--seek-before-width', `${seekSlider.value / seekSlider.max * 100}%`);
+
 			raf = requestAnimationFrame(whilePlaying);
 		}
 		const letsPlay = function() {
@@ -101,6 +103,7 @@
 			player.play();
 			requestAnimationFrame(whilePlaying);
 			playState = 'pause';
+
 		};
 
 		const letsStop = function() {
@@ -163,7 +166,7 @@
 		});
 
 		const showRangeProgress = (rangeInput) => {
-			console.log(rangeInput === seekSlider);
+			// console.log(rangeInput === seekSlider);
 			if(rangeInput === seekSlider) {
 				container.style.setProperty('--seek-before-width', rangeInput.value / rangeInput.max * 100 + '%');
 			} else {
@@ -200,7 +203,7 @@
 	});
 
 
-	console.log(audioPlayers);
+	// console.log(audioPlayers);
 
 	// helper functions
 	function createNodeListIterator(nodeList) {
@@ -250,9 +253,18 @@
 		return audioPlayers.filter(audioPlayer => !audioPlayer.player.paused);
 	}
 
+	function playNext(player, currentLineIndex, players, fullIndx){
+		player.classList.remove('is-player-active');
+		getNeededPlayer(fullIndx).letsStop();
+		players[currentLineIndex + 1].classList.add('is-player-active');
+		getNeededPlayer(getCurrentIndex(players[currentLineIndex + 1])).letsPlay();
+	}
+
 	if(listMusic.length){
 		listMusic.forEach(list =>{
 			const players = list.querySelectorAll('.hps__player');
+			const btnPlayAll = list.querySelector('.js-play-all');
+
 
 			// const players = createNodeListIterator(players);
 			// console.log(players.get(0));
@@ -260,13 +272,11 @@
 			// console.log(players.next());
 			// console.log(players.prev());
 
-			const iconNote = list.querySelector('.icon-note');
+			// const iconNote = list.querySelector('.icon-note');
 
-			iconNote.addEventListener('click', () => {
-				console.log(getActivePlayer())
-			});
-
-
+			// iconNote.addEventListener('click', () => {
+			// 	console.log(getActivePlayer())
+			// });
 
 			players.forEach(player => {
 				const playButton = player.querySelector('.hps__player-btn');
@@ -287,10 +297,13 @@
 
 
 
+
+
 				playButton.addEventListener('click', (e) => {
+					const currentPlayer = getNeededPlayer(fullIndx);
 					if(player.classList.contains('is-player-active')) {
 						player.classList.remove('is-player-active');
-						getNeededPlayer(fullIndx).letsStop();
+						currentPlayer.letsStop();
 					} else {
 						if(getActivePlayer().length){
 							const activeModalPlayer = document.querySelectorAll('.is-player-active');
@@ -304,40 +317,76 @@
 							});
 						}
 						player.classList.add('is-player-active');
-						getNeededPlayer(fullIndx).letsPlay();
+						currentPlayer.letsPlay();
+
+
+
+						const endedHandler = () => {
+							player.classList.remove('is-player-active');
+							currentPlayer.letsStop();
+
+							console.log('sdf');
+							const nextPlayerBtnWrapper = currentPlayer.player.closest('.js-list-music-item').nextElementSibling;
+							if (nextPlayerBtnWrapper) {
+								const btn = nextPlayerBtnWrapper.querySelector('.hps__player-btn')
+								btn.click();
+							} else {
+								if(btnPlayAll.classList.contains('is-playing')) {
+									btnPlayAll.classList.remove('is-playing');
+								}
+							}
+
+							currentPlayer.player.removeEventListener('ended', endedHandler);
+						};
+
+
+						currentPlayer.player.addEventListener('ended', endedHandler);
 
 					}
 				});
 
 				nextTrackButton.addEventListener('click', () => {
-					if(currentLineIndex < players.length - 1){
-						player.classList.remove('is-player-active');
-						getNeededPlayer(fullIndx).letsStop();
-						players[currentLineIndex + 1].classList.add('is-player-active');
-						getNeededPlayer(getCurrentIndex(players[currentLineIndex + 1])).letsPlay();
+					const nextPlayerBtnWrapper = nextTrackButton.closest('.js-list-music-item').nextElementSibling;
+					if (nextPlayerBtnWrapper) {
+						const btn = nextPlayerBtnWrapper.querySelector('.hps__player-btn')
+						btn.click();
 					}
+				// if(currentLineIndex < players.length - 1){
+				// 		playNext(player, currentLineIndex, players, fullIndx);
+				// 	}
 				});
 
 				prevTrackButton.addEventListener('click', () => {
-					if(currentLineIndex > 0){
-						player.classList.remove('is-player-active');
-						getNeededPlayer(fullIndx).letsStop();
-						players[currentLineIndex - 1].classList.add('is-player-active');
-						getNeededPlayer(getCurrentIndex(players[currentLineIndex - 1])).letsPlay();
+					const prevPlayerBtnWrapper = prevTrackButton.closest('.js-list-music-item').previousElementSibling;
+					if (prevPlayerBtnWrapper) {
+						const btn = prevPlayerBtnWrapper.querySelector('.hps__player-btn')
+						btn.click();
 					}
+					// if(currentLineIndex > 0){
+					// 	player.classList.remove('is-player-active');
+					// 	getNeededPlayer(fullIndx).letsStop();
+					// 	players[currentLineIndex - 1].classList.add('is-player-active');
+					// 	getNeededPlayer(getCurrentIndex(players[currentLineIndex - 1])).letsPlay();
+					// }
 				});
 
 
+			});
 
-				// 	if(nextPlayer) {
-				// 		activePlayer.classList.remove('is-player-active');
-				// 		audioPlayers[getCurrentLineIndex(activePlayer)].letsStop();
-				// 		nextPlayer.classList.add('is-player-active');
-				// 		audioPlayers[getCurrentLineIndex(nextPlayer)].letsPlay();
-				// 	}
-				// });
-
-
+			btnPlayAll.addEventListener('click', () => {
+				if(btnPlayAll.classList.contains('is-playing')) {
+					btnPlayAll.classList.remove('is-playing');
+					getActivePlayer().forEach(activePlayer => {
+						getNeededPlayer(activePlayer.id).letsStop();
+					});
+					return;
+				} else {
+					btnPlayAll.classList.add('is-playing');
+					const firstPlayer = players[0];
+					setTimeout(() => {
+						firstPlayer.querySelector('.hps__player-btn').click();
+					}, 100);
+				}
 			});
 		});
 
@@ -349,6 +398,16 @@
 						activePlayer.classList.remove('is-player-active');
 						getNeededPlayer(getCurrentIndex(activePlayer)).letsStop();
 					});
+
+
+					const btnPlayAll = document.querySelectorAll('.js-play-all');
+					// console.log(btnPlayAll);
+					btnPlayAll.forEach(btn => {
+						if(btn.classList.contains('is-playing')) {
+							btn.classList.remove('is-playing');
+						}
+					});
+
 				}
 			}
 		});

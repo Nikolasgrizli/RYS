@@ -19,32 +19,59 @@ block content
 							.song-table__wrapper
 								table.song-table
 									tr
-										th  Назва
+										th Назва
 										td Краков'як
 									tr
 										th Жанр
-										td Інструментальна музика, танець
+										td
+											a(href='/?q%5Bgenre_ids%5D%5B%5D=4') Пісні з особистого та родинного життя
+											| ,
+											a(href='/?q%5Bgenre_ids%5D%5B%5D=5') Козацька
 
 									tr
-										th Мотиви
-										td ---
+										th Мотив
+										td
+											a(href='/?q%5Bmotive_ids%5D%5B%5D=30') Смерть
+											| ,
+											a(href='/?q%5Bmotive_ids%5D%5B%5D=34') Чужина
+
 									tr
-										th Дата
-										td 29.07.2007 р.
+										th Дата запису
+										td 17 бер. 1991 р.
 
 									tr
 										th Місце запису
-										td с. Бугаївка, Вовчанський район, Харківська область, Слобожанщина, Україна
+										td
+											a(href="/?q%5Bcity_ids%5D%5B%5D=4") с. Терни, Лубенський район, Полтавська обл., Україна, Полтавщина
 									tr
-										th Записано від
-										td Ткаченко Микола Омелянович, 1931 р.н.
+										th Виконавці
+										td
+											a(href='/?q%5Brecord_by_ids%5D=10') Карпова Марія Федорівна (1919)
+											| ,
+											a(href='/?q%5Brecord_by_ids%5D=11') Шаманенко Ганна Федорівна (1919)
+											| ,
+											a(href='/?q%5Brecord_by_ids%5D=79') Любич Марія Митрофанівна (1927)
+											| ,
+											a(href='/?q%5Brecord_by_ids%5D=80') Любич Марія Павлівна (1920)
+											| ,
+											a(href='/?q%5Brecord_by_ids%5D=81') Малешко Ганна Єгорівна (1924)
+											| ,
+											a(href='/?q%5Brecord_by_ids%5D=82') Маніца Дарія Павлівна (1927)
+											| ,
+											a(href='/?q%5Brecord_by_ids%5D=83') Науменко Ганна Володимирівна (1931)
+											| ,
+											a(href='/?q%5Brecord_by_ids%5D=84') Шаповал Марія Федосіївна (1927)
+
 
 									tr
-										th Записали
+										th Збирачi
 										td  Н. П. Олійник, Г. В. Лук'янець
+									tr
+										th Транскрипція
+										td Юлія Лузан
 
 									tr
-										th Нотація
+										th Ноти
 										td
 											a(href="https://www.folklore.kh.ua/uploads/notes/5dd67c8a965559.02784903.pdf" download).uploadLink
 												+icon('download').icon-download
@@ -140,120 +167,54 @@ block content
 							.text
 								p Редакція сайту ставиться з повагою до всіх етнічних і релігійних груп. Також ми розуміємо погляди прихильників мовного пуризму. Публікація образливих або лайливих слів є необхідністю задля збереження фольклорних матеріалів у тому вигляді, в якому вони побутували на момент запису.
 
-					.homePage__sounds.hps
+					.homePage__sounds.hps(style="--mt: 20;")
 						.hps__inner
 							h2 Варіанти виконання та схожі пісні:
-							table.hps__table.js-list-music(data-music-list="0")
-								thead.hps__thead
-									tr.hps__tr
-										th.hps__th Назва
-										th.hps__th Жанр
-										th.hps__th Місце
-										th.hps__th Трив
-										th.hps__th Аудіо
-										th.hps__th Текст
-										th.hps__th Ноти
-								tbody.hps__tbody
-									tr.hps__tr.js-list-music-item(data-index="0")
-										td.hps__td: span.nowrap cheeses achieve their final shape when the curds are pressed into a mold or form. The harder the cheese, the more pressure is applied. The pressure drives out moisture—the molds are designed to allow
-										td.hps__td.hps__td--genre
-											.hps__genre
-												span.genreName Щедрівка
-												+iconWithTooltip('docs:1','Козацька, Чумацька', '', 'js-tooltipster-min')
-													p Козацька
+							-
+								let listSongs = [
+									{
+										name: 'Серед двору, двору',
+										genre: ['Щедрівка'],
+										place: 'с. Велика Гомільша, Зміївський район',
+										duration: '03:37',
+										audio: 'https://www.folklore.kh.ua/uploads/sounds/5e021b4f06e7b0.67635320.mp3',
+										text: 'Серед двору, двору стояла бірьоза,<br> Щедрий вечір, добрий вечір!  А на тій бірьозі дзіндзірьова кора,<br> Щедрий вечір, добрий вечір!  Дзіндзірьова кора, золотеє гілля,<br> Щедрий вечір, добрий вечір!  Золотеє гілля, сріблеє листя,<br> Щедрий вечір, добрий вечір!  Сріблеє листя, зеленеє трава,<br> Щедрий вечір, добрий вечір!  Зеленеє трава, червонеє калина,<br> Щедрий вечір, добрий вечір!  Червонеє калина, білеє цвітя,<br> Щедрий вечір, добрий вечір!  Білеє цвітя, червонеє яблуко,<br> Щедрий вечір, добрий вечір!  Червонеє яблуко, зеленеє груша,<br> Щедрий вечір, добрий вечір!  Зеленеє груша, жовтеє горіх,<br> Щедрий вечір, добрий вечір!  Жовтеє горіх, чорнеє земля,<br> Щедрий вечір, добри',
+										note: true
+									},
+									{
+										name: 'Ой та й  з-за гори, ой та й з-за кручі (фрагмент)',
+										genre: ['Пісні з особистого та родинного життя', 'Козацька', 'Чумацька'],
+										place: 'с. Велика Гомільша, Зміївський район',
+										duration: '03:37',
+										audio: 'https://www.folklore.kh.ua/uploads/sounds/5d9dced8287ae2.41725692.mp3',
+										text: false,
+										note: true
+									},
 
-										td.hps__td: span.nowrap с. Велика Гомільша, Зміївський район
-										td.hps__td 03:37
-										td.hps__td.hps__td--audio
-											.hps__player
-												button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
-													+icon('play_filled').iconTable-play
-													+icon('pause').iconTable-pause
-												.hps__player-modal
-													+audio('https://assets.codepen.io/4358584/Anitek_-_Komorebi.mp3', false, true)
+									{
+										name: 'Туман поле покриває',
+										genre: ['Пісні з особистого та родинного життя'],
+										place: 'с. Матяшівка, кут Ліски, Великобагачанський район, Полтавська обл., Україна, Полтавщина',
+										duration: '02:00',
+										audio: 'https://folklore.kh.ua/uploads/sounds/5d9de308e707b8.50373673.mp3',
+										text: "<p>Туман поле покриває,<br>Ай туман поле та все покриває,<br>Ой сиз голубонько літає.</p><p>Сиз голубонько літає,<br>А він літає та все буркотає,<br>Ай усе крилечками блудить.</p><p>Та все крилечками блудить,<br>Ай тяжко-важко ой та на серденьку, <br>Ой ой хто кого ой вірно любить.</p><p>(Кого вірно любить,<br>Ай по-під мостом та все трава ростом,<br>Щука риба лина гонить.</p><p>А то ж риба, то не щука,<br>То з милим дружком розлука.</p><p>Розлучила нас неволя,<br>Чужадальная сторона.)</p>",
+										note: false
+									},
+									{
+										name: 'Чорноморець, маменько, ой чорноморець',
+										genre: ['Пісні з особистого та родинного життя'],
+										place: 'с. Басове, Золочівський район, Харківська обл., Україна, Слобожанщина',
+										duration: '02:02',
+										audio: 'https://folklore.kh.ua/uploads/sounds/5de4dd49235c56.96246902.mp3',
+										text: false,
+										note: false
+									},
 
-										td.hps__td.hps__svgTableIconWrapper
-											+iconWithTooltip('docs','Текст', '', 'js-tooltipster-min')
-												p Серед двору, двору стояла бірьоза,#[br] Щедрий вечір, добрий вечір!  А на тій бірьозі дзіндзірьова кора,#[br] Щедрий вечір, добрий вечір!  Дзіндзірьова кора, золотеє гілля,#[br] Щедрий вечір,...
-										td.hps__td.hps__svgTableIconWrapper
-											+icon('note').icon-note
-									tr.hps__tr.js-list-music-item(data-index="1")
-										td.hps__td: span.nowrap Ой та й  з-за гори, ой та й з-за кручі (фрагмент)
-										td.hps__td.hps__td--genre
-											span.genreName Пісні з особистого та родинного життя
-											+iconWithTooltip('docs:2','Козацька, Чумацька', '', 'js-tooltipster-min')
-												p Козацька, Чумацька
+								]
 
-										td.hps__td: span.nowrap с. Велика Гомільша, Зміївський район
-										td.hps__td 03:37
-										td.hps__td.hps__td--audio
-											.hps__player
-												button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
-													+icon('play_filled').iconTable-play
-													+icon('pause').iconTable-pause
-												.hps__player-modal
-													+audio('https://www.folklore.kh.ua/uploads/sounds/5ddfbbfce83761.01958452.mp3', false, true)
+							+musicTable(listSongs, 0)
 
 
-										td.hps__td.hps__svgTableIconWrapper
-											+iconWithTooltip('docs','Текст', '', 'js-tooltipster-min')
-												p Серед двору, двору стояла бірьоза,#[br] Щедрий вечір, добрий вечір!  А на тій бірьозі дзіндзірьова кора,#[br] Щедрий вечір, добрий вечір!  Дзіндзірьова кора, золотеє гілля,#[br] Щедрий вечір,...
-										td.hps__td.hps__svgTableIconWrapper
-											+icon('note').icon-note
 
 							h2 Можливо, вам також сподобаються:
-							table.hps__table.js-list-music(data-music-list="1")
-								thead.hps__thead
-									tr.hps__tr
-										th.hps__th Назва
-										th.hps__th Жанр
-										th.hps__th Місце
-										th.hps__th Трив
-										th.hps__th Аудіо
-										th.hps__th Текст
-										th.hps__th Ноти
-								tbody.hps__tbody
-									tr.hps__tr.js-list-music-item(data-index="0")
-										td.hps__td: span.nowrap Серед двору, двору
-										td.hps__td.hps__td--genre
-											.hps__genre
-												span Щедрівка
-
-										td.hps__td: span.nowrap с. Велика Гомільша, Зміївський район
-										td.hps__td 03:37
-										td.hps__td.hps__td--audio
-											.hps__player
-												button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
-													+icon('play_filled').iconTable-play
-													+icon('pause').iconTable-pause
-												.hps__player-modal
-													+audio('https://www.folklore.kh.ua/uploads/sounds/5e021b4f06e7b0.67635320.mp3', false, true)
-
-										td.hps__td.hps__svgTableIconWrapper
-											+iconWithTooltip('docs','Текст', '', 'js-tooltipster-min')
-												p Серед двору, двору стояла бірьоза,#[br] Щедрий вечір, добрий вечір!  А на тій бірьозі дзіндзірьова кора,#[br] Щедрий вечір, добрий вечір!  Дзіндзірьова кора, золотеє гілля,#[br] Щедрий вечір,...
-										td.hps__td.hps__svgTableIconWrapper
-											+icon('note').icon-note
-									tr.hps__tr.js-list-music-item(data-index="1")
-										td.hps__td Ой та й  з-за гори, ой та й з-за кручі (фрагмент)
-										td.hps__td.hps__td--genre
-											span.genreName Пісні з особистого та родинного життя
-											+iconWithTooltip('docs:2','Козацька, Чумацька', '', 'js-tooltipster-min')
-												p Козацька, Чумацька
-
-										td.hps__td с. Велика Гомільша, Зміївський район
-										td.hps__td 03:37
-										td.hps__td.hps__td--audio
-											.hps__player
-												button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
-													+icon('play_filled').iconTable-play
-													+icon('pause').iconTable-pause
-												.hps__player-modal
-													+audio('https://www.folklore.kh.ua/uploads/sounds/5d9dced8287ae2.41725692.mp3', false, true)
-
-
-										td.hps__td.hps__svgTableIconWrapper
-											+iconWithTooltip('docs','Текст', '', 'js-tooltipster-min')
-												p Серед двору, двору стояла бірьоза,#[br] Щедрий вечір, добрий вечір!  А на тій бірьозі дзіндзірьова кора,#[br] Щедрий вечір, добрий вечір!  Дзіндзірьова кора, золотеє гілля,#[br] Щедрий вечір,...
-										td.hps__td.hps__svgTableIconWrapper
-											+icon('note').icon-note
+							+musicTable(listSongs, 1)

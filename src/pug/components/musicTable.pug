@@ -1,0 +1,76 @@
+mixin musicTable(list, index, pagination = false)
+	.hps__table-wrapper.js-list-music(data-music-list=index)
+		table.hps__table
+			thead.hps__thead
+				tr.hps__tr
+					th.hps__th Аудіо
+					th.hps__th Назва
+					th.hps__th Жанр
+					th.hps__th Місце
+					th.hps__th Трив
+					th.hps__th Текст
+					th.hps__th Ноти
+			tbody.hps__tbody
+				each item, i in list
+					tr.hps__tr.js-list-music-item(data-index=i)
+						td.hps__td.hps__td--audio
+							.hps__player
+								button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
+									+icon('play_filled').iconTable-play
+									+icon('pause').iconTable-pause
+								.hps__player-modal
+									+audio(item.audio, false, true, false)
+						td.hps__td: span.nowrap!= item.name
+						td.hps__td.hps__td--genre
+							.hps__genre
+								- let genreRest = item.genre.slice(1);
+								span.genreName= item.genre[0]
+
+								if(genreRest.length > 0)
+									+iconWithTooltip('docs:2','Козацька, Чумацька', '', 'js-tooltipster-min')
+										p
+											each genre, x in genreRest
+												span= genre + (x < genreRest.length - 1 ? ',' : '')
+
+						td.hps__td: span.nowrap!= item.place
+						td.hps__td!= item.duration
+
+						td.hps__td.hps__svgTableIconWrapper
+							if(item.text)
+								+iconWithTooltip('docs','Текст', '', 'js-tooltipster-min')
+									p!= item.text
+
+						td.hps__td.hps__svgTableIconWrapper
+							if(item.note)
+								+icon('note').icon-note
+
+
+		.hps__table-play-bottomElements
+			if(pagination)
+				.hps__pagination
+					ul.pagination
+						li.pagination__item
+							a.pagination__link.pagination__link--active(href="#")  Перша
+						li.pagination__item
+							a.pagination__link(href="#")  2
+						li.pagination__item
+							a.pagination__link(href="#")  3
+						li.pagination__item
+							.pagination__link.pagination__link--dots(href="#")  ....
+						li.pagination__item
+							a.pagination__link(href="#")  67
+						li.pagination__item
+							a.pagination__link(href="#")  68
+						li.pagination__item
+							a.pagination__link(href="#")  Остання
+
+
+			button.btn.btn_main.js-play-all
+				.is-active
+					.icon-play_filled
+						+icon('play_filled')
+					span.text Відтворити всі
+				.is-not-active
+					.icon-play_filled
+						+icon('pause')
+					span.text Пауза
