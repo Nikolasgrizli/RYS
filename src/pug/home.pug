@@ -48,6 +48,39 @@ block content
 						.hps__sorting
 							.hps__sorting-label Сортувати за:
 							.hps__sorting-btns
+								.hps__sorting-mobileSelect
+									-
+										var sortingMobileSelect = {
+											id: 'sortingMobile',
+											searchable: false,
+											defaultSelected: false,
+											placeholder: '',
+											multiple: false,
+											arr: [
+												{
+													"value": "latest",
+													"text": "Останні додані"
+												},
+												{
+													"value": "editorialChoice",
+													"text": "Вибір редакції"
+												},
+												{
+													"value": "userChoice",
+													"text": "Вибір користувачів"
+												},
+												{
+													"value": "listens",
+													"text": "Кількість прослуховувань"
+												},
+												{
+													"value": "alphabet",
+													"text": "За алфовітом"
+												},
+
+											],
+										}
+									+customSelect(sortingMobileSelect).js-custom-select.wide(id=sortingMobileSelect.id)
 								a.hps__sorting-btn(href="#", aria-label="button show editorial choice")  Вибір редакції
 								a.hps__sorting-btn(href="#", aria-label="button show user choice")  Вибір користувачів
 								a.hps__sorting-btn(href="#", aria-label="button show number of listens")  Кількість прослуховувань

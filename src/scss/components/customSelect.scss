@@ -14,7 +14,7 @@
 		overflow: hidden;
 		display: block;
 		text-overflow: ellipsis;
-		padding-right: 0.5em;
+		padding-inline: 0.5em;
 		.custom-select_multiple &{
 			padding-left: 2em;
 			&:before{

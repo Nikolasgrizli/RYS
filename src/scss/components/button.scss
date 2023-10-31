@@ -28,17 +28,21 @@
 	&_main {
 		color: var(--color-bg);
 		background-color: var(--color-main);
-		&:hover {
-			background-color: darken(#bc4cc6, 10%);
+		@media ( hover : hover ) {
+			&:hover {
+				background-color: darken(#bc4cc6, 10%);
+			}
 		}
 	}
 	&_transparent {
 		color: var(--color-main);
 		background-color: var(--color-bg);
 		border: 1px solid ;
-		&:hover {
-			color: var(--color-bg);
-			background-color: var(--color-main);
+		@media ( hover : hover ) {
+			&:hover {
+				color: var(--color-bg);
+				background-color: var(--color-main);
+			}
 		}
 	}
 	&_checkbox{
@@ -60,6 +64,7 @@
 		}
 		.text{
 			padding-left: 1.83em;
+			position: relative;
 			&::before{
 				content: '';
 				width: 1em;
@@ -67,7 +72,7 @@
 				position: absolute;
 				background-color: var(--color-bg);
 				border: 1px solid var(--color-main);
-				left: 1em;
+				left: 0;
 				top: 50%;
 				transform: translateY(-50%);
 			}
@@ -80,7 +85,7 @@
 				background-repeat: no-repeat;
 				background-position: center;
 				position: absolute;
-				left: 1em;
+				left: 0;
 				top: 50%;
 				transform: translateY(-50%);
 				transition: $transition-base;

@@ -294,6 +294,11 @@
 		@include r(1023) {
 			flex-wrap: wrap;
 		}
+		@include r(1023) {
+			.layout_main--old &{
+				margin-bottom: 4rem;
+			}
+		}
 	}
 
 	&__left {
@@ -534,6 +539,9 @@
 	align-items: center;
 	justify-content: center;
 	border-radius: 2.5rem;
+	@include r(767){
+		text-align: center;
+	}
 
 	&__bg {
 		position: absolute;
@@ -568,8 +576,7 @@
 	}
 
 	&__title {
-		@include r(1023) {
-			text-align: center;
+		@include r(767) {
 			text-wrap: balance;
 		}
 	}
@@ -584,6 +591,11 @@
 		}
 
 		@include trunk(var(--text-trunk));
+	}
+	@include r(767){
+		.btn{
+			width: 100%;
+		}
 	}
 }
 
@@ -624,11 +636,29 @@
 	margin: 5em auto;
     display: flex;
     align-items: center;
+	@include r(1199){
+		margin: 3em auto;
+	}
+	@include r(1023){
+		flex-wrap: wrap;
+    	justify-content: space-around;
+	}
+	@include r(767){
+		gap: 1em;
+	}
 	&__item{
 		display: flex;
 		align-items: center;
 		flex: 1 1 25%;
 		max-width: 25%;
+		@include rIn(768,1023){
+			flex: 0 0 auto;
+			max-width: 33.333%;
+		}
+		@include r(767){
+			flex: 1 1 auto;
+    		max-width: 47%;
+		}
 		svg{
 			width: 3em;
 			height: 3em;
@@ -656,6 +686,10 @@
 		background-color: var(--color-bg_gray);
 		z-index: -1;
 		left: -3em;
+		@include r(1023){
+			width: calc(100% + 30px);
+			left: -15px;
+		}
 	}
 	&__inner{
 		padding: 2em 0;
@@ -668,23 +702,62 @@
 		flex-flow: row wrap;
 		justify-content: space-between;
 		gap: 1em;
+		@include rIn(1024,1199){
+			gap: 0.5em;
+		}
+		@include r(767){
+			gap: 0.4em;
+		}
 		.fi{
 			margin-bottom: .5em;
-			max-width: 14%;
 			flex: 1;
+			@include rmin(768){
+				max-width: 14%;
+			}
 			&.fi_type-name,
 			&.fi_type-genre,
 			&.fi_type-motives,
 			&.fi_type-text{
-				min-width: 16%;
+				@include rmin(1024){
+					min-width: 16%;
+				}
+				@include rIn(768,1023){
+					min-width: 23%;
+				}
+				@include r(767){
+					min-width: 100%;
+				}
+			}
+			&.fi_type-states{
+				@include rIn(768,1023){
+					max-width: 30%;
+				}
 			}
 			&.fi_type-regions,
 			&.fi_type-places,
 			&.fi_type-singers{
-				max-width: 20%;
+				@include rmin(1024){
+					max-width: 20%;
+				}
+				@include rIn(768,1023){
+					max-width: 30%;
+				}
+				@include r(767){
+					max-width: 100%;
+					width: 100%;
+					flex: 1 1 100%;
+				}
 			}
 			&.fi_type-undefined{
 				flex-grow: 0;
+				@include rIn(768,1023){
+					order: 5;
+					min-width: 25%;
+				}
+				@include r(767){
+					max-width: 45%;
+    				flex: 1 0 45%;
+				}
 			}
 			&.fi_type-withNotes,
 			&.fi_type-withText{
@@ -692,6 +765,13 @@
 				margin: 0;
 				flex-grow: 0;
 				white-space: nowrap;
+				@include rIn(768,1023){
+					order: 5;
+				}
+				@include r(767){
+					max-width: 20%;
+					flex: 1 0 20%;
+				}
 			}
 			&__label{
 				position: relative;
@@ -740,6 +820,7 @@
 				padding: 1.1em 1em;
 				font-size: 80%;
 				max-width: 100%;
+				width: 100%;
 				&:focus{
 					box-shadow: inset 0 0 4px -1px var(--color-main);
 					outline: none;
@@ -796,7 +877,22 @@
 			padding: 1em 1.5em;
 			border: 1px solid var(--color-main);
 			font-size: 80%;
+			@include rIn(768,1023){
+				&.btn_transparent{
+					margin-left: auto;
+					order: 6;
+				}
+				&.btn_main{
+					order: 6;
+				}
+			}
+			@include r(767){
+				flex: 1;
+			}
 		}
+	}
+	@include r(767){
+		z-index: 12;
 	}
 }
 
@@ -822,6 +918,45 @@
 			gap: 1.5rem;
 			font-size: 80%;
 			font-weight: 500;
+			@include rIn(768,1023){
+				line-height: 1.3;
+				text-align: center;
+			}
+			@include r(767){
+				flex-wrap: wrap;
+			}
+		}
+		&-mobileSelect{
+			display: none;
+			@include r(767){
+				display: block;
+				margin-bottom: 1em;
+				flex: 1 1 100%;
+				position: relative;
+				&:has(.open){
+					z-index: 15;
+				}
+			}
+			.nice-select{
+				box-shadow: inset 0 0 3px -1px var(--color-main);
+				padding: 1.3em 1em;
+				&::after{
+					border-width: 1px;
+					font-size: 50%;
+				}
+			}
+			.customSelect{
+				margin-bottom: 0.25em;
+				position: relative;
+				&::after{
+					content: '- або -';
+					position: absolute;
+					bottom: -2em;
+					color: var(--color-gray);
+					text-align: center;
+					width: 100%;
+				}
+			}
 		}
 		&-btn{
 			text-decoration: none;
@@ -836,16 +971,25 @@
 				background-color: var(--color-main);
 				color: var(--color-bg);
 			}
+			@include r(767){
+				display: none !important;
+			}
 		}
 		.btn_checkbox{
 			margin-left: auto;
+			@include r(767){
+				flex: 1 1 100%;
+				padding: 1em;
+			}
 		}
 	}
 	&__table{
 		margin-bottom: 2em;
 		font-size: 80%;
 		width: 100%;
-		table-layout: fixed;
+		@include rmin(767){
+			table-layout: fixed;
+		}
 		.hps__svgTableIconWrapper .svg-icon{
 			width: 1.2em;
 			height: 1.2em;
@@ -855,6 +999,16 @@
 			width: 100%;
 			position: relative;
 			margin-bottom: 1em;
+		}
+		@include r(767){
+			width: 90rem;
+			&-container{
+				overflow-x: auto;
+				overflow-y: hidden;
+				white-space: nowrap;
+				scroll-snap-type: x mandatory;
+    			scroll-padding-inline-start: 50px;
+			}
 		}
 	}
 	&__tbody{
@@ -932,6 +1086,38 @@
 				}
 			}
 		}
+		@include r(767){
+			&:not(:first-child):not(:last-child):not(:nth-last-child(2)){
+				max-width: calc(100vw - 230px);
+				scroll-snap-align: start;
+			}
+			&:first-child{
+				position: sticky;
+				left: 0;
+				z-index: 10;
+				background-color: var(--color-bg);
+				width: 50px;
+				min-width: 50px;
+				&:has(.is-player-active){
+					z-index: 11;
+				}
+			}
+			&:last-child{
+				position: sticky;
+				right: 0;
+				z-index: 1;
+				background-color: var(--color-bg);
+				width: 50px;
+				min-width: 50px;
+			}
+			&:nth-last-child(2){
+				position: sticky;
+				right: 50px;
+				min-width: 50px;
+				z-index: 1;
+				background-color: var(--color-bg);
+			}
+		}
 	}
 	.nowrap{
 		white-space: nowrap;
@@ -966,6 +1152,11 @@
 	&__info{
 		font-size: 80%;
 	}
+	&__pagination{
+		@include r(767){
+			flex: 1 1 100%;
+		}
+	}
 	.pagination{
 		font-size: 80%;
 		&__link{
@@ -980,6 +1171,17 @@
 				border-color: var(--color-main);
 			}
 		}
+		@include r(767){
+			width: 100%;
+    		justify-content: space-between;
+			&__item{
+				text-align: center;
+				flex: 1;
+			}
+			.mobile-hidden{
+				display: none;
+			}
+		}
 	}
 
 
@@ -987,6 +1189,9 @@
 	.hps__player{
 		position: relative;
 		display: inline-flex;
+		@include r(767){
+			position: static;
+		}
 		&-btn{
 			border: none;
 			background-color: transparent;
@@ -1019,6 +1224,12 @@
 				opacity: 1;
 				pointer-events: auto;
 				transform: translate(-50%, 0) scale(1);
+				@include rIn(768,1199){
+					transform: translate(-2em, 0) scale(1);
+				}
+				@include r(767){
+					transform: translate(0) scale(1);
+				}
 			}
 		}
 		&-modal{
@@ -1032,6 +1243,13 @@
 			pointer-events: none;
 			transform: translate(-50%, -1rem) scale(0.9);
 			transition: all $transition-base;
+			@include r(767){
+				width: 100%;
+				position: fixed;
+				bottom: 0;
+				transform: translate(0) scale(1);
+				left: 0;
+			}
 			&::before{
 				content: '';
 				position: absolute;
@@ -1043,6 +1261,13 @@
 				margin-top: -5px;
 				border-right-color: var(--color-main);
 				border-bottom-color: var(--color-main);
+			}
+			@include rIn(768,1199){
+				left: 10%;
+    			transform: translate(-2em, 0) scale(.9);
+				&::before{
+					left: calc(2em + 2px);
+				}
 			}
 		}
 	}
@@ -1065,15 +1290,27 @@
 .hps__table-play-bottomElements{
 	min-height: 2.5em;
     position: relative;
+	@include r(767){
+		display: flex;
+		flex-flow: row wrap;
+	}
 }
 
 .js-play-all{
-	position: absolute;
-	top: 0.1em;
-	right: 0;
 	font-size: 80%;
-	padding: 0.7em 1em;
 	min-width: 12em;
+	@include rmin(768){
+		padding: 0.7em 1em;
+		position: absolute;
+		top: 0.1em;
+		right: 0;
+	}
+	@include r(767){
+		position: static;
+		order: -1;
+		flex: 1 1 100%;
+		padding: 1em;
+	}
 	.is-active{
 		display: flex;
 	}
@@ -1141,6 +1378,7 @@
 	padding: 2em 0;
 	display: flex;
     align-items: center;
+
 	.like-btn{
 		font-weight: 600;
 		font-size: 80%;
@@ -1181,5 +1419,25 @@
 	.like-count,
 	.btn_like-orange{
 		margin-right: 1em;
+	}
+	@include r(767){
+		flex-flow: row wrap;
+		align-items: stretch;
+		.like-btn{
+			flex: 1;
+			&:first-child{
+				margin: 0 auto 1em;
+				flex: 1 1 100%;
+			}
+		}
+		.like-count{
+			display: flex;
+			align-items: center;
+			min-width: 5rem;
+			box-shadow: inset 0 0 4px -1px var(--color-main);
+			padding: 0 0.5em;
+			text-align: center;
+			justify-content: center;
+		}
 	}
 }

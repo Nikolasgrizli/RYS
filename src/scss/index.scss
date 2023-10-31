@@ -211,7 +211,7 @@ strong,
 			padding-inline: 1em;
 		}
 		@include rIn(1024,1200){
-			max-width: 90rem;
+			max-width: calc(100% - 6em);
 		}
 		@include rmin(1201){
 			max-width: 130rem;
