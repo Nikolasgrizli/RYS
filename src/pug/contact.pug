@@ -1,0 +1,78 @@
+extends ./layout/main.pug
+
+block variables
+	- headerType = 'folklore';
+	- headerClass = 'header_folklore';
+	- layoutClass = 'layout_main--old';
+
+
+block content
+	-
+		var formFields = [
+			{
+				name: 'name',
+				id: 'name',
+				type: 'text',
+				label: "IМ'Я",
+				required: true,
+				validate: 'no-empty'
+			},
+			{
+				name: 'email',
+				id: 'email',
+				type: 'email',
+				label: 'E-MAIL',
+				required: true,
+				validate: 'email'
+			},
+			{
+				name: 'topic',
+				id: 'topic',
+				type: 'text',
+				label: 'ТЕМА',
+				required: false,
+			},
+			{
+				name: 'message',
+				id: 'message',
+				type: 'textarea',
+				label: 'ТЕКСТ',
+				required: true,
+				validate: 'no-empty'
+			},
+		]
+	main.main
+		.container.container_old
+			.page-content(style="--pb:20")
+				section
+					+breadcrumbs([{name: "Зворотнiй зв'язок"}])
+					h1 НАПИШІТЬ НАМ
+
+					.history__container
+						.history__left
+							p Folklore.kh.ua - некомерційний проект, що покликаний зберегти музичний фольклор Слобожанщини та Полтавщини, відкривши для широкого загалу збірки харківських фольклористів-збирачів. В основу цифрового архіву покладений фонд етнографічних записів Обласного організаційно-методичного центру культури і мистецтва (м. Харків), накопичений за більш ніж 30-річну експедиційну діяльність фахівців центру, та приватні збірки харківських збирачів-фольклористів.
+							p На сайті представлені зразки традиційної української музики з Харківської, Полтавської, Сумської областей, а також прикордонних районів Росії - історичної Східної Слобожанщини. Функціонал сайту дозволяє здійснювати пошук за жанром, назвою твору, місцем та датою запису. Частина аудіофайлів супроводжується текстовими та нотними записами, що має полегшити використання архіву з навчальною метою.
+
+
+
+						.history__right
+							.contactForm
+								form.form.form_js-validate.js-pseudo-form(novalidate action="/link.html")
+									each formField in formFields
+										+formField(formField)
+									.form__line
+										button.btn.btn_main.w-100(type="submit")
+											span Вiдправити
+
+									.hidden.info-tool.info-tool_success#infoSuccess
+										.text
+											p Повiдомлення успiшно вiдправлено.
+										button.close
+											+icon('close')
+									.hidden.info-tool.info-tool_error#infoError
+										.text
+											p Повiдомлення не вiдправлено. Перевiрте правильнiсть заповнення форми або спробуйте пiзнiше.
+										button.close
+											+icon('close')
+									.form-loader
+										img(src=`${pathPrefix}img/decor/loader.svg`, alt="")

@@ -3,7 +3,12 @@ mixin audio(src, title, prevNext, loop = true)
 		.audio-player__inner
 			audio.audio-player__hidden(src=src || 'https://assets.codepen.io/4358584/Anitek_-_Komorebi.mp3', preload='metadata', loop=loop)
 			if title
-				h4.audio-player__title Слухати аудіо
+				if(title.link)
+					a.audio-player__title(href=title.link)= title.text
+					.audio-player__title-addition с. Велика Гомільша, Зміївський район
+				else
+					h4.audio-player__title Слухати аудіо
+
 			.audio-player__controls
 				.audio-player__controls-top
 					.audio-player__slider.audio-player__slider_track

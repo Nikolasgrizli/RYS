@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.2",
+    "axios": "^1.6.1",
     "gsap": "^3.12.2",
     "highcharts": "^11.1.0",
     "lottie-web": "^5.12.2",

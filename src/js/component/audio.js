@@ -331,7 +331,8 @@
 								const btn = nextPlayerBtnWrapper.querySelector('.hps__player-btn')
 								btn.click();
 							} else {
-								if(btnPlayAll.classList.contains('is-playing')) {
+
+								if(!!btnPlayAll && btnPlayAll.classList.contains('is-playing')) {
 									btnPlayAll.classList.remove('is-playing');
 								}
 							}
@@ -373,21 +374,24 @@
 
 			});
 
-			btnPlayAll.addEventListener('click', () => {
-				if(btnPlayAll.classList.contains('is-playing')) {
-					btnPlayAll.classList.remove('is-playing');
-					getActivePlayer().forEach(activePlayer => {
-						getNeededPlayer(activePlayer.id).letsStop();
-					});
-					return;
-				} else {
-					btnPlayAll.classList.add('is-playing');
-					const firstPlayer = players[0];
-					setTimeout(() => {
-						firstPlayer.querySelector('.hps__player-btn').click();
-					}, 100);
-				}
-			});
+			if(!!btnPlayAll){
+
+				btnPlayAll.addEventListener('click', () => {
+					if(btnPlayAll.classList.contains('is-playing')) {
+						btnPlayAll.classList.remove('is-playing');
+						getActivePlayer().forEach(activePlayer => {
+							getNeededPlayer(activePlayer.id).letsStop();
+						});
+						return;
+					} else {
+						btnPlayAll.classList.add('is-playing');
+						const firstPlayer = players[0];
+						setTimeout(() => {
+							firstPlayer.querySelector('.hps__player-btn').click();
+						}, 100);
+					}
+				});
+			}
 		});
 
 		document.addEventListener('click', (e) => {

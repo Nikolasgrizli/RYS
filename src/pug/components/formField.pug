@@ -1,0 +1,38 @@
+mixin formField(data)
+	-
+		var field = data || '';
+
+
+	.form__line&attributes(attributes)
+		label.form__field(class={'form__checkbox': field.type === 'checkbox'})
+			if (field.type === 'select')
+				// TODO select
+			else if(field.type === 'textarea')
+				textarea.form__input.form__input_textarea(
+					id!=field.id,
+					name!=field.name,
+					data-validate!=field.validate,
+				)
+			else
+				input.form__input(
+					id!=field.id,
+					type!=field.type,
+					name!=field.name,
+					data-validate!=field.validate,
+				)
+
+			if field.type === 'checkbox' || field.type === 'radio'
+				.pseudo
+				.text
+					div!=field.text
+
+
+			if field.required
+				span.error.hidden.input-error(aria-live="polite")!= 'Необхідно заповнити поле "'+ field.label +'".'
+
+
+			if field.label
+				.form__label!=field.label
+
+
+			block

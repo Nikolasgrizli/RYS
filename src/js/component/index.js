@@ -10,6 +10,7 @@ import './slider';
 import {initMap} from './map';
 // import './testChars';
 import './categories';
+import './formComponent';
 
 const mapSimple = document.getElementById('mapSimple');
 const mapFilter = document.getElementById('mapFilter');

@@ -1,0 +1,98 @@
+extends ./layout/main.pug
+
+block variables
+	- headerType = 'folklore';
+	- headerClass = 'header_folklore';
+	- layoutClass = 'layout_main--old';
+
+
+block content
+	main.main.topic
+		.container.container_old
+			.page-content
+				section
+					+breadcrumbs([{name: 'Народні пісні про війну. Козацькі'}])
+					h1 Народні пісні про війну. Козацькі
+
+					.topic__container
+						.topic__left
+							figure
+								img(src='https://folklore.kh.ua/uploads/article_image/6407b35935fbf9.38460717.jpeg', alt='С. Васильківський "На варті"', class='w-100')
+								figcaption С. Васильківський "На варті"
+
+
+
+						.topic__right.hps.hps_small
+							.topic__articleInfo.articleInfo
+								.articleInfo__creator Галина Лукʼянець
+								.articleInfo__date 17 бер. 1991 р.
+
+							p Найдавніший зафіксований пласт військових пісень на Харківщині – козацькі, які принесли із собою козаки-переселенці на Слобожанщину 16-17 сторіччя. Небезпека життя на цих територіях, що зберігалася довгий час, та постійні походи підживлювали цей жанр, розвивалися і створювалися нові сюжетні варіації та наспіви.
+							p До кінця 20 ст. місцевий фольклор зберіг більшість козацьких пісень, світові війни цього століття активно «підтримували» традицію, хоча само козацтво було ліквідоване вже в давні часи.
+							p Якщо розглядати жанр козацької пісні широко, то до нього сміливо можна віднести усі тексти, що описують життєві події воїнів, у тому числі побутові, сімейні стосунки, кохання. Але все ж найтиповішим «козацьким» жанром маємо вважати пісні про походи, бої, поранення та смерть козака. Особливого колориту надають текстам перелік обовʼязкової козацької атрибутики (коня, зброї), урочистого одягу (голубого жупану, бобрової чи смушкової шапки), шовкової китайки (дорогої тканини, яку завозили з Азії), що покривала тіло козака під час похорону. Наспіви слобожанських козацьких пісень дуже умовно можна поділити на стройові (бадьорого, енергійного характеру) і козацьку лірику. При цьому на Харківщині зовсім відсутні жартівливі козацькі тексти, хоча серед солдатських такі зустрічаються нерідко.
+							p В колекції нашого «Цифрового архіву Слобожанщини і Полтавщини» ви можете знайти різноманітні козацькі пісні за відповідними фільтрами і сюжетними мотивами.
+							p Ось декілька яскравих зразків з території сучасної Харківщини. Перша - неперевершений родинний дует з межевої харківсько-полтавської традиції, який пречудово демонструє чоловічу манеру співу.
+
+							.hps__table-wrapper.js-list-music(data-music-list="0")
+								.hps__table-container
+									table.hps__table
+										tbody.hps__tbody
+											tr.hps__tr.js-list-music-item(data-index="0")
+												td.hps__td.hps__td--audio
+													.hps__player
+														button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
+															+icon('play_filled').iconTable-play
+															+icon('pause').iconTable-pause
+														.hps__player-modal
+															+audio('https://folklore.kh.ua/uploads/sounds/5de51a3fcf4926.16795871.mp3', false, true, false)
+												td.hps__td: a(href="#").nowrap Сьогодні я тут же
+												td.hps__td 02:16
+												td.hps__td: span.nowrap с. Велика Гомільша, Зміївський район
+
+							p Ще один зразок дивом доніс до наших часів згадку про турецькі напади.
+
+							.hps__table-wrapper.js-list-music(data-music-list="1")
+								.hps__table-container
+									table.hps__table
+										tbody.hps__tbody
+											tr.hps__tr.js-list-music-item(data-index="0")
+												td.hps__td.hps__td--audio
+													.hps__player
+														button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
+															+icon('play_filled').iconTable-play
+															+icon('pause').iconTable-pause
+														.hps__player-modal
+															+audio('https://folklore.kh.ua/uploads/sounds/5d7b79e8095326.19673042.mp3', false, true, false)
+												td.hps__td: a(href="#").nowrap Чогось мені та дрімається
+												td.hps__td 02:16
+												td.hps__td: span.nowrap с. Скрипаї, Зміївський район
+
+
+							p Наступні варіанти - відомі зразки козацької лірики, поширені і в сусідніх зі Слобожанщиною регіонах.
+
+							.hps__table-wrapper.js-list-music(data-music-list="2")
+								.hps__table-container
+									table.hps__table
+										tbody.hps__tbody
+											tr.hps__tr.js-list-music-item(data-index="0")
+												td.hps__td.hps__td--audio
+													.hps__player
+														button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
+															+icon('play_filled').iconTable-play
+															+icon('pause').iconTable-pause
+														.hps__player-modal
+															+audio('https://folklore.kh.ua/uploads/sounds/5de51a3fcf4926.16795871.mp3', false, true, false)
+												td.hps__td: a(href="#").nowrap Поїхав козак та й через байрак
+												td.hps__td 02:16
+												td.hps__td: span.nowrap с. Олександрівка, Валківський район
+											tr.hps__tr.js-list-music-item(data-index="1")
+												td.hps__td.hps__td--audio
+													.hps__player
+														button.hps__player-btn.hps__player-btn--play.hps__svgTableIconWrapper
+															+icon('play_filled').iconTable-play
+															+icon('pause').iconTable-pause
+														.hps__player-modal
+															+audio('https://folklore.kh.ua/uploads/sounds/5de51a3fcf4926.16795871.mp3', false, true, false)
+												td.hps__td: a(href="#").nowrap Ой з-за гір, з-за гір вилітав сокіл
+												td.hps__td 01:11
+												td.hps__td: span.nowrap с. Новий Мерчик, Валківський район
