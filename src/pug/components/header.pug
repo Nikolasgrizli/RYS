@@ -88,11 +88,12 @@ mixin header(data)
 	.header(class=headerClass)
 		.header__container
 			a.logo-site(href="/")
-				if(data == 'default')
-					img(src=`${pathPrefix}img/logos/logo.svg`, alt="", width="320" height="59")
-				else if(data == 'folklore')
-					img.logo-folklore.logo-folklore_white(src=`${pathPrefix}img/logos/logo_folklore_white.svg`, alt="", width="251" height="54")
-					img.logo-folklore.logo-folklore_colored(src=`${pathPrefix}img/logos/logo_folklore.svg`, alt="", width="251" height="54")
+				img(src=`${pathPrefix}img/logos/logo-new_colored.svg`, alt="", width="220" height="66")
+				//- if(data == 'default')
+				//- 	img(src=`${pathPrefix}img/logos/logo.svg`, alt="", width="320" height="59")
+				//- else if(data == 'folklore')
+				//- 	img.logo-folklore.logo-folklore_white(src=`${pathPrefix}img/logos/logo_folklore_white.svg`, alt="", width="251" height="54")
+				//- 	img.logo-folklore.logo-folklore_colored(src=`${pathPrefix}img/logos/logo_folklore.svg`, alt="", width="251" height="54")
 
 
 			nav.header__nav

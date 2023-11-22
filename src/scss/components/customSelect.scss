@@ -8,7 +8,21 @@
 	.list{
 		padding: 0px 1em;
 	}
+	.optgroup{
+		margin-top: .3em;
+		font-weight: 400;
+		line-height: 40px;
+		list-style: none;
+		outline: none;
+		text-align: left;
+    	transition: all .2s;
+		cursor: pointer;
+		&.selected{
+			font-weight: 700;
+		}
+	}
 	//custom checkbox
+	.optgroup,
 	.option{
 		position: relative;
 		overflow: hidden;
@@ -59,6 +73,15 @@
 			.option:first-child{
 				display: none;
 			}
+		}
+	}
+}
+
+
+.nice-select{
+	&.custom-select_withGroups{
+		li.custom-select_children{
+			margin-left: 1em;
 		}
 	}
 }

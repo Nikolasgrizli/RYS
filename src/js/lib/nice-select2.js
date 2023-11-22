@@ -148,6 +148,7 @@ NiceSelect.prototype.extractData = function() {
       var itemData = {
         text: item.innerText,
         value: item.value,
+		cls: item.getAttribute("class"),
         selected: item.getAttribute("selected") != null || this.el.value == item.value,
         disabled: item.getAttribute("disabled") != null
       };
@@ -244,16 +245,26 @@ NiceSelect.prototype._renderItem = function(option) {
   var el        = document.createElement("li");
   el.innerHTML  = option.data.text;
 
+//   console.log('option', option);
+
   if(option.attributes.optgroup){
 	  addClass(el, 'optgroup');
+	  el.addEventListener('click', optgroup => {
+		optgroup.target.classList.toggle('selected');
+		let next = optgroup.target.nextElementSibling;
+		while(next && !next.classList.contains('optgroup') && next.classList.contains('custom-select_children')){
+			next.click();
+			next = next.nextElementSibling;
+		}
+    })
   }else{
     el.setAttribute("data-value", option.data.value);
     var classList = [
-      "option",
-      option.attributes.selected ? "selected" : null,
-      option.attributes.disabled ? "disabled" : null,
+		option.data.cls,
+		"option",
+		option.attributes.selected ? "selected" : null,
+		option.attributes.disabled ? "disabled" : null,
     ];
-
     el.addEventListener("click", this._onItemClicked.bind(this, option));
     el.classList.add(...classList);
   }

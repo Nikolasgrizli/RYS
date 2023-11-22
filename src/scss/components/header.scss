@@ -149,10 +149,10 @@
 		height: 4rem;
 	}
 	.header_folklore &{
-		position: relative;
-		height: 6rem;
 		display: block;
-		width: 30rem;
+		position: relative;
+		width: 20rem;
+		transform: scale(1.1);
 		.logo-folklore{
 			position: absolute;
 			top: 0;

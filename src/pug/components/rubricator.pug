@@ -56,6 +56,13 @@ mixin rubricator()
 					h2.h1.categories__title
 						.desktop-visible Пошук та рубрикатор
 						.mobile-visible Рубрикатор
+						.categories_changeView
+							button.btn.is-active(type="button" aria-label="Змінити вигляд" data-view="list")
+								+iconWithTooltip('list','Показувати по 5 оповідей скороченo', '', 'js-tooltipster-min')
+									p Показувати по 5 оповідей скороченo
+							button.btn(type="button" aria-label="Змінити вигляд" data-view="one")
+								+iconWithTooltip('one_of_list','Показувати по 1 оповіді повністю', '', 'js-tooltipster-min')
+									p Показувати по 1 оповіді повністю
 					form.categories__left.sidebar
 						.sidebar__inner
 							.sidebar__search.search
@@ -66,9 +73,10 @@ mixin rubricator()
 								var cs = {
 									searchable: true,
 									defaultSelected: false,
-									placeholder: 'Обрати населений пункт',
+									placeholder: 'Обрати Локацію',
+									groups: true,
 									multiple: true,
-									arr: PLACES,
+									arr: PLACES_GROUPPED,
 								}
 							.sidebar__places
 								+customSelect(cs).js-custom-select.wide(id='places')
@@ -169,3 +177,15 @@ mixin rubricator()
 									a(href="#") 2
 								li.pagination__item
 									a(href="#") 3
+
+	script.
+		// just for example
+		document.querySelectorAll('.categories_changeView .btn').forEach(el=>{
+			el.addEventListener('click', function(e) {
+				const view = e.currentTarget.dataset.view;
+				if(!view) return;
+				document.querySelector('.categories_changeView .is-active').classList.remove('is-active');
+				e.currentTarget.classList.add('is-active');
+				document.querySelector('.categories').dataset.view = view;
+			});
+		})

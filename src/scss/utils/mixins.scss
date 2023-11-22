@@ -179,37 +179,37 @@
 
 @mixin aspect-ratio($w, $h, $pseudo: false) {
 
-    $padding: unquote(($h / $w) * 100 + '%');
-    position: relative;
+	$padding: unquote(($h / $w) * 100 + '%');
+	position: relative;
 
-    @if $pseudo {
-        &::before {
-            content: "";
-            display: block;
-            width: 100%;
-            padding-top: $padding;
-        }
-    }
+	@if $pseudo {
+		&::before {
+			content: "";
+			display: block;
+			width: 100%;
+			padding-top: $padding;
+		}
+	}
 
-    @else {
-        padding-top: $padding;
-    }
+	@else {
+		padding-top: $padding;
+	}
 
-    @supports (aspect-ratio: 1 / 1) {
-        aspect-ratio: unquote("#{$w} / #{$h}");
+	@supports (aspect-ratio: 1 / 1) {
+		aspect-ratio: unquote("#{$w} / #{$h}");
 
-        @if $pseudo {
-            &::before {
-                padding-top: initial;
-                display: initial;
-                width: initial;
-            }
-        }
+		@if $pseudo {
+			&::before {
+				padding-top: initial;
+				display: initial;
+				width: initial;
+			}
+		}
 
-        @else {
-            padding-top: initial;
-        }
-    }
+		@else {
+			padding-top: initial;
+		}
+	}
 
 }
 
@@ -282,8 +282,9 @@
 @mixin counter($var, $sep) {
 	counter-reset: list + $var;
 
-	>li{
+	>li {
 		counter-increment: list + $var;
+
 		&::before {
 			content: counter(list + $var) $sep;
 		}
@@ -423,9 +424,9 @@
 	$red: red($value);
 	$green: green($value);
 	$blue: blue($value);
-	$hue:  hue($value);
-	$saturation:  saturation($value);
-	$lightness:  lightness($value);
+	$hue: hue($value);
+	$saturation: saturation($value);
+	$lightness: lightness($value);
 	#{$color-name}: unquote("rgb(#{$red}, #{$green}, #{$blue})");
 	#{$color-name}-rgb: $red, $green, $blue;
 	#{$color-name}-r: $red;
@@ -489,7 +490,7 @@
 	}
 }
 
-@mixin trunk($num,$lh:1.89){
+@mixin trunk($num, $lh:1.89) {
 	padding: 0;
 	overflow: hidden;
 	display: -webkit-box;
@@ -499,10 +500,96 @@
 
 
 
-%trunk{
+%trunk {
 	padding: 0;
 	overflow: hidden;
 	display: -webkit-box;
-	-webkit-line-clamp: var(--trunk,5);
+	-webkit-line-clamp: var(--trunk, 5);
 	-webkit-box-orient: vertical;
+}
+
+
+
+
+
+@mixin inlineLinkHoverAnimation(
+	$color: #289dcc,
+	$opacity: 1,
+	$height-start: 200%, //200% is actually visually 100%
+	$height-hover: 200%, //200% is actually visually 100%
+	$height-active: 200%, //200% is actually visually 100%
+	$offset-start: 7.5%,
+	$offset-hover: 42.5%,
+	$offset-active: 60%,
+	$duration: 160ms,
+	$easing: ease,
+	$element: '',
+	$from: 'bottom'
+
+) {
+	& #{$element} {
+		text-decoration: none;
+		cursor: pointer;
+		background-size: 100% ($height-start);
+		background-repeat: no-repeat;
+
+		@if $from=='bottom' {
+			background-image: -webkit-linear-gradient(bottom, rgba($color, $opacity) 50%, rgba(0, 0, 0, 0) 50.1%);
+			background-image: -moz-linear-gradient(bottom, rgba($color, $opacity) 50%, rgba(0, 0, 0, 0) 50.1%);
+			background-image: linear-gradient(to top, rgba($color, $opacity) 50%, rgba(0, 0, 0, 0) 50.1%);
+
+			background-position: left 0 top ($offset-start);
+		}
+
+		@else if $from=='top' {
+			background-image: -webkit-linear-gradient(top, rgba($color, $opacity) 50%, rgba(0, 0, 0, 0) 50.1%);
+			background-image: -moz-linear-gradient(top, rgba($color, $opacity) 50%, rgba(0, 0, 0, 0) 50.1%);
+			background-image: linear-gradient(to bottom, rgba($color, $opacity) 50%, rgba(0, 0, 0, 0) 50.1%);
+
+			background-position: left 0 bottom ($offset-start);
+		}
+
+		-webkit-transition: background $duration $easing;
+		-moz-transition: background $duration $easing;
+		transition: background $duration $easing;
+	}
+
+
+	&:focus #{$element},
+	&:hover #{$element},
+	&:active #{$element} {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	&:focus #{$element} {
+		outline: none;
+	}
+
+
+	&:hover #{$element} {
+		background-size: 100% ($height-hover);
+
+		@if $from=='bottom' {
+			background-position: left 0 top ($offset-hover);
+		}
+
+		@else if $from=='top' {
+			background-position: left 0 bottom ($offset-hover);
+		}
+	}
+
+
+	&:active #{$element} {
+		background-size: 100% $height-active;
+
+		@if $from=='bottom' {
+			background-position: left 0 top ($offset-active);
+		}
+
+		@else if $from=='top' {
+			background-position: left 0 bottom ($offset-active);
+		}
+	}
+
 }

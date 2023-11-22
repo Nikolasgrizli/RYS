@@ -1529,3 +1529,20 @@
 		color: var(--color-gray);
 	}
 }
+
+
+.history-colText{
+	display: inline-flex;
+    align-items: center;
+    background-color: var(--color-bg_dark);
+    margin-top: 2rem;
+    padding: 0.25em 0.8em;
+    font-size: 90%;
+	user-select: none;
+	svg{
+		width: 1em;
+		height: 1em;
+		margin-right: 0.3em;
+	}
+}
+

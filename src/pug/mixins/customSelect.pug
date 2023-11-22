@@ -3,6 +3,7 @@ mixin customSelect(data)
 		var data = data || {
 			searchable: false,
 			defaultSelected: false,
+			groups: false,
 			multiple: false,
 			titled: false,
 			placeholder: 'Placeholder',
@@ -11,7 +12,7 @@ mixin customSelect(data)
 
 
 	.customSelect
-		select(class=data.multiple ? 'custom-select_multiple' : 'custom-select_single', name="customSelect", data-options={
+		select(class=(data.multiple ? 'custom-select_multiple' : 'custom-select_single') + (data.groups ? ' custom-select_withGroups' : ''), name="customSelect", data-options={
 			searchable: data.searchable,
 			titled: data.titled,
 			defaultSelected: data.defaultSelected,
@@ -23,6 +24,11 @@ mixin customSelect(data)
 				option(value="" )!= data.placeholder
 			each item in data.arr
 				if typeof item === 'object'
-					option(value=item.value, selected=(data.defaultSelected === item.value))= item.text
+					if item.optgroup
+						optgroup(label=item.optgroup)
+							each group in item.list
+								option.custom-select_children(value=group.value, selected=(data.defaultSelected === group.value))= group.text
+					else
+						option(value=item.value, selected=(data.defaultSelected === item.value))= item.text
 				else
 					option(value=item, selected=(data.defaultSelected === item))= item

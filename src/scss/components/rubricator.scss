@@ -39,6 +39,32 @@
 			padding-left: 4rem;
 		}
 	}
+	.categories__title{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.categories_changeView{
+		display: inline-flex;
+		margin-left: auto;
+		.btn{
+			padding: 0;
+			aspect-ratio: 1/1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: var(--color-main_100);
+			width: 5rem;
+			.iconWithTooltip{
+				width: 100%;
+				height: 100%;
+				padding: 1.1rem;
+			}
+			&.is-active{
+				background-color: #D3C4D3;
+			}
+		}
+	}
 }
 
 .sidebar{
