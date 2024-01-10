@@ -1,4 +1,8 @@
-export const isLocal = __DEV__;
+//local or staging
+export const isLocal = (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "" || location.hostname === 'rys.rainbowcss.com');
+
+
+// export const isLocal = __DEV__;
 
 
 export const isMobile = () => {

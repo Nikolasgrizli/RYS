@@ -12,10 +12,29 @@ import {initMap} from './map';
 import './categories';
 import './formComponent';
 
+
+async function getData(type) {
+	let urlParams = new URLSearchParams(window.location.search);
+	const response = await fetch((isLocal ? `/data/${type}.json` : `/api/${type}?`) + urlParams.toString());
+	const data = await response.json();
+	// return data.slice(0, 30);
+	return data;
+}
+
+
+
 const mapSimple = document.getElementById('mapSimple');
-const mapFilter = document.getElementById('mapFilter');
-if(mapSimple || mapFilter){
+const mapFilterSong = document.querySelector('#mapFilter.js-map-songs');
+const mapFilterStory = document.querySelector('#mapFilter.js-map-stories');
+if(mapSimple){
 	document.addEventListener('DOMContentLoaded', initMap);
+}
+if(mapFilterSong || mapFilterStory){
+	const pointsArea = document.getElementById('mapFilter').dataset.points;
+	getData(pointsArea).then((points) => {
+		document.addEventListener('DOMContentLoaded', initMap(points));
+	});
+
 }
 
 let smoothScrollAllPage = new SmoothScrollMagic;

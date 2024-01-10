@@ -1,5 +1,6 @@
 import { Loader } from "@googlemaps/js-api-loader"
 const axios = require("axios");
+const isLocal = (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "");
 
 
 const loader = new Loader({
@@ -243,39 +244,20 @@ function setFilteredPlace(town) {
 	console.log(town);
 }
 
-function setRandomImg(img){
-	const input = img.src;
-	const regex = /(\d+)(\.jpg)/;
-
-	const result = input.replace(regex, (match, p1, p2) => {
-		const newNumber = Math.floor(Math.random() * 8) + 1;
-		return `${newNumber}${p2}`;
-	});
-	img.src = result;
-}
-
-
 function setModalInfo(marker) {
 	console.log(marker);
-
-
-	const 	img = document.querySelector('#mapSidebar-img'),
-			title = document.querySelector('#mapSidebar-title'),
-			recordsBy = document.querySelector('#mapSidebar-recordsBy'),
-			sounds = document.querySelector('#mapSidebar-sounds'),
-			filterLink = document.querySelector('#mapSidebar-filterLink');
-
-	setRandomImg(img);
-	title.innerHTML = `<i> ${marker.title} ${marker.region_title} Область </i>`;
-	recordsBy.innerHTML = `<i> ${marker.recordsBy} </i>`;
-	sounds.innerHTML = `<i> ${marker.sounds} </i>`;
-	filterLink.href = marker.filterLink;
 }
 
 
+async function getData(type) {
+	let urlParams = new URLSearchParams(window.location.search);
+	const response = await fetch((isLocal ? `/data/${type}.json` : `/api/${type}?`) + urlParams.toString());
+	const data = await response.json();
+	// return data.slice(0, 30);
+	return data;
+}
 
-
-export const initMap = (points)=> {
+export const initMap = ()=> {
 	loader.load().then(async () => {
 		const { Map } = await google.maps.importLibrary("maps");
 		const markerIcon = {
@@ -314,78 +296,81 @@ export const initMap = (points)=> {
 		}
 
 		if(mapFilterElement) {
+
+			const points = JSON.parse(mapFilterElement.dataset.points);
+			// const points = getData(mapFilterElement.dataset.points);
 			const markers = [];
 			const mapSidebar = document.getElementById('map_sidebar');
-
-			const typeOfMap = mapFilterElement.classList.contains('js-map-songs') ? 'songs' : 'stories';
 			let timeout;
 
 			const mapFilter = new Map(mapFilterElement, mapOptions);
 
 
-			// if click on map(not on trigger), close sidebar
+
 			mapFilterElement.addEventListener("click", (e) => {
-				if(mapSidebar && mapSidebar.classList.contains('is-shown') && e.target.tagName !== 'IMG') {
+				if(mapSidebar && mapSidebar.classList.contains('is-shown')) {
 					mapSidebar.classList.remove('is-shown');
 				}
 			});
 
+			// points.then((data) => {
+			// 	console.log(data);
+			// 	data.forEach(point => {
+			// 		const markerMapFilter = new google.maps.Marker({
+			// 			position: { lat: + point.latitude, lng:  + point.longitude },
+			// 			map: mapFilter,
+			// 			title: point.title,
+			// 			icon: markerIcon
+			// 		});
+			// 		markers.push(markerMapFilter);
+			// 	});
+			// });
+			console.log(points);
 			points.forEach(point => {
-				// const position = point.position.split(',');
+				const position = point.position.split(',');
 				const markerMapFilter = new google.maps.Marker({
-					// position: { lat: +position[0], lng:  +position[1] },
-					position: { lat: + point.latitude, lng:  + point.longitude },
+					position: { lat: +position[0], lng:  +position[1] },
 					map: mapFilter,
 					title: point.title,
 					icon: markerIcon
 				});
-
-				if(typeOfMap === 'stories'){
-					markerMapFilter.addListener('click', function (e) {
-						document.querySelector('#input-places option[value="' + point.id + '"]').setAttribute('selected', 'selected');
-						document.querySelector('#form-search').submit();
-					});
-				} else {
-					const addInfo = {
-						sounds: point.sounds,
-						recordsBy: point.recordsBy,
-						filterLink: point.filterLink,
-						region_title: point.region_title,
-						photo: point.photo
-					}
-					Object.assign(markerMapFilter, addInfo);
-					markerMapFilter.addListener('click', function (e) {
-						clearTimeout(timeout);
-						if (mapSidebar.classList.contains('is-shown')) {
-							mapSidebar.classList.remove('is-shown');
-							timeout = setTimeout(function() {
-								mapSidebar.classList.add('is-shown');
-								setModalInfo(markerMapFilter);
-							}, 500)
-						} else {
-							setModalInfo(markerMapFilter);
-							mapSidebar.classList.add('is-shown');
-						}
-					});
-
-				}
-
 				markers.push(markerMapFilter);
 			});
 
 			const bounds = new google.maps.LatLngBounds();
 
 
+			console.log(bounds)
 
 			markers.forEach((marker) => {
 				bounds.extend(marker.getPosition());
+
+				marker.addListener("click", function (e) {
+					clearTimeout(timeout);
+
+					// getMapPoints();
+
+					getData().then((data) => {
+						console.log(data);
+					});
+					if (mapSidebar.classList.contains('is-shown')) {
+						mapSidebar.classList.remove('is-shown');
+						timeout = setTimeout(function() {
+							mapSidebar.classList.add('is-shown');
+							setModalInfo(this);
+						}, 500)
+					} else {
+						mapSidebar.classList.add('is-shown');
+						setModalInfo(this)
+					}
+				});
 			});
 			mapFilter.fitBounds(bounds);
 
-			setTimeout(() => {
-                // mapFilter.setCenter(new google.maps.LatLng(50.0244754, 35.3932429));
-                mapFilter.setZoom(9);
-              }, 1500);
+			// setTimeout(() => {
+            //     mapFilter.setCenter(new google.maps.LatLng(50.0244754, 35.3932429));
+            //     mapFilter.setZoom(9);
+            //   }, 1500);
 		}
 	});
 

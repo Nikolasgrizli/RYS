@@ -63,7 +63,7 @@ mixin rubricator()
 							button.btn(type="button" aria-label="Змінити вигляд" data-view="one")
 								+iconWithTooltip('one_of_list','Показувати по 1 оповіді повністю', '', 'js-tooltipster-min')
 									p Показувати по 1 оповіді повністю
-					form.categories__left.sidebar
+					form.categories__left.sidebar#form-search
 						.sidebar__inner
 							.sidebar__search.search
 								input#search.search__input(type="text", name="search", placeholder="Пошук за текстом")
@@ -75,6 +75,7 @@ mixin rubricator()
 									defaultSelected: false,
 									placeholder: 'Обрати Локацію',
 									groups: true,
+									id: 'input-places',
 									multiple: true,
 									arr: PLACES_GROUPPED,
 								}

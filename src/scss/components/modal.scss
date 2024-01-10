@@ -1,0 +1,48 @@
+.homePage-map{
+	.map{
+		@include aspect-ratio(16,9);
+		display: block;
+		width: 100%;
+		overflow: hidden;
+	}
+	.map-sidebar{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 25%;
+		height: 100%;
+		z-index: 10;
+		transform: translateX(-100%);
+		opacity: 0;
+		background-color: var(--color-bg);
+		transition: transform $transition-base, opacity $transition-base;
+		img{
+			border-radius: 0;
+		}
+		&__info{
+			padding: 1em;
+		}
+		&__title{
+			font-weight: 500;
+			margin-block-end: 1em;
+		}
+		.result__link{
+			margin-block-start: 1em;
+			.svg-icon{
+				transition: transform $transition-base;
+				transform-origin: 100% 50%;
+			}
+			@media (hover: hover) {
+				&:hover{
+					.svg-icon{
+						transform: translateX(0.5em);
+					}
+				}
+			}
+		}
+		&.is-shown{
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+}

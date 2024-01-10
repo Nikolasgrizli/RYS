@@ -136,7 +136,25 @@ block content
 
 						+musicTable(listSongs, 0, true)
 
+						.homePage-map
+							h3 Місця запису
 
+							.map
+								#map_sidebar.map-sidebar
+									.map-sidebar__img
+										img#mapSidebar-img(src='assets/img/ornaments/1.jpg' alt='' width='960' height='960')
+									.map-sidebar__info
+										h6.map-sidebar__title#mapSidebar-title
+											i с. Задонецьке, Зміївський район, Харківська Область
+										div Виконавців: #[span#mapSidebar-recordsBy]
+										div Записів: #[span#mapSidebar-sounds]
+										.result__link
+											a#mapSidebar-filterLink(href='#')
+												span Знайти всі
+												+icon('arrow-right')
+
+
+								#mapFilter.googleMap.js-map-songs(data-points="map-points")
 
 						.hps__info
 							p «Пісні Слобідської України» - це репринтне перевидання першої на Лівобережжі України фонографічної збірки. З появою фонографа відкрилися нові можливості для фіксації фактурного обсягу народних пісень, характеру варіантних змін у тексті пісні. Вони розглядаються вже не тільки з естетичного загальнокультурного кута зору, але і як фактологічний матеріал для етнографічних, діалектологічних та історичних досліджень згідно з музично-стильовими особливостями та ритмо-структурною типологією цього жанру фольклору.

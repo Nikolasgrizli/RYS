@@ -37,7 +37,6 @@ module.exports = {
     // clean: true,
   },
 
-
   module: {
     rules: [
       {
@@ -105,6 +104,10 @@ module.exports = {
           from: path.resolve(paths.source, "assets"),
           to: path.resolve(paths.output, "assets"),
         },
+		{
+			from: path.resolve(paths.source, "data"),
+			to: path.resolve(paths.output, "data"),
+		  },
       ],
     }),
 
