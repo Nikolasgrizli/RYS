@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ua">
 
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="telephone=no" name="format-detection">
     <meta name="HandheldFriendly" content="true">
     <title>ProjectName</title>
@@ -114,9 +114,9 @@
                 <div class="finder__inner">
                   <h2 class="finder__title h3">Введіть параметри по яких шукати пісні</h2>
                   <div class="finder__list">
-                    <div class="finder__item fi fi_type-name"><label class="fi__label"><span class="fi__label-text">Назва</span><input name="" placeholder="Введіть назву" id="name"></label></div>
+                    <div class="finder__item fi fi_type-name"><label class="fi__label"><span class="fi__label-text">Назва</span><input type="text" name="" placeholder="Введіть назву" id="name"></label></div>
                     <div class="finder__item fi fi_type-genre"><label class="fi__label"><span class="fi__label-text">ЖАНРИ</span>
-                        <div class="customSelect"><select class="custom-select_multiple js-custom-select wide" name="customSelect" data-options='{"searchable":true,"defaultSelected":false,"placeholder":"Обрати жанр ...","multiple":true}' multiple="multiple" id="genre">
+                        <div class="customSelect"><select class="custom-select_multiple js-custom-select wide" name="customSelect" data-options='{"searchable":true,"defaultSelected":false,"placeholder":"Обрати жанр ...","multiple":true}' multiple id="genre">
                             <option value="">Обрати жанр ...</option>
                             <option value="28">Балада</option>
                             <option value="45">Бурлацька</option>
@@ -171,7 +171,7 @@
                           </select></div>
                       </label></div>
                     <div class="finder__item fi fi_type-motives"><label class="fi__label"><span class="fi__label-text">МОТИВИ</span>
-                        <div class="customSelect"><select class="custom-select_multiple js-custom-select wide" name="customSelect" data-options='{"searchable":true,"defaultSelected":false,"placeholder":"Обрати мотив ...","multiple":true}' multiple="multiple" id="motives">
+                        <div class="customSelect"><select class="custom-select_multiple js-custom-select wide" name="customSelect" data-options='{"searchable":true,"defaultSelected":false,"placeholder":"Обрати мотив ...","multiple":true}' multiple id="motives">
                             <option value="">Обрати мотив ...</option>
                             <option value="31">Важка праця</option>
                             <option value="1">Вбивство</option>
@@ -187,9 +187,9 @@
                             <option value="10">Зрада</option>
                           </select></div>
                       </label></div>
-                    <div class="finder__item fi fi_type-text"><label class="fi__label"><span class="fi__label-text">ТЕКСТ</span><input name="" placeholder="Введіть текст ..." id="text"></label></div>
+                    <div class="finder__item fi fi_type-text"><label class="fi__label"><span class="fi__label-text">ТЕКСТ</span><input type="text" name="" placeholder="Введіть текст ..." id="text"></label></div>
                     <div class="finder__item fi fi_type-undefined">
-                      <div class="fi__label is-doubled"><span class="fi__label-text">РIК</span><input name="fromYear" placeholder="вiд ..." data-field="year"><input name="toYear" placeholder="до ..." data-field="year"></div>
+                      <div class="fi__label is-doubled"><span class="fi__label-text">РIК</span><input type="text" name="fromYear" placeholder="вiд ..." data-field="year"><input type="text" name="toYear" placeholder="до ..." data-field="year"></div>
                     </div>
                     <div class="finder__item fi fi_type-withNotes"><label class="fi__label"><input type="checkbox" id="withNotes" name=""><span class="fi__label-text--checkbox">Є ноти</span></label></div>
                     <div class="finder__item fi fi_type-withText"><label class="fi__label"><input type="checkbox" id="withText" name=""><span class="fi__label-text--checkbox">Є текст</span></label></div>
@@ -214,8 +214,8 @@
                           </select></div>
                       </label></div>
                     <div class="finder__item fi fi_type-places"><label class="fi__label"><span class="fi__label-text">МІСЦЕ ЗАПИСУ</span>
-                        <div class="customSelect"><select class="custom-select_multiple js-custom-select wide" name="customSelect" data-options='{"searchable":true,"defaultSelected":false,"placeholder":" ...","multiple":true}' multiple="multiple" id="places">
-                            <option value="">...</option>
+                        <div class="customSelect"><select class="custom-select_multiple js-custom-select wide" name="customSelect" data-options='{"searchable":true,"defaultSelected":false,"placeholder":" ...","multiple":true}' multiple id="places">
+                            <option value=""> ...</option>
                             <option value="77">м. Балаклія, Балаклійський район</option>
                             <option value="52">м. Ізюм, Ізюмський район</option>
                             <option value="108">Новий Бурлук, Чугуївський район</option>
@@ -292,7 +292,7 @@
                             <option value="listens">Кількість прослуховувань</option>
                             <option value="alphabet">За алфовітом</option>
                           </select></div>
-                      </div><a class="hps__sorting-btn" href="#" aria-label="button show editorial choice">Вибір редакції</a><a class="hps__sorting-btn" href="#" aria-label="button show user choice"> Вибір користувачів</a><a class="hps__sorting-btn" href="#" aria-label="button show number of listens"> Кількість прослуховувань</a><a class="hps__sorting-btn" href="#" aria-label="sort by Alphabetical order"> За алфовітом</a><a class="hps__sorting-btn hps__sorting-btn--active" href="#" aria-label="button show Latest added"> Останні додані</a><label class="btn btn_transparent btn_checkbox" aria-label="button show all"><input type="checkbox"><span class="text">Показати всі варіанти</span></label>
+                      </div><a class="hps__sorting-btn" href="#" aria-label="button show editorial choice"> Вибір редакції</a><a class="hps__sorting-btn" href="#" aria-label="button show user choice"> Вибір користувачів</a><a class="hps__sorting-btn" href="#" aria-label="button show number of listens"> Кількість прослуховувань</a><a class="hps__sorting-btn" href="#" aria-label="sort by Alphabetical order"> За алфовітом</a><a class="hps__sorting-btn hps__sorting-btn--active" href="#" aria-label="button show Latest added"> Останні додані</a><label class="btn btn_transparent btn_checkbox" aria-label="button show all"><input type="checkbox"><span class="text">Показати всі варіанти</span></label>
                     </div>
                   </div>
                   <div class="hps__table-wrapper js-list-music" data-music-list="0">
@@ -353,12 +353,12 @@
                             <td class="hps__td"><span class="nowrap">с. Велика Гомільша, Зміївський район</span></td>
                             <td class="hps__td">03:37</td>
                             <td class="hps__td hps__svgTableIconWrapper">
-                              <div class="iconWithTooltip js-tooltipster-min" data-tooltip-content="#tooltip_content-2346710128460243"><svg class="svg-icon">
+                              <div class="iconWithTooltip js-tooltipster-min" data-tooltip-content="#tooltip_content-7801974116031199"><svg class="svg-icon">
                                   <use xlink:href="#docs"></use>
                                 </svg>
                                 <div class="tooltip_templates tooltip_templates_icon-description">
-                                  <div class="p-2" id="tooltip_content-2346710128460243">
-                                    <p>Серед двору, двору стояла бірьоза,<br>Щедрий вечір, добрий вечір! А на тій бірьозі дзіндзірьова кора,<br>Щедрий вечір, добрий вечір! Дзіндзірьова кора, золотеє гілля,<br>Щедрий вечір, добрий вечір! Золотеє гілля, сріблеє листя,<br>Щедрий вечір, добрий вечір! Сріблеє листя, зеленеє трава,<br>Щедрий вечір, добрий вечір! Зеленеє трава, червонеє калина,<br>Щедрий вечір, добрий вечір! Червонеє калина, білеє цвітя,<br>Щедрий вечір, добрий вечір! Білеє цвітя, червонеє яблуко,<br>Щедрий вечір, добрий вечір! Червонеє яблуко, зеленеє груша,<br>Щедрий вечір, добрий вечір! Зеленеє груша, жовтеє горіх,<br>Щедрий вечір, добрий вечір! Жовтеє горіх, чорнеє земля,<br>Щедрий вечір, добри</p>
+                                  <div class="p-2" id="tooltip_content-7801974116031199">
+                                    <p>Серед двору, двору стояла бірьоза,<br> Щедрий вечір, добрий вечір! А на тій бірьозі дзіндзірьова кора,<br> Щедрий вечір, добрий вечір! Дзіндзірьова кора, золотеє гілля,<br> Щедрий вечір, добрий вечір! Золотеє гілля, сріблеє листя,<br> Щедрий вечір, добрий вечір! Сріблеє листя, зеленеє трава,<br> Щедрий вечір, добрий вечір! Зеленеє трава, червонеє калина,<br> Щедрий вечір, добрий вечір! Червонеє калина, білеє цвітя,<br> Щедрий вечір, добрий вечір! Білеє цвітя, червонеє яблуко,<br> Щедрий вечір, добрий вечір! Червонеє яблуко, зеленеє груша,<br> Щедрий вечір, добрий вечір! Зеленеє груша, жовтеє горіх,<br> Щедрий вечір, добрий вечір! Жовтеє горіх, чорнеє земля,<br> Щедрий вечір, добри</p>
                                   </div>
                                 </div>
                               </div>
@@ -403,12 +403,12 @@
                                 </div>
                               </div>
                             </td>
-                            <td class="hps__td"><span class="nowrap">Ой та й з-за гори, ой та й з-за кручі (фрагмент)</span></td>
+                            <td class="hps__td"><span class="nowrap">Ой та й  з-за гори, ой та й з-за кручі (фрагмент)</span></td>
                             <td class="hps__td hps__td--genre">
                               <div class="hps__genre"><span class="genreName">Пісні з особистого та родинного життя</span>
-                                <div class="iconWithTooltip js-tooltipster-min" data-tooltip-content="#tooltip_content-4340336146059105"><span>2</span>
+                                <div class="iconWithTooltip js-tooltipster-min" data-tooltip-content="#tooltip_content-6761075724092337"><span>2</span>
                                   <div class="tooltip_templates tooltip_templates_icon-description">
-                                    <div class="p-2" id="tooltip_content-4340336146059105">
+                                    <div class="p-2" id="tooltip_content-6761075724092337">
                                       <p><span>Козацька,</span><span>Чумацька</span></p>
                                     </div>
                                   </div>
@@ -465,19 +465,19 @@
                             <td class="hps__td"><span class="nowrap">с. Матяшівка, кут Ліски, Великобагачанський район, Полтавська обл., Україна, Полтавщина</span></td>
                             <td class="hps__td">02:00</td>
                             <td class="hps__td hps__svgTableIconWrapper">
-                              <div class="iconWithTooltip js-tooltipster-min" data-tooltip-content="#tooltip_content-7801974116031199"><svg class="svg-icon">
+                              <div class="iconWithTooltip js-tooltipster-min" data-tooltip-content="#tooltip_content-7126038589132410"><svg class="svg-icon">
                                   <use xlink:href="#docs"></use>
                                 </svg>
                                 <div class="tooltip_templates tooltip_templates_icon-description">
-                                  <div class="p-2" id="tooltip_content-7801974116031199">
-                                    <p></p>
+                                  <div class="p-2" id="tooltip_content-7126038589132410">
+                                    <p>
                                     <p>Туман поле покриває,<br>Ай туман поле та все покриває,<br>Ой сиз голубонько літає.</p>
                                     <p>Сиз голубонько літає,<br>А він літає та все буркотає,<br>Ай усе крилечками блудить.</p>
-                                    <p>Та все крилечками блудить,<br>Ай тяжко-важко ой та на серденьку,<br>Ой ой хто кого ой вірно любить.</p>
+                                    <p>Та все крилечками блудить,<br>Ай тяжко-важко ой та на серденьку, <br>Ой ой хто кого ой вірно любить.</p>
                                     <p>(Кого вірно любить,<br>Ай по-під мостом та все трава ростом,<br>Щука риба лина гонить.</p>
                                     <p>А то ж риба, то не щука,<br>То з милим дружком розлука.</p>
                                     <p>Розлучила нас неволя,<br>Чужадальная сторона.)</p>
-                                    <p></p>
+                                    </p>
                                   </div>
                                 </div>
                               </div>
@@ -535,15 +535,15 @@
                     <div class="hps__table-play-bottomElements">
                       <div class="hps__pagination">
                         <ul class="pagination">
-                          <li class="pagination__item"><a class="pagination__link pagination__link--active" href="#">Перша</a></li>
-                          <li class="pagination__item"><a class="pagination__link" href="#">2</a></li>
-                          <li class="pagination__item mobile-hidden"><a class="pagination__link" href="#">3</a></li>
+                          <li class="pagination__item"><a class="pagination__link pagination__link--active" href="#"> Перша</a></li>
+                          <li class="pagination__item"><a class="pagination__link" href="#"> 2</a></li>
+                          <li class="pagination__item mobile-hidden"><a class="pagination__link" href="#"> 3</a></li>
                           <li class="pagination__item">
-                            <div class="pagination__link pagination__link--dots" href="#">....</div>
+                            <div class="pagination__link pagination__link--dots" href="#"> ....</div>
                           </li>
-                          <li class="pagination__item mobile-hidden"><a class="pagination__link" href="#">67</a></li>
-                          <li class="pagination__item"><a class="pagination__link" href="#">68</a></li>
-                          <li class="pagination__item"><a class="pagination__link" href="#">Остання</a></li>
+                          <li class="pagination__item mobile-hidden"><a class="pagination__link" href="#"> 67</a></li>
+                          <li class="pagination__item"><a class="pagination__link" href="#"> 68</a></li>
+                          <li class="pagination__item"><a class="pagination__link" href="#"> Остання</a></li>
                         </ul>
                       </div><button class="btn btn_main js-play-all">
                         <div class="is-active">
@@ -666,7 +666,7 @@
     <script src="https://cdn.jsdelivr.net/npm/tooltipster@4.2.8/dist/js/tooltipster.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script defer="defer" src="assets/js/main.js"></script>
+    <script defer src="assets/js/main.js"></script>
   </body>
 
 </html>

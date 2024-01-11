@@ -152,6 +152,9 @@ if(!!finder){
 			fieldsCheckboxes.forEach(field => {
 				field.checked = false;
 			});
+			// console.log(fieldsText);
+			// console.log(fieldsSelectClearBtns);
+			// console.log(fieldsCheckboxes);
 		});
 	}
 	console.log('finder');

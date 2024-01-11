@@ -88,6 +88,7 @@ module.exports = {
 
     ...PAGES.map((page) => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,
+	  minify: false,
       filename: `./${page.replace(/\.pug/,'.html')}`,
         inject: page.includes('index') ? false : "body",
       // inject: false

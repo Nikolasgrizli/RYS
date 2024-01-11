@@ -28,9 +28,9 @@ if(nSel.length){
 				}
             })
 		}
-		elSel.el.addEventListener('modalClosed', function (e) {
-			console.log('modalClosed');
-		});
+		// elSel.el.addEventListener('modalClosed', function (e) {
+		// 	console.log('modalClosed');
+		// });
 
 
 		const parent = elem.closest('.customSelect');

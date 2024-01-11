@@ -19,11 +19,9 @@ module.exports = merge(webpackConfiguration, {
     }),
   ],
   optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
-  },
-  optimization: {
     minimizer: [
+	  new TerserPlugin(),
+	  new CssMinimizerPlugin(),
       new ImageMinimizerPlugin({
         minimizer: {
           implementation: ImageMinimizerPlugin.imageminMinify,

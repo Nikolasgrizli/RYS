@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ua">
 
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="telephone=no" name="format-detection">
     <meta name="HandheldFriendly" content="true">
     <title>ProjectName</title>
@@ -65,6 +65,7 @@
           <div class="container container_old">
             <div class="page-content" style="--pb:20">
               <section>
+                <!--BEGIN breadcrumbs-->
                 <div class="breadcrumbs__wrapper">
                   <div class="breadcrumbs__container">
                     <ol class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
@@ -77,6 +78,7 @@
                     </ol>
                   </div>
                 </div>
+                <!--END header-->
                 <h1>НАПИШІТЬ НАМ</h1>
                 <div class="history__container">
                   <div class="history__left">
@@ -86,13 +88,13 @@
                   <div class="history__right">
                     <div class="contactForm">
                       <form class="form form_js-validate js-pseudo-form" novalidate action="/link.html">
-                        <div class="form__line"><label class="form__field"><input class="form__input" id="name" name="name" data-validate="no-empty"><span class="error hidden input-error" aria-live="polite">Необхідно заповнити поле "IМ'Я".</span>
+                        <div class="form__line"><label class="form__field"><input class="form__input" id="name" type="text" name="name" data-validate="no-empty"><span class="error hidden input-error" aria-live="polite">Необхідно заповнити поле "IМ'Я".</span>
                             <div class="form__label">IМ'Я</div>
                           </label></div>
                         <div class="form__line"><label class="form__field"><input class="form__input" id="email" type="email" name="email" data-validate="email"><span class="error hidden input-error" aria-live="polite">Необхідно заповнити поле "E-MAIL".</span>
                             <div class="form__label">E-MAIL</div>
                           </label></div>
-                        <div class="form__line"><label class="form__field"><input class="form__input" id="topic" name="topic">
+                        <div class="form__line"><label class="form__field"><input class="form__input" id="topic" type="text" name="topic">
                             <div class="form__label">ТЕМА</div>
                           </label></div>
                         <div class="form__line"><label class="form__field"><textarea class="form__input form__input_textarea" id="message" name="message" data-validate="no-empty"></textarea><span class="error hidden input-error" aria-live="polite">Необхідно заповнити поле "ТЕКСТ".</span>
@@ -203,7 +205,7 @@
     <script src="https://cdn.jsdelivr.net/npm/tooltipster@4.2.8/dist/js/tooltipster.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script defer="defer" src="assets/js/main.js"></script>
+    <script defer src="assets/js/main.js"></script>
   </body>
 
 </html>
