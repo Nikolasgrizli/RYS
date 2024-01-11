@@ -8031,7 +8031,8 @@ if (nSel.length) {
       searchable: options.searchable,
       placeholder: options.placeholder,
       multiple: options.multiple,
-      withBtn: options.withButtons
+      withBtn: options.withButtons,
+      showSelectedItems: true
     });
 
     //TODO default selected
@@ -8050,6 +8051,25 @@ if (nSel.length) {
     elSel.el.addEventListener('modalClosed', function (e) {
       console.log('modalClosed');
     });
+    var parent = elem.closest('.customSelect');
+    if (!!parent) {
+      // console.log(parent);
+      // niceSelectInstance.clear();
+
+      var clearBtn = document.createElement('button');
+      clearBtn.classList.add('custom-select_clear');
+      clearBtn.classList.add('js-custom-select-clear');
+      clearBtn.type = 'button';
+      clearBtn.innerHTML = '<svg class="icon icon-close"><use xlink:href="#close"></use></svg>';
+      parent.appendChild(clearBtn);
+      clearBtn.addEventListener('click', function (e) {
+        elSel.clear();
+        elSel.dropdown.classList.add('custom-select_placeholder');
+        if (options.placeholder && options.placeholder.length) {
+          elSel.dropdown.classList.add('custom-select_hide-first');
+        }
+      });
+    }
   });
 }
 var pseudoSelect = document.querySelector('.js-range-select');
@@ -8939,6 +8959,28 @@ jQuery(function ($) {
     // maxWidth: 250
   });
 });
+
+var finder = document.getElementById('finder');
+if (!!finder) {
+  var fieldsText = finder.querySelectorAll('[type="text"]'),
+    fieldsSelectClearBtns = finder.querySelectorAll('.js-custom-select-clear'),
+    fieldsCheckboxes = finder.querySelectorAll('[type="checkbox"]'),
+    clearBtn = finder.querySelector('.js-clear-finder');
+  if (!!clearBtn) {
+    clearBtn.addEventListener('click', function (e) {
+      fieldsText.forEach(function (field) {
+        field.value = '';
+      });
+      fieldsSelectClearBtns.forEach(function (btn) {
+        btn.click();
+      });
+      fieldsCheckboxes.forEach(function (field) {
+        field.checked = false;
+      });
+    });
+  }
+  console.log('finder');
+}
 
 // console.log('Hello World from Webpack Starter Project!');
 

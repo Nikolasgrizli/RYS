@@ -7,7 +7,13 @@ const nSel = document.querySelectorAll('.js-custom-select');
 if(nSel.length){
 	nSel.forEach(elem => {
 		const options = JSON.parse(elem.dataset.options);
-		const elSel = new NiceSelect(elem, { searchable: options.searchable, placeholder: options.placeholder, multiple: options.multiple, withBtn: options.withButtons });
+		const elSel = new NiceSelect(elem, {
+			searchable: options.searchable,
+			placeholder: options.placeholder,
+			multiple: options.multiple,
+			withBtn: options.withButtons,
+			showSelectedItems: true
+		});
 
 		//TODO default selected
 
@@ -25,6 +31,28 @@ if(nSel.length){
 		elSel.el.addEventListener('modalClosed', function (e) {
 			console.log('modalClosed');
 		});
+
+
+		const parent = elem.closest('.customSelect');
+		if(!!parent){
+			// console.log(parent);
+			// niceSelectInstance.clear();
+
+			const clearBtn = document.createElement('button');
+			clearBtn.classList.add('custom-select_clear');
+			clearBtn.classList.add('js-custom-select-clear');
+			clearBtn.type = 'button';
+			clearBtn.innerHTML = '<svg class="icon icon-close"><use xlink:href="#close"></use></svg>';
+			parent.appendChild(clearBtn);
+
+			clearBtn.addEventListener('click', function (e) {
+				elSel.clear();
+				elSel.dropdown.classList.add('custom-select_placeholder');
+				if(options.placeholder && options.placeholder.length){
+					elSel.dropdown.classList.add('custom-select_hide-first');
+				}
+			});
+		}
 	  });
 }
 

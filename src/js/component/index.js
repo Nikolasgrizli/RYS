@@ -133,6 +133,30 @@ jQuery(function ($) {
     });
 });
 
+
+const finder = document.getElementById('finder');
+if(!!finder){
+	const 	fieldsText = finder.querySelectorAll('[type="text"]'),
+			fieldsSelectClearBtns = finder.querySelectorAll('.js-custom-select-clear'),
+			fieldsCheckboxes = finder.querySelectorAll('[type="checkbox"]'),
+			clearBtn = finder.querySelector('.js-clear-finder');
+
+	if(!!clearBtn){
+		clearBtn.addEventListener('click', function (e) {
+			fieldsText.forEach(field => {
+				field.value = '';
+			});
+			fieldsSelectClearBtns.forEach(btn => {
+				btn.click();
+			});
+			fieldsCheckboxes.forEach(field => {
+				field.checked = false;
+			});
+		});
+	}
+	console.log('finder');
+}
+
 // console.log('Hello World from Webpack Starter Project!');
 
 // async function fetchData() {
