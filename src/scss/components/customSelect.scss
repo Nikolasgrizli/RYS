@@ -86,6 +86,9 @@
 	}
 
 }
+body:not(:has(.finder)) .custom-select_clear{
+	display: none;
+}
 .customSelect{
 	.custom-select_clear{
 		@extend %reset-btn;
