@@ -605,6 +605,11 @@
 	.intro{
 		border-radius: 0;
     	align-items: stretch;
+		&_text-dark{
+			.intro__content{
+				color: var(--color-text);
+			}
+		}
 		&__content{
 			display: flex;
 			flex-flow: column wrap;
