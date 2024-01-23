@@ -605,9 +605,60 @@
 	.intro{
 		border-radius: 0;
     	align-items: stretch;
-		&_text-dark{
+		&_type2{
+			overflow: hidden;
+			@include r(767){
+				@media (orientation: landscape){
+					text-align: left;
+					min-height: inherit;
+					.intro__content{
+						padding-top: 0;
+						padding-bottom: 0;
+						min-height: 320px;
+					}
+					.btn{
+						width: auto;
+					}
+				}
+			}
 			.intro__content{
 				color: var(--color-text);
+				@include r(767){
+					@media (orientation: portrait){
+						padding-top: 82vw;
+						@media (min-width:700px) {
+							align-items: center;
+						}
+					}
+				}
+			}
+			.intro__bg{
+				object-fit: contain;
+				object-position: right bottom;
+				@include rmin(768){
+					top: auto;
+					bottom: 0;
+				}
+				@include r(767){
+					object-position: center top;
+					@media (orientation: landscape){
+						top: auto;
+						bottom: 10%;
+					}
+				}
+				@include rIn(768,1024){
+					@media (orientation: portrait){
+						width: auto;
+						height: 100%;
+						max-width: 145vw;
+						right: 0;
+						left: auto;
+						transform: translateX(16%);
+					}
+				}
+			}
+			.intro__title{
+				max-width: 10em;
 			}
 		}
 		&__content{

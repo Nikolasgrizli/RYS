@@ -1,7 +1,29 @@
 mixin articlesIntro(img,title,subtitle)
 	section.section.section_intro
 		.intro&attributes(attributes)
-			.intro__bg(style=`background-image: url(${img || 'assets/img/articles/intro2.jpeg'});`)
+			picture
+				source(type="image/avif" srcset=`${pathPrefix}img/song-main/${img}.avif` media="(orientation: landscape)")
+				source(type="image/webp" srcset=`${pathPrefix}img/song-main/${img}.webp` media="(orientation: landscape)")
+				source(type="image/jpg" srcset=`${pathPrefix}img/song-main/${img}.jpg` media="(orientation: landscape)")
+				source(type="image/avif" srcset=`${pathPrefix}img/song-main/${img}.avif` media="(orientation: portrait) and (min-width: 768px)")
+				source(type="image/webp" srcset=`${pathPrefix}img/song-main/${img}.webp` media="(orientation: portrait) and (min-width: 768px)")
+				source(type="image/jpg" srcset=`${pathPrefix}img/song-main/${img}.jpg` media="(orientation: portrait) and (min-width: 768px)")
+				source(type="image/avif" srcset=`${pathPrefix}img/song-main/${img}_mob.avif` media="(orientation: portrait) and (max-width: 767px)")
+				source(type="image/webp" srcset=`${pathPrefix}img/song-main/${img}_mob.webp` media="(orientation: portrait) and (max-width: 767px)")
+				source(type="image/jpg" srcset=`${pathPrefix}img/song-main/${img}_mob.jpg` media="(orientation: portrait) and (max-width: 767px)")
+
+				img.intro__bg(
+					src=`${pathPrefix}img/song-main/${img}.jpg`,
+					data-src=`${pathPrefix}img/song-main/${img}.jpg`,
+					alt="",
+					loading='lazy',
+					draggable="false",
+					width="1920",
+					height="685",
+					)
+
+
+
 			.intro__content.container.container_old
 				h1.intro__title!=title || 'Цифровий архів фольклору'
 				.intro__subtitle!=subtitle || 'Слобожанщини та Полтавщини'
