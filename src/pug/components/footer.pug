@@ -33,17 +33,22 @@ mixin footer(data)
 							.top Мати-засновниця
 							a.bottom(href="#") Галина Лукʼянець
 
-				.footer__founders
-					.top
-						a(href="#")
-							img(src=`${pathPrefix}img/logos/logo-umnikey.svg`, alt="", width="140" height="48")
+				.footer__founders.fFounders
+					a.fFounders__ucf.js-tooltipster-top(href="https://ucf.in.ua" title="За підтримкою Українського Культурного Фонду" target="_blank")
+						img(src=`${pathPrefix}img/logos/ucf_logo_ua.svg`, alt="", width="121" height="90")
 
-						a(href="#")
-							img(src=`${pathPrefix}img/logos/logo-center.svg`, alt="", width="140" height="48")
-					a.culture-found(href="#")
-						.left
-							img(src=`${pathPrefix}img/logos/ucf_logo_ua.svg`, alt="", width="140" height="48")
-						.right За підтримкою Українського Культурного Фонду
+					a.fFounders__host.js-tooltipster-top(href="https://hostiq.ua/" title="Технічний партнер" target="_blank")
+						img(src=`${pathPrefix}img/logos/hostiq.svg`, alt="", width="145" height="34")
+
+					a.fFounders__seif.js-tooltipster-top(href="#" title="Організаційний партнер" target="_blank")
+						img(src=`${pathPrefix}img/logos/seif.svg`, alt="", width="70" height="34")
+
+					a.fFounders__center.js-tooltipster-top(href="https://cultura.kh.ua" title="Організаційний партнер" target="_blank")
+						img(src=`${pathPrefix}img/logos/logo-center.svg`, alt="", width="155" height="44")
+
+					a.fFounders__umni.js-tooltipster-top(href="https://www.umnikey.com" title="Технічний партнер" target="_blank")
+						img(src=`${pathPrefix}img/logos/logo-umnikey.svg`, alt="", width="155" height="33")
+
 
 		.footer__bottom
 			.container

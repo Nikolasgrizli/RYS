@@ -131,6 +131,15 @@ jQuery(function ($) {
         trigger: (!isMobile()) ? 'hover' : 'click',
         // maxWidth: 250
     });
+    $('.js-tooltipster-top').tooltipster({
+        interactive: true,
+        theme: 'tooltipster-shadow2 tooltipster-shadow2_min',
+        animation: 'drop',
+        position: 'top',
+        arrow: false,
+        trigger: (!isMobile()) ? 'hover' : 'click',
+        // maxWidth: 250
+    });
 });
 
 
