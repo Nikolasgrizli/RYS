@@ -1,74 +1,130 @@
-const categoriesWrapper = document.getElementById("categoriesWrapper");
+class Rubricator {
+	constructor() {
+		this.categoriesWrapper = document.getElementById("categoriesWrapper");
+		this.categories =
+			this.categoriesWrapper.querySelectorAll(".js-category");
+		this.modalFilterBtn = document.querySelector(".js-modal-filter");
+		this.rubricator = document.querySelector(".rubricator");
+		this.isMobile = window.matchMedia("(max-width: 767px)").matches;
+		this.btnBack = document.querySelector(".js-rubricator-back");
+		this.mainTitle = document.querySelector(
+			".js-rubricator-title .r-title__child"
+		);
+		this.btnReset = document.querySelector(".js-rubricator-reset");
+		this.btnApply = document.querySelector(".js-rubricator-apply");
+		this.currentCategory = null;
+		this.handleCategoryClick = this.handleCategoryClick.bind(this);
+		this.handleModalFilterClick = this.handleModalFilterClick.bind(this);
+		this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+		this.handleResetButtonClick = this.handleResetButtonClick.bind(this);
+		this.handleApplyButtonClick = this.handleApplyButtonClick.bind(this);
+		this.init();
+	}
 
-if (categoriesWrapper) {
-	const categories = categoriesWrapper.querySelectorAll(".js-category"),
-		modalFilterBtn = document.querySelector(".js-modal-filter"),
-		rubricator = document.querySelector(".rubricator"),
-		isMobile = window.matchMedia("(max-width: 767px)").matches,
-		btnBack = document.querySelector(".js-rubricator-back"),
-		mainTitle = document.querySelector(".js-rubricator-title .r-title__child"),
-		btnReset = document.querySelector(".js-rubricator-reset"),
-		btnApply = document.querySelector(".js-rubricator-apply");
+	init() {
+		if (this.categoriesWrapper) {
+			this.categories.forEach((category) => {
+				const categoryBtn = category.querySelector(".rubricator__btn"),
+					categoryWrapper = category.closest(".rubricator__item"),
+					categoryTitle =
+						category.querySelector(".rubricator__title");
 
+				if (!categoryBtn) return;
+				categoryBtn.addEventListener("click", this.handleCategoryClick);
+			});
 
-	let currentCategory = null;
+			this.modalFilterBtn.addEventListener(
+				"click",
+				this.handleModalFilterClick
+			);
+			this.btnBack.addEventListener("click", this.handleBackButtonClick);
+			this.btnReset.addEventListener(
+				"click",
+				this.handleResetButtonClick
+			);
+			this.btnApply.addEventListener(
+				"click",
+				this.handleApplyButtonClick
+			);
+		}
+	}
 
-	categories.forEach((category) => {
-		const categoryBtn = category.querySelector(".rubricator__btn"),
-			categoryWrapper = category.closest(".rubricator__item"),
-			categoryTitle = category.querySelector(".rubricator__title");
-
-		if (!categoryBtn) return;
-		categoryBtn.addEventListener("click", () => {
-			if (isMobile) {
-				categoryWrapper.classList.add("is-open");
-				mainTitle.innerHTML = categoryTitle.innerHTML;
-				btnBack.classList.add("open-child");
-				currentCategory = categoryWrapper;
-			} else {
-				categoryWrapper.classList.toggle("is-open");
-			}
+	destroy() {
+		this.categories.forEach((category) => {
+			const categoryBtn = category.querySelector(".rubricator__btn");
+			if (categoryBtn)
+				categoryBtn.removeEventListener(
+					"click",
+					this.handleCategoryClick
+				);
 		});
-	});
+		this.modalFilterBtn.removeEventListener(
+			"click",
+			this.handleModalFilterClick
+		);
+		this.btnBack.removeEventListener("click", this.handleBackButtonClick);
+		this.btnReset.removeEventListener("click", this.handleResetButtonClick);
+		this.btnApply.removeEventListener("click", this.handleApplyButtonClick);
+	}
 
+	handleCategoryClick() {
+		const categoryBtn = event.currentTarget,
+			categoryWrapper = categoryBtn.closest(".rubricator__item"),
+			categoryTitle = categoryWrapper.querySelector(".rubricator__title");
 
-	modalFilterBtn.addEventListener("click", (e) => {
-		e.preventDefault();
-		rubricator.classList.add("rubricator-open");
+		if (this.isMobile) {
+			categoryWrapper.classList.add("is-open");
+			this.mainTitle.innerHTML = categoryTitle.innerHTML;
+			this.btnBack.classList.add("open-child");
+			this.currentCategory = categoryWrapper;
+		} else {
+			categoryWrapper.classList.toggle("is-open");
+		}
+	}
+
+	handleModalFilterClick(event) {
+		event.preventDefault();
+		this.rubricator.classList.add("rubricator-open");
 		document.body.classList.add("modal-open");
-	});
+	}
 
-	btnBack.addEventListener("click", (e) => {
-		e.preventDefault();
-		if (btnBack.classList.contains("open-child")) {
-			console.log(currentCategory);
-
-			if (currentCategory) {
-				currentCategory.classList.remove("is-open");
-				const parentCategory = currentCategory.closest(".rubricator__item.is-open");
+	handleBackButtonClick(event) {
+		event.preventDefault();
+		if (this.btnBack.classList.contains("open-child")) {
+			if (this.currentCategory) {
+				this.currentCategory.classList.remove("is-open");
+				const parentCategory = this.currentCategory.closest(
+					".rubricator__item.is-open"
+				);
 				if (parentCategory) {
-					currentCategory = parentCategory;
-					mainTitle.innerHTML = parentCategory.querySelector(".rubricator__title").innerHTML;
+					this.currentCategory = parentCategory;
+					this.mainTitle.innerHTML =
+						parentCategory.querySelector(
+							".rubricator__title"
+						).innerHTML;
 				} else {
-					currentCategory = null;
+					this.currentCategory = null;
 				}
 
-				if (!currentCategory) {
-					btnBack.classList.remove("open-child");
+				if (!this.currentCategory) {
+					this.btnBack.classList.remove("open-child");
 				}
 			}
 		} else {
-			rubricator.classList.remove("rubricator-open");
+			this.rubricator.classList.remove("rubricator-open");
 			document.body.classList.remove("modal-open");
 		}
-	});
+	}
 
-	btnReset.addEventListener("click", (e) => {
-		e.preventDefault();
+	handleResetButtonClick(event) {
+		event.preventDefault();
 		console.log("reset");
-	});
-	btnApply.addEventListener("click", (e) => {
-		e.preventDefault();
+	}
+
+	handleApplyButtonClick(event) {
+		event.preventDefault();
 		console.log("apply");
-	});
+	}
 }
+
+window.rubricator = new Rubricator();

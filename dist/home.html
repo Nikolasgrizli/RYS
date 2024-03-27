@@ -416,9 +416,9 @@
                             <td class="hps__td"><span class="nowrap">Ой та й  з-за гори, ой та й з-за кручі (фрагмент)</span></td>
                             <td class="hps__td hps__td--genre">
                               <div class="hps__genre"><span class="genreName">Пісні з особистого та родинного життя</span>
-                                <div class="iconWithTooltip js-tooltipster-min" data-tooltip-content="#tooltip_content-475428364622692"><span>2</span>
+                                <div class="iconWithTooltip js-tooltipster-min" data-tooltip-content="#tooltip_content-4340336146059105"><span>2</span>
                                   <div class="tooltip_templates tooltip_templates_icon-description">
-                                    <div class="p-2" id="tooltip_content-475428364622692">
+                                    <div class="p-2" id="tooltip_content-4340336146059105">
                                       <p><span>Козацька,</span><span>Чумацька</span></p>
                                     </div>
                                   </div>
@@ -584,6 +584,17 @@
                         </div>
                       </div>
                       <div class="googleMap js-map-songs" id="mapFilter" data-points="map-points"></div>
+                      <script>
+                        function handleMapReady(e) {
+                          console.log('Map is ready!');
+                          e.detail.map.addListener('tilesloaded', function() {
+                            e.detail.map.setCenter(new google.maps.LatLng(50.0244754, 35.3932429));
+                            e.detail.map.setZoom(9);
+                          });
+
+                        }
+                        document.getElementById('mapFilter').addEventListener('mapready', handleMapReady);
+                      </script>
                     </div>
                   </div>
                   <div class="hps__info">

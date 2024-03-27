@@ -1,11 +1,6 @@
 import { Loader } from "@googlemaps/js-api-loader";
 // const axios = require("axios");
 
-const loader = new Loader({
-	apiKey: "AIzaSyAJFBc9PqrYjxoXQD3bJ6C0q3DQUz7_-sY",
-	version: "weekly",
-});
-
 const mapOptions = {
 	center: { lat: 50.4018377, lng: 30.220909 },
 	zoom: 9,
@@ -268,7 +263,17 @@ function setModalInfo(marker) {
 	filterLink.href = marker.filterLink;
 }
 
-export const initMap = (points) => {
+export const initMap = (options, points) => {
+	const loader = new Loader({
+		apiKey: options.apiKey,
+		version: "weekly",
+	});
+
+	let mapReady;
+
+	const mapSimpleElement = document.getElementById("mapSimple");
+	const mapFilterElement = document.getElementById("mapFilter");
+
 	loader.load().then(async () => {
 		const { Map } = await google.maps.importLibrary("maps");
 		const markerIcon = {
@@ -282,9 +287,6 @@ export const initMap = (points) => {
 		};
 		// const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
 
-		const mapSimpleElement = document.getElementById("mapSimple");
-		const mapFilterElement = document.getElementById("mapFilter");
-
 		if (mapSimpleElement) {
 			const mapSimplePosition =
 				mapSimpleElement.dataset.position.split(",");
@@ -294,13 +296,15 @@ export const initMap = (points) => {
 				lng: +mapSimplePosition[1],
 			};
 
+			console.log(mapOptions.center.lat, mapOptions.center.lng);
+
 			const mapSimple = new Map(mapSimpleElement, mapOptions);
 			const markerMapSimple = new google.maps.Marker({
 				position: {
-					lat: +mapSimplePosition[0],
-					lng: +mapSimplePosition[1],
+					lat: mapOptions.center.lat,
+					lng: mapOptions.center.lng,
 				},
-				// position: map.getCenter(),
+				// position: mapSimple.getCenter(),
 				map: mapSimple,
 				title: placeInfo,
 				icon: markerIcon,
@@ -323,8 +327,14 @@ export const initMap = (points) => {
 				: "stories";
 			let timeout;
 
-			window.mapFilter = new Map(mapFilterElement, mapOptions);
+			const mapFilter = new Map(mapFilterElement, mapOptions);
 
+			mapReady = new CustomEvent("mapready", {
+				detail: {
+					map: mapFilter,
+				},
+			});
+			mapFilterElement.dispatchEvent(mapReady);
 			// if click on map(not on trigger), close sidebar
 			mapFilterElement.addEventListener("click", (e) => {
 				if (
@@ -340,7 +350,10 @@ export const initMap = (points) => {
 				// const position = point.position.split(',');
 				const markerMapFilter = new google.maps.Marker({
 					// position: { lat: +position[0], lng:  +position[1] },
-					position: { lat: +point.latitude, lng: +point.longitude },
+					position: {
+						lat: +point.latitude,
+						lng: +point.longitude,
+					},
 					map: mapFilter,
 					title: point.title,
 					icon: markerIcon,
@@ -389,10 +402,14 @@ export const initMap = (points) => {
 			});
 			mapFilter.fitBounds(bounds);
 
-			setTimeout(() => {
-				// mapFilter.setCenter(new google.maps.LatLng(50.0244754, 35.3932429));
-				mapFilter.setZoom(9);
-			}, 1500);
+			// setTimeout(() => {
+			// 	// mapFilter.setCenter(new google.maps.LatLng(50.0244754, 35.3932429));
+			// 	mapFilter.setZoom(9);
+			// }, 1500);
 		}
 	});
+
+	// mapFilterElement.addEventListener("mapready", (e) =>
+	// 	console.log(e.detail.map)
+	// );
 };

@@ -23,16 +23,29 @@ async function getData(type) {
 	return data;
 }
 
+let mapOptions = {
+	apiKey: "AIzaSyAJFBc9PqrYjxoXQD3bJ6C0q3DQUz7_-sY",
+};
+
 const mapSimple = document.getElementById("mapSimple");
 const mapFilterSong = document.querySelector("#mapFilter.js-map-songs");
 const mapFilterStory = document.querySelector("#mapFilter.js-map-stories");
 if (mapSimple) {
-	document.addEventListener("DOMContentLoaded", initMap);
+	if (mapSimple.dataset.apiKey) {
+		mapOptions.apiKey = mapSimple.dataset.apiKey;
+	}
+	document.addEventListener("DOMContentLoaded", initMap(mapOptions));
 }
 if (mapFilterSong || mapFilterStory) {
+	if (document.querySelector("#mapFilter").dataset.apiKey) {
+		mapOptions.apiKey = document.querySelector("#mapFilter").dataset.apiKey;
+	}
 	const pointsArea = document.getElementById("mapFilter").dataset.points;
 	getData(pointsArea).then((points) => {
-		document.addEventListener("DOMContentLoaded", initMap(points));
+		document.addEventListener(
+			"DOMContentLoaded",
+			initMap(mapOptions, points)
+		);
 	});
 }
 

@@ -128,7 +128,18 @@ block content
 
 								]
 							.map
-								#mapFilter.js-map-stories.googleMap(data-points='story-map-points')
+								#mapFilter.js-map-stories.googleMap(data-points='story-map-points' )
+							script.
+								// data-api-key="AIzaSy"
+								function handleMapReady(e) {
+									console.log('Map is ready!');
+									e.detail.map.addListener('tilesloaded', function() {
+										e.detail.map.setCenter(new google.maps.LatLng(50.0244754, 35.3932429));
+										e.detail.map.setZoom(9);
+									});
+
+								}
+								document.getElementById('mapFilter').addEventListener('mapready', handleMapReady);
 						.mainPage__content
 							h2.h1.mainPage__title
 								| Місця запису
