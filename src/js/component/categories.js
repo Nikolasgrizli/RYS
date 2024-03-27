@@ -1,6 +1,6 @@
 class Rubricator {
-	constructor() {
-		this.categoriesWrapper = document.getElementById("categoriesWrapper");
+	constructor(wrapper) {
+		this.categoriesWrapper = wrapper;
 		this.categories =
 			this.categoriesWrapper.querySelectorAll(".js-category");
 		this.modalFilterBtn = document.querySelector(".js-modal-filter");
@@ -127,4 +127,7 @@ class Rubricator {
 	}
 }
 
-window.rubricator = new Rubricator();
+const rubricatorWrapper = document.getElementById("categoriesWrapper");
+if (rubricatorWrapper) {
+	window.rubricator = new Rubricator(rubricatorWrapper);
+}
