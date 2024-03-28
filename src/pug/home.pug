@@ -162,7 +162,10 @@ block content
 								script.
 									function handleMapReady(e) {
 										console.log('Map is ready!');
+										let isReadyMap = false;
 										e.detail.map.addListener('tilesloaded', function() {
+											if (isReadyMap) return;
+											isReadyMap = true;
 											e.detail.map.setCenter(new google.maps.LatLng(50.0244754, 35.3932429));
 											e.detail.map.setZoom(9);
 										});

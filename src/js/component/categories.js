@@ -1,24 +1,37 @@
 class Rubricator {
 	constructor(wrapper) {
 		this.categoriesWrapper = wrapper;
-		this.categories =
-			this.categoriesWrapper.querySelectorAll(".js-category");
-		this.modalFilterBtn = document.querySelector(".js-modal-filter");
-		this.rubricator = document.querySelector(".rubricator");
 		this.isMobile = window.matchMedia("(max-width: 767px)").matches;
-		this.btnBack = document.querySelector(".js-rubricator-back");
-		this.mainTitle = document.querySelector(
-			".js-rubricator-title .r-title__child"
-		);
-		this.btnReset = document.querySelector(".js-rubricator-reset");
-		this.btnApply = document.querySelector(".js-rubricator-apply");
+
+		this.categories;
+		this.modalFilterBtn;
+		this.rubricator;
+		this.btnBack;
+		this.mainTitle;
+		this.btnReset;
+		this.btnApply;
+
 		this.currentCategory = null;
 		this.handleCategoryClick = this.handleCategoryClick.bind(this);
 		this.handleModalFilterClick = this.handleModalFilterClick.bind(this);
 		this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
 		this.handleResetButtonClick = this.handleResetButtonClick.bind(this);
 		this.handleApplyButtonClick = this.handleApplyButtonClick.bind(this);
+		this.getVariables();
 		this.init();
+	}
+
+	getVariables() {
+		this.categories =
+			this.categoriesWrapper.querySelectorAll(".js-category");
+		this.modalFilterBtn = document.querySelector(".js-modal-filter");
+		this.rubricator = document.querySelector(".rubricator");
+		this.btnBack = document.querySelector(".js-rubricator-back");
+		this.mainTitle = document.querySelector(
+			".js-rubricator-title .r-title__child"
+		);
+		this.btnReset = document.querySelector(".js-rubricator-reset");
+		this.btnApply = document.querySelector(".js-rubricator-apply");
 	}
 
 	init() {
@@ -47,6 +60,10 @@ class Rubricator {
 				this.handleApplyButtonClick
 			);
 		}
+	}
+	reInit() {
+		this.getVariables();
+		this.init();
 	}
 
 	destroy() {
@@ -131,3 +148,74 @@ const rubricatorWrapper = document.getElementById("categoriesWrapper");
 if (rubricatorWrapper) {
 	window.rubricator = new Rubricator(rubricatorWrapper);
 }
+
+// document.querySelector(".js-test").addEventListener("click", test);
+// function test() {
+// 	console.log("test");
+
+// 	rubricator.destroy();
+
+// 	var html = `<div class="rubricator__item">
+// 							  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_p1wautpu" id="rubricator_p1wautpu"><span class="pseudo"></span></label>
+// 								<div class="rubricator__title">Родинні Традиції</div>
+// 								<div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
+// 							  </div>
+// 							  <div class="rubricator__child">
+// 								<div class="rubricator__item">
+
+// 								  <div class="rubricator__child">
+// 									<div class="rubricator__item">
+// 									  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_1mntwy7p" id="rubricator_1mntwy7p"><span class="pseudo"></span></label>
+// 										<div class="rubricator__title">Передвесільні обряди</div>
+// 										<div class="rubricator__num">25</div>
+// 									  </div>
+// 									</div>
+// 									<div class="rubricator__item">
+// 									  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_mcdf64ra" id="rubricator_mcdf64ra"><span class="pseudo"></span></label>
+// 										<div class="rubricator__title">Весільна неділя</div>
+// 										<div class="rubricator__num">125</div><button class="rubricator__btn" type="button"></button>
+// 									  </div>
+// 									  <div class="rubricator__child">
+// 										<div class="rubricator__item">
+// 										  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_9a6en8wj" id="rubricator_9a6en8wj"><span class="pseudo"></span></label>
+// 											<div class="rubricator__title">Весільни чини</div>
+// 											<div class="rubricator__num">25</div>
+// 										  </div>
+// 										</div>
+// 										<div class="rubricator__item">
+// 										  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_vk80p2it" id="rubricator_vk80p2it"><span class="pseudo"></span></label>
+// 											<div class="rubricator__title">Обсипання</div>
+// 											<div class="rubricator__num">25</div>
+// 										  </div>
+// 										</div>
+// 										<div class="rubricator__item">
+// 										  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_wtv7mksr" id="rubricator_wtv7mksr"><span class="pseudo"></span></label>
+// 											<div class="rubricator__title">“світильник” (“меч”, “шабля”)</div>
+// 											<div class="rubricator__num">25</div>
+// 										  </div>
+// 										</div>
+// 									  </div>
+// 									</div>
+// 								  </div>
+// 								</div>
+// 								<div class="rubricator__item">
+// 								  <div class="rubricator__top js-category" data-name="categoryName"><label class="rubricator__checkbox"><input type="checkbox" name="rubricator_af5nmot3" id="rubricator_af5nmot3"><span class="pseudo"></span></label>
+// 									<div class="rubricator__title">Вагітність</div>
+// 									<div class="rubricator__num">25</div>
+// 								  </div>
+// 								</div>
+// 							  </div>
+// 							</div>`;
+// 	setTimeout(function () {
+// 		console.log("pre init");
+// 		document
+// 			.querySelector(".rubricator__scroll-part")
+// 			.insertAdjacentHTML("beforeend", html);
+
+// 		rubricator.reInit();
+
+// 		// rubricator = new Rubricator(
+// 		// 	document.getElementById("categoriesWrapper")
+// 		// );
+// 	}, 100);
+// }
