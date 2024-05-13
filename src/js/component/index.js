@@ -118,6 +118,23 @@ if (!!headerMenu) {
 	});
 }
 
+// header bg visible on scroll
+const header = document.querySelector(".header");
+if (
+	(header && header.classList.contains("header_transparent")) ||
+	(header && header.classList.contains("header_folklore-transparent"))
+) {
+	let lastScrollTop = 40;
+	window.addEventListener("scroll", function () {
+		let st = window.pageYOffset || document.documentElement.scrollTop;
+		if (st > lastScrollTop) {
+			header.classList.add("bg-visible");
+		} else {
+			header.classList.remove("bg-visible");
+		}
+	});
+}
+
 (function () {
 	let trigger = document.querySelector(".js-menu-trigger");
 	if (trigger) {
