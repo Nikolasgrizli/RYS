@@ -102,7 +102,11 @@ mixin header(data)
 				//- else if(data == 'folklore')
 				//- 	img.logo-folklore.logo-folklore_white(src=`${pathPrefix}img/logos/logo_folklore_white.svg`, alt="", width="251" height="54")
 				//- 	img.logo-folklore.logo-folklore_colored(src=`${pathPrefix}img/logos/logo_folklore.svg`, alt="", width="251" height="54")
-
+			.lang-switcher
+				input#langSwitcher(type="checkbox", name="langSwitcher", class="lang-switcher__input")
+				label(for="langSwitcher", class="lang-switcher__label")
+					span EN
+					span UA
 
 			nav.header__nav
 				ul.nav.nav-header
