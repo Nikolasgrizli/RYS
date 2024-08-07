@@ -28,26 +28,31 @@
 	&_main {
 		color: var(--color-bg);
 		background-color: var(--color-main);
-		@media ( hover : hover ) {
+
+		@media (hover : hover) {
 			&:hover {
 				background-color: darken(#bc4cc6, 10%);
 			}
 		}
 	}
+
 	&_transparent {
 		color: var(--color-main);
 		background-color: var(--color-bg);
-		border: 1px solid ;
-		@media ( hover : hover ) {
+		border: 1px solid;
+
+		@media (hover : hover) {
 			&:hover {
 				color: var(--color-bg);
 				background-color: var(--color-main);
 			}
 		}
 	}
-	&_checkbox{
+
+	&_checkbox {
 		position: relative;
-		input[type="checkbox"]{
+
+		input[type="checkbox"] {
 			position: absolute;
 			opacity: 0;
 			width: 0;
@@ -57,15 +62,18 @@
 				&::after {
 					opacity: 1;
 				}
-				&::before{
+
+				&::before {
 					background-color: var(--color-main);
 				}
 			}
 		}
-		.text{
+
+		.text {
 			padding-left: 1.83em;
 			position: relative;
-			&::before{
+
+			&::before {
 				content: '';
 				width: 1em;
 				height: 1em;
@@ -76,6 +84,7 @@
 				top: 50%;
 				transform: translateY(-50%);
 			}
+
 			&::after {
 				content: '';
 				width: 1em;
@@ -93,13 +102,15 @@
 			}
 		}
 	}
+
 	.icon-play_filled,
-	.icon-search{
+	.icon-search {
 		width: 1em;
 		height: 1em;
 		margin-right: 0.5em;
 	}
-	.icon-arrow{
+
+	.icon-arrow {
 		width: 2em;
 		height: 1em;
 		margin-left: 0.5em;
@@ -108,15 +119,23 @@
 	&_disabled {
 		background-color: var(--color-border_dark);
 		color: var(--color-bg);
+
 		&:hover {
 			cursor: not-allowed;
 		}
 	}
 
-	&.btn_twoLine{
+	&.btn_twoLine {
 		white-space: normal;
 		line-height: 1.4;
 		text-wrap: balance;
 	}
-}
 
+	&_gray {
+		background-color: var(--color-btn-gray);
+
+		&:hover {
+			background-color: var(--color-btn-gray-hover);
+		}
+	}
+}

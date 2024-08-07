@@ -1,6 +1,9 @@
 // Font
-$main-font: 'Raleway', sans-serif;
-$title-font: 'KyivType', Arial, sans-serif;
+$main-font: 'Raleway',
+sans-serif;
+$title-font: 'KyivType',
+Arial,
+sans-serif;
 $pathPrefix: '/assets/';
 $main-font-size: 10px;
 $main-font-weight: 400;
@@ -11,8 +14,7 @@ $menuMob: 768;
 
 
 // Z-indexes
-$z-indexes: (
-	"footer",
+$z-indexes: ("footer",
 	"header",
 	"modal",
 );
@@ -59,7 +61,8 @@ $transition-slow: .6s cubic-bezier(0.08, 1.00, 0.21, 1.00);
 	--color-bg_gray: #FDFAFD;
 	--color-border: #F1F1F1;
 	--color-gray: #959399;
-
+	--color-btn-gray: #EFE8EF;
+	--color-btn-gray-hover: #E6D9E6;
 
 
 	@media print {
