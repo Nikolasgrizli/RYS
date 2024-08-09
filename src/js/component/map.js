@@ -257,7 +257,10 @@ function setModalInfo(marker) {
 		filterLink = document.querySelector("#mapSidebar-filterLink");
 
 	setRandomImg(img);
-	title.innerHTML = `<i> ${marker.title} ${marker.region_title} Область </i>`;
+	title.innerHTML =
+		`<i> ${marker.title} ${marker.region_title} ` +
+		title.dataset.regiontext +
+		`</i>`;
 	recordsBy.innerHTML = `<i> ${marker.recordsBy} </i>`;
 	sounds.innerHTML = `<i> ${marker.sounds} </i>`;
 	filterLink.href = marker.filterLink;

@@ -168,6 +168,7 @@ block content
 											| Тебе вкриє людська слава,
 											br
 											| Молодая дівчинонька".
+									.preloader-container
 									.error-container
 										i.error-img
 										.error-title Oops!
@@ -307,9 +308,11 @@ block content
 				//- }
 				newText = hiddenContainer.innerHTML;
 			} else if (targetLang === 'usa') {
-				newText = "<p>AI Translation...</p>"; // Add your translation logic here
+				//- newText = "<p>AI Translation...</p>"; // Add your translation logic here
+				translationBlock.classList.add('song-translation_preloader');
 				setTimeout(() => {
 					newText = "";
+					translationBlock.classList.remove('song-translation_preloader');
 					translationBlock.classList.remove('song-translation_waiting');
 					translationBlock.classList.add('song-translation_error');
 
